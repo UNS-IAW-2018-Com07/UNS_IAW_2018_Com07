@@ -1,5 +1,5 @@
   .muyOscuro {
-     background-color: #3F4054;
+     background-color: #000;
   }
   
    .oscuro {
@@ -11,13 +11,26 @@
   }
   
    .claro {
-      background-color: #e4816e;
+      background-color: #ffeff2;
   }
   
    .muyClaro {
-      background-color: #f5faf8;
+      background-color: #FFFFFF;
   }
   
   .iconoPagina {
     background-image: url(../images/llaveRosa.png);
+}
+
+.btn{
+    background-color: white;
+    border: 2px solid #c4445a;
+    color: #c4445a;
+
+    text-align: center;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #ffeff2;
 }

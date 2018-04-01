@@ -1,5 +1,5 @@
 .maincontent {
-	margin-top: 25px;
+	margin-top: 5px;
 	margin-bottom: 55px;
 }
 
@@ -20,3 +20,10 @@ div.iconoBox{
     background:white; 
 }
 
+.navbar{
+    height: 50px; 
+}
+
+.row{
+    margin-bottom: 5px;
+}

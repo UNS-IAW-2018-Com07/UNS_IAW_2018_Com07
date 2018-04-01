@@ -5,7 +5,7 @@ function cambiarEstilo(value){
 function myMap() {
     var mapOptions = {
         center: new google.maps.LatLng(-38.7167, -62.2603),
-        zoom: 12,
+        zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
    
