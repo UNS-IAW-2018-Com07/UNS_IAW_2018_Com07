@@ -14,21 +14,33 @@ function myMap() {
 
     geocoder = new google.maps.Geocoder();
 
-    crearUbicacion();
+    crearUbicacion("Vieytes 656");
 }
 
-function crearUbicacion() {
-    var myCenter = new google.maps.LatLng(-38.7167, -62.2603);
-    var marker = new google.maps.Marker({position: myCenter});
-    marker.setMap(map);
+function crearUbicacion(direccion) {
+    var ciudad = ", Bahia Blanca, Argentina";
 
-    var infowindow = new google.maps.InfoWindow({
-        content: "Hello World!"
+    geocoder.geocode({'address': direccion.concat(ciudad)}, function (results, status) {
+        if (status === 'OK') {
+            map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+            });
+            
+            var infowindow = new google.maps.InfoWindow({
+                content: "info de la vivienda"
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+            
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
     });
 
-    google.maps.event.addListener(marker, 'click', function () {
-        infowindow.open(map, marker);
-    });
-
+ 
 }
 
