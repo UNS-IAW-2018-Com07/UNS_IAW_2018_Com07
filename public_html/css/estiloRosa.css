@@ -1,0 +1,23 @@
+  .muyOscuro {
+     background-color: #3F4054;
+  }
+  
+   .oscuro {
+      background-color: #c4445a;
+  }
+  
+   .medio {
+      background-color: #e9614c;
+  }
+  
+   .claro {
+      background-color: #e4816e;
+  }
+  
+   .muyClaro {
+      background-color: #f5faf8;
+  }
+  
+  .iconoPagina {
+    background-image: url(../images/llaveRosa.png);
+}

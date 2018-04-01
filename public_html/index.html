@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Estilos propios CSS --> 
+        <link href="css/estilo.css" rel="stylesheet">
+        <link id="linkEstilo" href="css/estiloRosa.css" rel="stylesheet">
+        
+        <title>Inicio</title>
+    </head>
+    <body>
+        <!-- Image and text -->
+        <nav class="navbar fixed-top navbar-light muyOscuro">
+            <a class="navbar-brand">
+                <div class="iconoBox iconoPagina"></div>
+                <div class="navbar-brand"> KTΦ</div>
+            </a>
+             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <button type="button" class="btn muyClaro">Iniciar sesión</button>
+                    <button type="button" class="btn muyClaro">Añadir vivienda</button>
+
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn muyClaro dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Estilos
+                        </button>
+                        <div id="seleccionarEstilo" class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <button onClick="cambiarEstilo('css/estiloRosa.css')" class="dropdown-item" type="button">Rosa</button>
+                            <button onClick="cambiarEstilo('css/estiloAzul.css')" class="dropdown-item" type="button">Azul</button>
+                        </div>
+                    </div>
+                </div>
+        </nav>
+        
+        <!-- Mapa -->
+        <div class="container maincontent">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div id="mapa" class="mapa"></div>
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js"></script>
+        
+        <!-- administradorEstilos JS -->
+        <script type="text/javascript" src="js/cambioEstilos/administradorEstilos.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxamqbB6tYlc4G2gN4A4EbPgYCCT7jVsg&callback=myMap"></script>
+
+    </body>
+</html>
