@@ -24,13 +24,24 @@
 
 .btn{
     background-color: white;
-    border: 2px solid #c4445a;
+    border: 1px solid #c4445a;
     color: #c4445a;
-
     text-align: center;
     font-size: 16px;
+
 }
 
 .btn:hover {
     background-color: #ffeff2;
+}
+
+.btnOscuro {
+   font-weight: bold;
+   background-color: #c4445a;
+   color: white;
+   border: 2px solid #c4445a;
+}
+
+.btnOscuro:hover {
+    color: #c4445a;
 }
