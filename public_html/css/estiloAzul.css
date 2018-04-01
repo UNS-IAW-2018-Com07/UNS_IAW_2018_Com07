@@ -3,7 +3,7 @@
 }
 
 .oscuro {
-    background-color: #8592b5;
+    background-color: #0066CC;
 }
 
 .medio {
@@ -11,7 +11,7 @@
 }
 
 .claro {
-    background-color: #abd4d8;
+    background-color: #E6F0F0;
 }
 
 .muyClaro {
@@ -22,6 +22,28 @@
     background-image: url(../images/llaveAzul.png);
 }
 
+.btn{
+    background-color: white;
+    border: 1px solid #0066CC;
+    color: #0066CC;
+
+    text-align: center;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #E6F0F0;
+}
   
-  
+
+.btnOscuro {
+   font-weight: bold;
+   background-color: #0066CC;
+   color: white;
+   border: 2px solid #0066CC;
+}
+
+.btnOscuro:hover {
+    color: #0066CC;
+}  
 
