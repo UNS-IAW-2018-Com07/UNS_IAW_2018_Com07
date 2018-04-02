@@ -43,4 +43,14 @@
 
 .btnOscuro:hover {
     color: #c4445a;
+    background-color: #ffeff2;
+}
+
+.checkboxes label:hover {
+  background-color: #ffeff2;
+}
+
+.botonCerradoCheckbox:hover{
+    background-color: #c4445a;
+    color: white; 
 }
