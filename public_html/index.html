@@ -23,18 +23,19 @@
             </a>
             <div class="row">
                 <div class="col-lg-4">
-                    <button type="button" class="btn">Añadir vivienda</button>
+                    <button type="button" class="btn btnClaro">Añadir vivienda</button>
                 </div>
                 <div class="col-lg-4">
-                    <button type="button" class="btn">Iniciar sesión</button>
+                    <button type="button" class="btn btnClaro">Iniciar sesión</button>
                 </div>
                 <div class="col-lg-4">
                     <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn muyClaro dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="btnGroupDrop1" type="button" class="btn btnClaro muyClaro dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Estilos
                         </button>
                         <div id="seleccionarEstilo" class="dropdown-menu muyClaro" aria-labelledby="btnGroupDrop1">
                             <button onClick="cambiarEstilo('css/estiloRosa.css')" class="dropdown-item muyClaro" type="button">Rosa</button>
+                            <div class="dropdown-divider"></div> 
                             <button onClick="cambiarEstilo('css/estiloAzul.css')" class="dropdown-item muyClaro" type="button">Azul</button>
                         </div>
                     </div>
@@ -43,33 +44,76 @@
         </nav>
 
         <!-- Mapa -->
-        <div class="container maincontent">
-            <div class="row">
+        <div class="container-fluid maincontent">
+            <div class="row margenSuperior" >
                 <div class="col-lg-1">
-                    <button type="button" class="btn btnOscuro">MAPA</button>
+                    <button type="button" class="btn btnOscuro" style="margin-left: 65px;">MAPA</button>
                 </div>
                 <div class="col-lg-1">
-                    <button type="button" class="btn btnOscuro">LISTADO</button>
+                    <button type="button" class="btn btnOscuro" style="margin-left: 20px;">LISTADO</button>
                 </div>
             </div>    
-            <div class="row">
-                <div class="col-lg-9">
+            <div class="row rowCorrida">
+                <div class="col-lg-8">
                     <div id="mapa" class="mapa"></div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
+                    <div class="container-fluid">
+                        <h3>Seleccione para buscar: </h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Alquiler" value="Alquiler">
+                            <label class="form-check-label" for="Alquiler">Alquiler</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Compra" value="Compra">
+                            <label class="form-check-label" for="Compra">Compra</label>
+                        </div> 
+                        <div class="form-check margenSuperior">
+                            <input class="form-check-input" type="checkbox" id="Departamento" value="Departamento">
+                            <label class="form-check-label" for="Departamento">Departamento</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Casa" value="Casa">
+                            <label class="form-check-label" for="Casa">Casa</label>
+                        </div> 
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="Vivienda-compartida" value="Vivienda compartida">
+                            <label class="form-check-label" for="Vivienda-compartida">Vivienda compartida</label>
+                        </div> 
+                        <div>
+                            <div class="col-lg-6 margenSuperior">
+                                <div class="selectBox" onclick="showCheckboxes()">
+                                    <select class="btn btnCheckBox">
+                                        <option>Ambientes</option>
+                                    </select>
+                                    <div class="overSelect"></div>
+                                </div>
+                                <div id="checkboxes">
+                                    <label class="form-check-label marginLeft" for="1">
+                                        <input type="checkbox" id="1" /> 1</label>
+                                    <label class="form-check-label marginLeft" for="2">
+                                        <input type="checkbox" id="2" /> 2</label>
+                                    <label class="form-check-label marginLeft" for="3">
+                                        <input type="checkbox" id="3" /> 3</label>
+                                    <div class="dropdown-divider"></div> 
+                                    <div class="row">
+                                        <button class="dropdown-item botonCerradoCheckbox" >Cerrar</button>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="js/bootstrap.min.js"></script>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="js/bootstrap.min.js"></script>
-
-        <!-- administradorEstilos JS -->
-        <script type="text/javascript" src="js/cambioEstilos/administradorEstilos.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxamqbB6tYlc4G2gN4A4EbPgYCCT7jVsg&callback=myMap"></script>
+            <!-- administradorEstilos JS -->
+            <script type="text/javascript" src="js/cambioEstilos/administradorEstilos.js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxamqbB6tYlc4G2gN4A4EbPgYCCT7jVsg&callback=myMap"></script>
 
     </body>
 </html>

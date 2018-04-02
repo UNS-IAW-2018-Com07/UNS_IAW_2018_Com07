@@ -22,7 +22,7 @@
     background-image: url(../images/llaveRosa.png);
 }
 
-.btn{
+.btnClaro{
     background-color: white;
     border: 1px solid #c4445a;
     color: #c4445a;
@@ -31,7 +31,7 @@
 
 }
 
-.btn:hover {
+.btnClaro:hover {
     background-color: #ffeff2;
 }
 

@@ -22,7 +22,7 @@
     background-image: url(../images/llaveAzul.png);
 }
 
-.btn{
+.btnClaro{
     background-color: white;
     border: 1px solid #0066CC;
     color: #0066CC;
@@ -31,7 +31,7 @@
     font-size: 16px;
 }
 
-.btn:hover {
+.btnClaro:hover {
     background-color: #E6F0F0;
 }
   
