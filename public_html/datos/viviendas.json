@@ -1,0 +1,19 @@
+{
+    "viviendas": [
+        {
+            "compartido": false,
+            "operacion": "Venta",
+            "direccion": "Mitre 891",
+            "precio": 10000000,
+            "fechaConstruccion": "1999-10-20T12:00:00.000Z",
+            "metrosCuadrados": 231,
+            "cantAmbientes": 7,
+            "canBanios": 3,
+            "cantCocheras": 1,
+            "canDormitorios": 4,
+            "descripcion": "Hermosa casa cerca del centro. Buen patio. Ideal para tener un perrito.",
+            "imagenes": ["fileserver/images/Mitre891/im1.png", "fileserver/images/Mitre891/im2.png", "fileserver/images/Mitre891/im3.png"],
+            "propietario": 34236595419
+        }
+    ]
+}
