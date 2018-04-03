@@ -21,11 +21,12 @@ function myMap() {
     
     var length = Object.keys(viviendas).length;
     for(i=0; i<length; i++){
-        crearUbicacion(viviendas[i].direccion);
+        var detalle = crearDetalleVivienda(viviendas[i]);
+        crearUbicacion(viviendas[i].direccion, detalle);
     }
 }
 
-function crearUbicacion(direccion) {
+function crearUbicacion(direccion, detalle) {
     var ciudad = ", Bahia Blanca, Buenos Aires, Argentina";
 
     geocoder.geocode({'address': direccion.concat(ciudad)}, function (results, status) {
@@ -37,18 +38,25 @@ function crearUbicacion(direccion) {
             });
             
             var infowindow = new google.maps.InfoWindow({
-                content: "info de la vivienda"
+                content: detalle+""
             });
 
             google.maps.event.addListener(marker, 'click', function () {
                 infowindow.open(map, marker);
             });
             
-        } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-        }
+        } 
     });
+}
 
- 
+function crearDetalleVivienda(vivienda){
+    return '<div class="card" style="width: 18rem;">'+
+                '<img class="card-img-top" src="..." alt="Card image cap">'+
+                    '<div class="card-body">'+
+                      '<h5 class="card-title">Card title</h5>'+
+                       '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>'+
+                    '<a href="#" class="btn btn-primary">Go somewhere</a>'+
+                '</div>'+
+           '</div>';
 }
 
