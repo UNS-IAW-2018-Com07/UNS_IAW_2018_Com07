@@ -2,14 +2,16 @@ function cambiarEstilo(value){
     document.getElementById("linkEstilo").href=value;
 }
 
-var expanded = false;
-function showCheckboxes() {
-    var checkboxes = document.getElementById("checkboxes");
-    if (!expanded) {
+function showCheckboxes(id) {
+    var checkboxes = document.getElementById(id);
+    if ( checkboxes.style.display === "none") {
         checkboxes.style.display = "block";
-        expanded = true;
     } else {
         checkboxes.style.display = "none";
-        expanded = false;
     }
+}
+
+function closeCheckbox(id){
+    var checkboxes = document.getElementById(id);
+    checkboxes.style.display = "none";
 }
