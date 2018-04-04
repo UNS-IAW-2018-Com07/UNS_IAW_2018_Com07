@@ -1,3 +1,7 @@
+.margenIzquierdoCheckBoxReal{
+    margin-left: 5%;
+}
+
 .checkboxes {
   display: none;
   border: 1px #dadada solid;
@@ -5,10 +9,6 @@
 
 .checkboxes label {
   display: block;
-}
-
-.margenIzquierdoCheckBoxReal{
-    margin-left: 5%;
 }
 
 .btnCheckBox{

@@ -34,7 +34,6 @@
 .btnClaro:hover {
     background-color: #E6F0F0;
 }
-  
 
 .btnOscuro {
    font-weight: bold;
@@ -51,5 +50,13 @@
 .checkboxes label:hover {
   background-color: #0066CC;
   color: white; 
+}
+
+.slider::-webkit-slider-thumb {
+    background: #7dd57d;
+}
+
+.slider::-moz-range-thumb {
+    background: #7dd57d;
 }
 
