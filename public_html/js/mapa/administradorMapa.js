@@ -46,14 +46,28 @@ function crearUbicacion(direccion, detalle) {
     });
 }
 
+function tipoVivienda(vivienda){
+    var tipo; 
+    if(vivienda.piso!==null){
+        tipo = "Departamento"; 
+    }
+    else{
+        tipo = "Casa";
+    }
+    if(vivienda.compartida){
+        tipo = tipo+" compartido"; 
+    }
+    return tipo; 
+}
+
 function crearDetalleVivienda(vivienda) {
     return '<div class="card" style="width: 18rem;">' +
-            '<img class="card-img-top" src="..." alt="Card image cap">' +
+            '<img class="card-img-top" src='+vivienda.imagenes[0]+' alt="Imagen inmueble">' +
             '<div class="card-body">' +
-            '<h5 class="card-title">Card title</h5>' +
-            '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>' +
-            '<a href="#" class="btn btn-primary">Go somewhere</a>' +
+            '<h5 class="card-title">Precio: $'+vivienda.precio+'</h5>' +
+            '<h6 class="card-title">'+vivienda.operacion+' - '+tipoVivienda(vivienda)+'</h6>' +
+            '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
+            '<a href="#" class="btn btnOscuro">Ver más</a>' +
             '</div>' +
             '</div>';
 }
-
