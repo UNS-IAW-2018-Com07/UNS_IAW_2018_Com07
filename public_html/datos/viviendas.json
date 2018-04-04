@@ -1,5 +1,4 @@
-{
-    "viviendas": [
+[
         {
             "compartido": false,
             "operacion": "Venta",
@@ -33,4 +32,3 @@
             "propietario": 34236595419
         }
     ]
-}
