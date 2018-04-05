@@ -48,7 +48,7 @@ function crearUbicacion(direccion, detalle) {
 
 function tipoVivienda(vivienda){
     var tipo; 
-    if(vivienda.piso!==null){
+    if(vivienda.hasOwnProperty("piso")){
         tipo = "Departamento"; 
     }
     else{
@@ -61,9 +61,9 @@ function tipoVivienda(vivienda){
 }
 
 function crearDetalleVivienda(vivienda) {
-    return '<div class="card" style="width: 18rem;">' +
-            '<img class="card-img-top" src='+vivienda.imagenes[0]+' alt="Imagen inmueble">' +
-            '<div class="card-body">' +
+    return '<div class="media" style="width: 22rem;">' +
+            '<img class="media-left" src='+vivienda.imagenes[0]+' alt="Imagen inmueble" width="150">' +
+            '<div class="media-body mediaContainer">' +
             '<h5 class="card-title">Precio: $'+vivienda.precio+'</h5>' +
             '<h6 class="card-title">'+vivienda.operacion+' - '+tipoVivienda(vivienda)+'</h6>' +
             '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
