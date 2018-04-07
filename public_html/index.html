@@ -22,7 +22,7 @@ and open the template in the editor.
 
         <title>Inicio</title>
     </head>
-    <body class="muyClaro">
+    <body class="muyClaro" onload="actualizarPreciosRango();">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid"> 
                 <div class="navbar-header">
@@ -127,10 +127,10 @@ and open the template in the editor.
                     <p class="precioMaximo">Precio máximo: <span id="idTxt">0</span></p>
                     <div class="row">
                         <div class="col-lg-6">
-                            <p class="withoutMargin">$[minimo]</p>
+                            <p class="withoutMargin">$<span id="minimo"></span></p>
                         </div> 
                         <div class="col-lg-6 alineadoDerecha">
-                            <p class="withoutMargin">$[maximo]</p>
+                            <p class="withoutMargin">$<span id="maximo"></span></p>
                         </div> 
                     </div> 
                     <div class="slidecontainer">
