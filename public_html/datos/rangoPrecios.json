@@ -1,0 +1,6 @@
+{
+    "minimoVenta": 5,
+    "maximoVenta": 10,
+    "minimoAlquiler": 1,
+    "maximoAlquiler": 4
+}
