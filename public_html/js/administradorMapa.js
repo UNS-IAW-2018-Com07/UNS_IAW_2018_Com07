@@ -45,20 +45,6 @@ function crearUbicacion(direccion, detalle) {
     });
 }
 
-function tipoVivienda(vivienda){
-    var tipo; 
-    if(vivienda.hasOwnProperty("piso")){
-        tipo = "Departamento"; 
-    }
-    else{
-        tipo = "Casa";
-    }
-    if(vivienda.compartida){
-        tipo = tipo+" compartido"; 
-    }
-    return tipo; 
-}
-
 function crearDetalleVivienda(vivienda) {
     return '<div class="media" style="width: 18em;">' +
             '<img class="media-left img-fluid" src='+vivienda.imagenes[0]+' alt="Imagen inmueble" width="200">' +
