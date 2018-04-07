@@ -22,17 +22,9 @@
     background-image: url(../images/llaveAzul.png);
 }
 
-.btnClaro{
-    background-color: white;
-    border: 1px solid #0066CC;
-    color: #0066CC;
-
-    text-align: center;
-    font-size: 16px;
-}
-
-.btnClaro:hover {
-    background-color: #E6F0F0;
+.barraMenu{
+    left:80%; 
+    right: 0; 
 }
 
 .btnOscuro {
@@ -47,9 +39,11 @@
     background-color: #E6F0F0;
 }  
 
-.checkboxes label:hover {
-  background-color: #0066CC;
-  color: white; 
+.btnOscuro:focus {
+    color: white;
+    background-color: #0066CC;
+    outline: none !important;
+    box-shadow: 0 0 10px #7dd57d;
 }
 
 .slider::-webkit-slider-thumb {

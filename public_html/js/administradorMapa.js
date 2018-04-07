@@ -60,7 +60,7 @@ function tipoVivienda(vivienda){
 }
 
 function crearDetalleVivienda(vivienda) {
-    return '<div class="media" style="width: 18rem;">' +
+    return '<div class="media" style="width: 18em;">' +
             '<img class="media-left img-fluid" src='+vivienda.imagenes[0]+' alt="Imagen inmueble" width="200">' +
             '<div class="media-body mediaContainer">' +
             '<h5 class="card-title">Precio: $'+vivienda.precio+'</h5>' +

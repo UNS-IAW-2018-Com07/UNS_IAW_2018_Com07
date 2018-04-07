@@ -22,16 +22,9 @@
     background-image: url(../images/llaveRosa.png);
 }
 
-.btnClaro{
-    background-color: white;
-    border: 1px solid #c4445a;
-    color: #c4445a;
-    text-align: center;
-    font-size: 16px;
-}
-
-.btnClaro:hover {
-    background-color: #ffeff2;
+.barraMenu{
+    left:0; 
+    right: 80%; 
 }
 
 .btnOscuro {
@@ -46,13 +39,11 @@
     background-color: #ffeff2;
 }
 
-.checkboxes label:hover {
-    background-color: #ffeff2;
-}
-
-.botonCerradoCheckbox:hover{
+.btnOscuro:focus {
+    color: white;
     background-color: #c4445a;
-    color: white; 
+    outline: none !important;
+    box-shadow: 0 0 10px green;
 }
 
 .slider::-webkit-slider-thumb {

@@ -24,10 +24,10 @@ div.iconoBox{
     position: absolute; 
     top: 53px; 
     bottom: 0; 
-    left:0; 
-    right: 76%; 
+    opacity: 0.98; 
     z-index: 1; 
     background-color: white; 
+    padding: 15px 15px; 
 }
 
 .margenSuperior{
@@ -35,7 +35,7 @@ div.iconoBox{
 }
 
 .margenIzquierdo{
-    margin-left: 15px; 
+    margin-left: 20px; 
 }
 
 .seleccioneBuscar{
@@ -43,6 +43,22 @@ div.iconoBox{
     font-weight: bold; 
     text-align: center; 
 }
+
+.withoutMargin{
+    margin-bottom: 0%; 
+}
+
+.centeredContainer{
+    width: 70%; 
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+.rowAcotada{
+    height: 27px; 
+}
+
+
 
 
 
@@ -61,16 +77,6 @@ div.iconoBox{
     margin-bottom: 5px;  
     margin-left: 3%; 
     margin-right: 3%;   
-}
-
-.centeredContainer{
-    width: 70%; 
-    margin-right: 15%;
-    margin-left: 15%;
-}
-
-.withoutMargin{
-    margin-bottom: 0%; 
 }
 
 .buscador{

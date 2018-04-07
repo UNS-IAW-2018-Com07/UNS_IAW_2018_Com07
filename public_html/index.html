@@ -11,10 +11,10 @@ and open the template in the editor.
 
         <!-- Bootstrap CSS -->
         <link href="css/Bootstrap/bootstrap.min.css" rel="stylesheet">
-        
+
         <!-- Multiselect Checkbox -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-        
+
         <!-- Estilos propios CSS -->
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/rangeBar.css" rel="stylesheet">
@@ -51,27 +51,91 @@ and open the template in the editor.
         </nav>
         <div id="mapa" class="mapa"></div>
         <div id="barraMenu" class="container-fluid barraMenu">
-            <div class="row margenSuperior">
+            <div class="row">
                 <p class="seleccioneBuscar">Seleccione para buscar: <p>
             </div> 
             <div class="row margenIzquierdo">
-                <div class="checkbox"> <label for="Alquiler"><input type="checkbox" id="Alquiler" value="Alquiler">Alquiler</label> </div>
+                <div class="row rowAcotada">
+                    <div class="checkbox"> <label for="Alquiler"><input type="checkbox" id="Alquiler" value="Alquiler">Alquiler</label> </div>
+                </div> 
+                <div class="row rowAcotada">
+                    <div class="checkbox"> <label for="Compra"><input type="checkbox" id="Compra" value="Compra">Compra</label> </div>
+                </div> 
+                <div class="row rowAcotada margenSuperior">
+                    <div class="checkbox"> <label for="Departamento"><input type="checkbox" id="Departamento" value="Departamento">Departamento</label> </div>
+                </div> 
+                <div class="row rowAcotada">
+                    <div class="checkbox"><label for="Casa"><input type="checkbox" id="Casa" value="Casa">Casa</label> </div>
+                </div> 
+                <div class="row">
+                    <div class="checkbox"><label for="viviendaCompartida"><input type="checkbox" id="viviendaCompartida" value="Vivienda Compartida">Vivienda Compartida</label> </div>
+                </div> 
+                <div class="row margenSuperior">
+                    <p>Ambientes:</p> 
+                </div> 
+                <div class="row">
+                    <select id="ambienteCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                        <option id="1Amb">1</option>
+                        <option id="2Amb">2</option>
+                        <option id="3Amb">3</option>
+                        <option id="4Amb">4</option>
+                        <option id="5Amb">5</option>
+                        <option id="masAmb">más de 5</option>
+                    </select>
+                </div> 
+                <div class="row margenSuperior">
+                    <p>Dormitorios:</p> 
+                </div> 
+                <div class="row">
+                    <select id="dormitoriosCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                        <option id="1Dor">1</option>
+                        <option id="2Dor">2</option>
+                        <option id="3Dor">3</option>
+                        <option id="4Dor">4</option>
+                        <option id="5Dor">5</option>
+                        <option id="masDor">más de 5</option>
+                    </select>
+                </div> 
+                <div class="row margenSuperior">
+                    <p>Baños: </p> 
+                </div> 
+                <div class="row">
+                    <select id="banosCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                        <option id="1Ban">1</option>
+                        <option id="2Ban">2</option>
+                        <option id="3Ban">3</option>
+                        <option id="masBan">más de 3</option>
+                    </select>
+                </div> 
+                <div class="row margenSuperior">
+                    <p>Cocheras: </p> 
+                </div> 
+                <div class="row">
+                    <select id="cocherasCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                        <option id="1Coch">1</option>
+                        <option id="2Coch">2</option>
+                        <option id="masCoch">más de 2</option>
+                    </select>
+                </div> 
             </div> 
-            <div class="row margenIzquierdo">
-                <div class="checkbox"> <label for="Compra"><input type="checkbox" id="Compra" value="Compra">Compra</label> </div>
-            </div> 
-            <div class="row margenIzquierdo margenSuperior">
-                <div class="checkbox"> <label for="Departamento"><input type="checkbox" id="Departamento" value="Departamento">Departamento</label> </div>
-            </div> 
-            <div class="row margenIzquierdo">
-                <div class="checkbox"><label for="Casa"><input type="checkbox" id="Casa" value="Casa">Casa</label> </div>
-            </div> 
-            <div class="row margenIzquierdo margenSuperior">
-                <select id="ambienteCheckboxes" class="selectpicker" multiple title="Ambientes"> 
-                    <option id="1Amb">1</option>
-                    <option id="2Amb">2</option>
-                    <option id="3Amb">3</option>
-                </select>
+            <div class="row"> 
+                <div class="centeredContainer"> 
+                    <p class="precioMaximo">Precio máximo: <span id="idTxt">0</span></p>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p class="withoutMargin">$[minimo]</p>
+                        </div> 
+                        <div class="col-lg-6 alineadoDerecha">
+                            <p class="withoutMargin">$[maximo]</p>
+                        </div> 
+                    </div> 
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="100" value="0" class="slider" id="miRango" oninput="sliderPrecio('miRango','idTxt')">
+                    </div>
+                    <div>
+                        <button class="btn btnOscuro centeredContainer">Buscar</button>
+                    </div>
+                </div>
             </div> 
         </div>
 
@@ -87,7 +151,7 @@ and open the template in the editor.
         <script src="js/boostrap/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-es_ES.min.js"></script>
-        
-         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxamqbB6tYlc4G2gN4A4EbPgYCCT7jVsg&callback=myMap&libraries=geometry"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxamqbB6tYlc4G2gN4A4EbPgYCCT7jVsg&callback=myMap&libraries=geometry"></script>
     </body>
 </html>
