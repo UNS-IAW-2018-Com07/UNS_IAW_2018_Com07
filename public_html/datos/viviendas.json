@@ -4,7 +4,7 @@
             "operacion": "Venta",
             "direccion": "Bartolomé Mitre 891",
             "precio": 10000000,
-            "anioConstruccion": 1999,
+            "fechaConstruccion": "1999-10-20T12:00:00.000Z",
             "metrosCuadrados": 231,
             "cantAmbientes": 7,
             "canBanios": 3,
@@ -12,7 +12,7 @@
             "canDormitorios": 4,
             "descripcion": "Hermosa casa cerca del centro. Buen patio. Ideal para tener un perrito.",
             "imagenes": ["images/departamento.svg","fileserver/images/Mitre891/im1.png", "fileserver/images/Mitre891/im2.png", "fileserver/images/Mitre891/im3.png"],
-            "propietario": 34178523647
+            "propietario": 34236595419
         },
         {
             "piso": 3,
@@ -21,7 +21,7 @@
             "operacion": "Alquiler",
             "direccion": "Vieytes 223",
             "precio": 6000,
-            "anioConstruccion": 2015,
+            "fechaConstruccion": "2015-11-10T12:00:00.000Z",
             "metrosCuadrados": 57,
             "cantAmbientes": 3,
             "cantBanios": 1,
@@ -29,23 +29,6 @@
             "cantDormitorios": 2,
             "descripcion": "bla bla esta casa es muy genial bla bla vistas bla bla el mejor precio bla bla",
             "imagenes": ["fileserver/images/Vieytes223/3C/im1.png", "fileserver/images/Vieytes223/3C/im2.png"],
-            "propietario": 34236595419
-        },
-        {
-            "piso": 4,
-            "numeroDepto": "D",
-            "compartido": true,
-            "operacion": "Alquiler",
-            "direccion": "Vieytes 223",
-            "precio": 7500,
-            "anioConstruccion": 2015,
-            "metrosCuadrados": 57,
-            "cantAmbientes": 3,
-            "cantBanios": 1,
-            "cantCocheras": 1,
-            "cantDormitorios": 2,
-            "descripcion": "bla bla esta casa es muy genial bla bla vistas bla bla el mejor precio bla bla",
-            "imagenes": ["fileserver/images/Vieytes223/4D/im1.png", "fileserver/images/Vieytes223/4D/im2.png"],
             "propietario": 34236595419
         }
     ]
