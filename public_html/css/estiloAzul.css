@@ -22,9 +22,18 @@
     background-image: url(../images/llaveAzul.png);
 }
 
+.barraMapaListar{
+    left: 68%; 
+}
+
 .barraMenu{
     left:80%; 
     right: 0; 
+}
+
+.barraListado{
+    left: 10%; 
+    right: 20%;
 }
 
 .btnOscuro {

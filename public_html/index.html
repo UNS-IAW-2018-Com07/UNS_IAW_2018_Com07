@@ -44,15 +44,16 @@ and open the template in the editor.
                                 <li class="divider"> </li> 
                                 <li><a onClick="cambiarEstilo('css/estiloAzul.css')" class="muyClaro" >Azul</a></li> 
                             </ul>
-                        </div>
-                        <!-- meti esto aca para poder probar el listado, cambiarlo -->
-                        <button id="botonMapa" type="button" class="btn btnOscuro mapaBoton" disabled onClick="ocultarListado();">MAPA</button>
-                        <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
+                        </div>                       
                     </div>
                 </div>
             </div> 
         </nav>
         <div id="mapa" class="mapa"></div>
+        <div id="botonesMapaListar" class="container-fluid barraMapaListar"> 
+            <button id="botonMapa" type="button" class="btn btnOscuro" disabled onClick="ocultarListado();">MAPA</button>
+            <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
+        </div> 
         <div id="barraMenu" class="container-fluid barraMenu">
             <div class="row">
                 <p class="seleccioneBuscar">Seleccione para buscar: <p>
@@ -141,11 +142,11 @@ and open the template in the editor.
                 </div>
             </div> 
         </div>
-        
-      
+
+
         <div id="barraListado" class="container-fluid barraListado">
             <ul id="contenedorListado" class="list-group">
-                 <!-- Aca se agrega la lista de viviendas, se agrega dinamicamente --> 
+                <!-- Aca se agrega la lista de viviendas, se agrega dinamicamente --> 
             </ul>
         </div> 
 
@@ -159,7 +160,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/administradorRangoPrecios.js"></script>
         <script type="text/javascript" src="js/administradorListado.js"></script>
         <script type="text/javascript" src="js/administradorDatosVivienda.js"></script>
-  
+
         <script src="js/boostrap/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-es_ES.min.js"></script>

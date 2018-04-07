@@ -22,9 +22,18 @@
     background-image: url(../images/llaveRosa.png);
 }
 
+.barraMapaListar{
+    left: 85%; 
+}
+
 .barraMenu{
     left:0; 
     right: 80%; 
+}
+
+.barraListado{
+    left: 20%; 
+    right: 0;
 }
 
 .btnOscuro {

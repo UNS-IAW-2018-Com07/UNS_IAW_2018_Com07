@@ -20,6 +20,16 @@ div.iconoBox{
     z-index: 0;
 }
 
+.barraMapaListar{
+    position: absolute; 
+    top: 55px; 
+    height: 40px; 
+    opacity: 0.90; 
+    z-index: 2; 
+    background-color: white; 
+    padding: 3px 3px; 
+}
+
 .barraMenu{
     position: absolute; 
     top: 53px; 
@@ -32,10 +42,8 @@ div.iconoBox{
 
 .barraListado{
     position: absolute; 
-    top: 53px; 
+    top: 90px; 
     bottom: 0; 
-    left: 24%; 
-    right: 0;
     z-index: 1; 
     display: none;
 }
@@ -76,10 +84,6 @@ div.iconoBox{
 .maincontent {
     margin-top: 5px;
     margin-bottom: 55px;    
-}
-
-.mapaBoton{
-    width: 95px; 
 }
 
 .rowCorrida{
