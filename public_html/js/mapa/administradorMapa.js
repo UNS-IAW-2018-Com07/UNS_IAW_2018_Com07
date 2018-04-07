@@ -28,7 +28,6 @@ function crearUbicacion(direccion, detalle) {
 
     geocoder.geocode({'address': direccion.concat(ciudad)}, function (results, status) {
         if (status === 'OK') {
-            map.setCenter(results[0].geometry.location);
             var marker = new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
