@@ -11,10 +11,10 @@ and open the template in the editor.
 
         <!-- Bootstrap CSS -->
         <link href="css/Bootstrap/bootstrap.min.css" rel="stylesheet">
-        
+
         <!-- Multiselect Checkbox -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-        
+
         <!-- Estilos propios CSS -->
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/rangeBar.css" rel="stylesheet">
@@ -45,6 +45,9 @@ and open the template in the editor.
                                 <li><a onClick="cambiarEstilo('css/estiloAzul.css')" class="muyClaro" >Azul</a></li> 
                             </ul>
                         </div>
+                        <!-- meti esto aca para poder probar el listado, cambiarlo -->
+                        <button id="botonMapa" type="button" class="btn btnOscuro mapaBoton" disabled onClick="ocultarListado();">MAPA</button>
+                        <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
                     </div>
                 </div>
             </div> 
@@ -74,6 +77,13 @@ and open the template in the editor.
                 </select>
             </div> 
         </div>
+        
+      
+        <div id="barraListado" class="container-fluid barraListado">
+            <ul id="contenedorListado" class="list-group">
+                 <!-- Aca se agrega la lista de viviendas, se agrega dinamicamente --> 
+            </ul>
+        </div> 
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Bootstrap JS -->
@@ -82,12 +92,14 @@ and open the template in the editor.
         <!-- misJS JS -->
         <script type="text/javascript" src="js/administradorEstilos.js"></script>
         <script type="text/javascript" src="js/administradorMapa.js"></script>
-        <script type="text/javascript" src="js/administradorRangoEstilos.js"></script>
-
+        <script type="text/javascript" src="js/administradorRangoPrecios.js"></script>
+        <script type="text/javascript" src="js/administradorListado.js"></script>
+        <script type="text/javascript" src="js/administradorDatosVivienda.js"></script>
+  
         <script src="js/boostrap/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-es_ES.min.js"></script>
-        
-         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxamqbB6tYlc4G2gN4A4EbPgYCCT7jVsg&callback=myMap&libraries=geometry"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxamqbB6tYlc4G2gN4A4EbPgYCCT7jVsg&callback=myMap&libraries=geometry"></script>
     </body>
 </html>

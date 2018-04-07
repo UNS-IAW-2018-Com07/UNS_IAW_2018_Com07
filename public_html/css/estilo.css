@@ -30,6 +30,16 @@ div.iconoBox{
     background-color: white; 
 }
 
+.barraListado{
+    position: absolute; 
+    top: 53px; 
+    bottom: 0; 
+    left: 24%; 
+    right: 0;
+    z-index: 1; 
+    display: none;
+}
+
 .margenSuperior{
     margin-top: 15px;
 }
