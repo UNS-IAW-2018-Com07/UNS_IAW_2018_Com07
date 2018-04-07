@@ -2,7 +2,7 @@
         {
             "compartido": false,
             "operacion": "Venta",
-            "direccion": "Bartolomé Mitre 891",
+            "direccion": "La Falda 500",
             "precio": 10000000,
             "fechaConstruccion": "1999-10-20T12:00:00.000Z",
             "metrosCuadrados": 231,
@@ -11,7 +11,7 @@
             "cantCocheras": 1,
             "canDormitorios": 4,
             "descripcion": "Hermosa casa cerca del centro. Buen patio. Ideal para tener un perrito.",
-            "imagenes": ["images/departamento.svg","fileserver/images/Mitre891/im1.png", "fileserver/images/Mitre891/im2.png", "fileserver/images/Mitre891/im3.png"],
+            "imagenes": ["images/LaFalda500/im1.jpg","images/LaFalda500/im2.jpg", "images/LaFalda500/im2.jpg", "images/LaFalda500/im3.jpg"],
             "propietario": 34236595419
         },
         {
@@ -20,15 +20,32 @@
             "compartido": false,
             "operacion": "Alquiler",
             "direccion": "Vieytes 223",
-            "precio": 6000,
+            "precio": 7000,
             "fechaConstruccion": "2015-11-10T12:00:00.000Z",
-            "metrosCuadrados": 57,
-            "cantAmbientes": 3,
+            "metrosCuadrados": 65,
+            "cantAmbientes": 2,
             "cantBanios": 1,
             "cantCocheras": 0,
-            "cantDormitorios": 2,
+            "cantDormitorios": 1,
             "descripcion": "bla bla esta casa es muy genial bla bla vistas bla bla el mejor precio bla bla",
-            "imagenes": ["fileserver/images/Vieytes223/3C/im1.png", "fileserver/images/Vieytes223/3C/im2.png"],
+            "imagenes": ["images/Vieytes223/3C/im1.jpg", "images/Vieytes223/3C/im2.jpg"],
+            "propietario": 34236595419
+        },
+        {
+            "piso": 4,
+            "numeroDepto": "D",
+            "compartido": true,
+            "operacion": "Alquiler",
+            "direccion": "Vieytes 223",
+            "precio": 5500,
+            "anioConstruccion": 2015,
+            "metrosCuadrados": 57,
+            "cantAmbientes": 2,
+            "cantBanios": 1,
+            "cantCocheras": 1,
+            "cantDormitorios": 1,
+            "descripcion": "bla bla esta casa es muy genial bla bla vistas bla bla el mejor precio bla bla",
+            "imagenes": ["images/Vieytes223/4D/im1.jpg", "images/Vieytes223/4D/im2.jpg"],
             "propietario": 34236595419
         }
     ]
