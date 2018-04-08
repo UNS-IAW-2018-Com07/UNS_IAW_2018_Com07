@@ -1,3 +1,7 @@
+body{
+    display:none; 
+}
+
 div.iconoBox{
     background-color: transparent;
     background-repeat: no-repeat; 

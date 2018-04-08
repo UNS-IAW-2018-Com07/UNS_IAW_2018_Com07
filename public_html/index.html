@@ -24,7 +24,7 @@ and open the template in the editor.
 
         <title>Inicio</title>
     </head>
-    <body class="muyClaro" onload="actualizarPreciosRango();">
+    <body class="muyClaro" onload="actualizarPreciosRango(); cargarEstiloLocalStorage();">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid"> 
                 <div class="navbar-header">
@@ -44,9 +44,9 @@ and open the template in the editor.
                                 Estilos <span class="caret"></span>
                             </button>
                             <ul id="seleccionarEstilo" class="dropdown-menu muyClaro">
-                                <li><a onClick="cambiarEstilo('css/estiloRosa.css')" class="muyClaro" >Rosa</a></li> 
+                                <li><a onClick="cambiarEstilo('css/estiloRosa.css'); modificarEstiloLocalStorage()" class="muyClaro" >Rosa</a></li> 
                                 <li class="divider"> </li> 
-                                <li><a onClick="cambiarEstilo('css/estiloAzul.css')" class="muyClaro" >Azul</a></li> 
+                                <li><a onClick="cambiarEstilo('css/estiloAzul.css'); modificarEstiloLocalStorage()" class="muyClaro" >Azul</a></li> 
                             </ul>
                         </div>                       
                     </div>
@@ -165,8 +165,7 @@ and open the template in the editor.
                 <!-- Aca se agrega la lista de viviendas, se agrega dinamicamente --> 
             </ul>
         </div> 
-
-        <!-- Optional JavaScript -->
+               
         <!-- jQuery first, then Bootstrap JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
@@ -176,6 +175,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/administradorRangoPrecios.js"></script>
         <script type="text/javascript" src="js/administradorListado.js"></script>
         <script type="text/javascript" src="js/administradorDatosVivienda.js"></script>
+        <script type="text/javascript" src="js/localStorageEstilo.js"></script>
 
         <script src="js/boostrap/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
