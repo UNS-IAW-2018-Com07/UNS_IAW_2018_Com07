@@ -31,14 +31,16 @@ function tipoVivienda(vivienda) {
 }
 
 function crearDetalleVivienda(vivienda) {
-    return '<div class="media" style="width: 18rem;">' +
-            '<img class="media-left img-fluid" src=' + vivienda.imagenes[0] + ' alt="Imagen inmueble" width="200">' +
-            '<div class="media-body mediaContainer">' +
-            '<h5 class="card-title">Precio: $' + vivienda.precio + '</h5>' +
-            '<h6 class="card-title">' + vivienda.operacion + ' - ' + tipoVivienda(vivienda) + '</h6>' +
-            '<p class="card-text">Direccion: ' + vivienda.direccion + '.</p>' +
-            '<a href="detalleVivienda.html?id=' + vivienda.id + '" class="btn btnOscuro">Ver más</a>' +
-            '</div>' +
+    return '<div class="media" style="width: 35rem;">' +
+                '<div class="media-left media-middle">' +
+                    '<img class="media-object" src='+vivienda.imagenes[0]+' alt="Imagen inmueble" width="180px" ></div>' +
+                '<div id="marcadorMapa" class="media-body">' +
+                    '<h5 class="media-heading">Precio: $'+vivienda.precio+'</h5>' +
+                    '<h6 class="media-heading">'+vivienda.operacion+' - '+tipoVivienda(vivienda)+'</h6>' +
+                    crearBarraEstrellas(vivienda).outerHTML + 
+                    '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
+                    '<a href="detalleVivienda.html?id=' + vivienda.id + '" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +
+                '</div>' +
             '</div>';
 }
 
@@ -79,7 +81,6 @@ function insertarListaVivienda(vivienda) {
     var a = document.createElement("a");
     a.setAttribute('class', 'btn btnOscuro');
     a.setAttribute('href', 'detalleVivienda.html?id=' + vivienda.id);
-    // a.setAttribute('data-id-vivienda',vivienda.id);
     var texto_a = document.createTextNode('Ver más');
     a.appendChild(texto_a);
 
@@ -87,6 +88,7 @@ function insertarListaVivienda(vivienda) {
 
     div_col2.appendChild(h5);
     div_col2.appendChild(h6);
+    div_col2.appendChild(crearBarraEstrellas(vivienda));
     div_col2.appendChild(p);
     div_col2.appendChild(a);
 
@@ -95,4 +97,42 @@ function insertarListaVivienda(vivienda) {
 
     li.appendChild(div_row);
     document.getElementById("contenedorListado").appendChild(li);
+}
+
+function crearBarraEstrellas(vivienda){
+    var estrellas = document.createElement("div");
+    estrellas.setAttribute('id','estrellas');
+    var star1 = document.createElement("span");
+    var star2 = document.createElement("span");
+    var star3 = document.createElement("span");
+    var star4 = document.createElement("span");
+    var star5 = document.createElement("span");
+    star5.setAttribute('class', 'fa fa-star');
+    star4.setAttribute('class', 'fa fa-star');
+    star3.setAttribute('class', 'fa fa-star');
+    star2.setAttribute('class', 'fa fa-star');
+    star1.setAttribute('class', 'fa fa-star');
+    switch (calcularEstrellasVivienda(vivienda)) {
+        case 5:
+            star5.setAttribute('class', 'fa fa-star checkedStar');
+        case 4:
+            star4.setAttribute('class', 'fa fa-star checkedStar');
+        case 3:
+            star3.setAttribute('class', 'fa fa-star checkedStar');
+        case 2:
+            star2.setAttribute('class', 'fa fa-star checkedStar');
+        case 1:
+            star1.setAttribute('class', 'fa fa-star checkedStar');
+    }
+    estrellas.appendChild(star1);
+    estrellas.appendChild(star2);
+    estrellas.appendChild(star3);
+    estrellas.appendChild(star4);
+    estrellas.appendChild(star5);
+    
+    return estrellas; 
+}
+
+function calcularEstrellasVivienda(vivienda){
+    return 3; 
 }

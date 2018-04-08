@@ -1,7 +1,3 @@
-.muyOscuro {
-    background-color: #000;
-}
-
 .oscuro {
     background-color: #c4445a;
 }
@@ -23,17 +19,23 @@
 }
 
 .barraMapaListar{
-    left: 85%; 
+    left: 31%; 
 }
 
-.barraMenu{
+.barraMenuMapa{
     left:0; 
     right: 80%; 
 }
 
+.barraMenuListado{
+    border-right: 1px solid #dadada; 
+    left:10%; 
+    right: 70%; 
+}
+
 .barraListado{
-    left: 20%; 
-    right: 0;
+    left: 30%; 
+    right: 10%;
 }
 
 .btnOscuro {
@@ -52,7 +54,7 @@
     color: white;
     background-color: #c4445a;
     outline: none !important;
-    box-shadow: 0 0 10px green;
+    box-shadow: 0 0 20px #e9614c;
 }
 
 .slider::-webkit-slider-thumb {

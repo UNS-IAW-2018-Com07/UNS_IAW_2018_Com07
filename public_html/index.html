@@ -14,6 +14,8 @@ and open the template in the editor.
 
         <!-- Multiselect Checkbox -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+        <!-- Star icon --> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- Estilos propios CSS -->
         <link href="css/estilo.css" rel="stylesheet">
@@ -38,7 +40,9 @@ and open the template in the editor.
                     <div class="col-lg-6"> <button type="button" class="btn btn-default btnOscuro">Iniciar sesión</button> </div>
                     <div class="col-lg-6">
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default dropdown-toggle btnOscuro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Estilos </button>
+                            <button type="button" class="btn dropdown-toggle btnOscuro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                Estilos <span class="caret"></span>
+                            </button>
                             <ul id="seleccionarEstilo" class="dropdown-menu muyClaro">
                                 <li><a onClick="cambiarEstilo('css/estiloRosa.css')" class="muyClaro" >Rosa</a></li> 
                                 <li class="divider"> </li> 
@@ -49,12 +53,24 @@ and open the template in the editor.
                 </div>
             </div> 
         </nav>
+
         <div id="mapa" class="mapa"></div>
         <div id="botonesMapaListar" class="container-fluid barraMapaListar"> 
             <button id="botonMapa" type="button" class="btn btnOscuro" disabled onClick="ocultarListado();">MAPA</button>
             <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
+            <div id="barraOrdenar" class="ordenar pull-right"> 
+                <p id="ordenarPor" class="letraOrdenar pull-left"> Ordenar por: </p>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        - Seleccionar - <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Precio</a></li>
+                    </ul>
+                </div>
+            </div> 
         </div> 
-        <div id="barraMenu" class="container-fluid barraMenu">
+        <div id="barraMenu" class="container-fluid barraMenu barraMenuMapa">
             <div class="row">
                 <p class="seleccioneBuscar">Seleccione para buscar: <p>
             </div> 
