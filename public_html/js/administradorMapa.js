@@ -44,15 +44,3 @@ function crearUbicacion(direccion, detalle) {
         }
     });
 }
-
-function crearDetalleVivienda(vivienda) {
-    return '<div class="media" style="width: 18em;">' +
-            '<img class="media-left img-fluid" src='+vivienda.imagenes[0]+' alt="Imagen inmueble" width="200">' +
-            '<div class="media-body mediaContainer">' +
-            '<h5 class="card-title">Precio: $'+vivienda.precio+'</h5>' +
-            '<h6 class="card-title">'+vivienda.operacion+' - '+tipoVivienda(vivienda)+'</h6>' +
-            '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
-            '<a href="#" class="btn btnOscuro">Ver más</a>' +
-            '</div>' +
-            '</div>';
-}

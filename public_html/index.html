@@ -14,6 +14,8 @@ and open the template in the editor.
 
         <!-- Multiselect Checkbox -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+        <!-- Star icon --> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- Estilos propios CSS -->
         <link href="css/estilo.css" rel="stylesheet">
@@ -49,12 +51,13 @@ and open the template in the editor.
                 </div>
             </div> 
         </nav>
+        
         <div id="mapa" class="mapa"></div>
         <div id="botonesMapaListar" class="container-fluid barraMapaListar"> 
             <button id="botonMapa" type="button" class="btn btnOscuro" disabled onClick="ocultarListado();">MAPA</button>
             <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
         </div> 
-        <div id="barraMenu" class="container-fluid barraMenu">
+        <div id="barraMenu" class="container-fluid barraMenu barraMenuMapa">
             <div class="row">
                 <p class="seleccioneBuscar">Seleccione para buscar: <p>
             </div> 

@@ -6,6 +6,8 @@ function mostrarListado() {
 
     document.getElementById("mapa").style.display = "none";
     document.getElementById("barraListado").style.display = "block";
+    
+    document.getElementById("barraMenu").setAttribute('class','container-fluid barraMenu barraMenuListado'); 
 
     if (listado_creado === false){
         $.get("datos/viviendas.json", function (viviendas) {
@@ -24,5 +26,6 @@ function ocultarListado() {
 
     document.getElementById("barraListado").style.display = "none";
     document.getElementById("mapa").style.display = "block";
+    document.getElementById("barraMenu").setAttribute('class','container-fluid barraMenu barraMenuMapa'); 
 }
 

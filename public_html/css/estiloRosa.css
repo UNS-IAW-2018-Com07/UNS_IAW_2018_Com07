@@ -23,17 +23,23 @@
 }
 
 .barraMapaListar{
-    left: 85%; 
+    left: 31%; 
 }
 
-.barraMenu{
+.barraMenuMapa{
     left:0; 
     right: 80%; 
 }
 
+.barraMenuListado{
+    border-right: 1px solid #dadada; 
+    left:10%; 
+    right: 70%; 
+}
+
 .barraListado{
-    left: 20%; 
-    right: 0;
+    left: 30%; 
+    right: 10%;
 }
 
 .btnOscuro {

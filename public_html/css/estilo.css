@@ -76,6 +76,13 @@ div.iconoBox{
     height: 27px; 
 }
 
+.checkedStar{
+    color: orange; 
+}
+
+.mediaContainer{
+    margin-left: 5%; 
+}
 
 
 
@@ -98,8 +105,4 @@ div.iconoBox{
     padding: 3%; 
     border: 1px solid;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.mediaContainer{
-    margin-left: 5%; 
 }
