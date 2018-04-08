@@ -1,0 +1,22 @@
+.barraDetallesVivienda{
+    position: absolute; 
+    top: 53px; 
+    bottom: 0; 
+    z-index: 0; 
+    left: 0;
+    background-color: red; 
+    padding: 15px 15px;
+    right: 35%;
+}
+
+.barraComentarios{
+    position: absolute; 
+    top: 53px; 
+    bottom: 0; 
+    z-index: 1; 
+    right: 0;
+    background-color: black; 
+    padding: 15px 15px;  
+    left:65%; 
+}
+

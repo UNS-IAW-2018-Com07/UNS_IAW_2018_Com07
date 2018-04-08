@@ -12,7 +12,8 @@
             "canDormitorios": 4,
             "descripcion": "Hermosa casa cerca del centro. Buen patio. Ideal para tener un perrito.",
             "imagenes": ["images/LaFalda500/im1.jpg","images/LaFalda500/im2.jpg", "images/LaFalda500/im2.jpg", "images/LaFalda500/im3.jpg"],
-            "propietario": 34236595419
+            "propietario": 34236595419,
+            "id": 1
         },
         {
             "piso": 3,
@@ -29,7 +30,8 @@
             "cantDormitorios": 1,
             "descripcion": "bla bla esta casa es muy genial bla bla vistas bla bla el mejor precio bla bla",
             "imagenes": ["images/Vieytes223/3C/im1.jpg", "images/Vieytes223/3C/im2.jpg"],
-            "propietario": 34236595419
+            "propietario": 34236595419,
+            "id": 2
         },
         {
             "piso": 4,
@@ -46,6 +48,7 @@
             "cantDormitorios": 1,
             "descripcion": "bla bla esta casa es muy genial bla bla vistas bla bla el mejor precio bla bla",
             "imagenes": ["images/Vieytes223/4D/im1.jpg", "images/Vieytes223/4D/im2.jpg"],
-            "propietario": 34236595419
+            "propietario": 34236595419,
+            "id": 3
         }
     ]
