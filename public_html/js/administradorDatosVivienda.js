@@ -15,10 +15,10 @@ function crearDetalleVivienda(vivienda) {
     return '<div class="media" style="width: 35rem;">' +
                 '<div class="media-left media-middle">' +
                     '<img class="media-object" src='+vivienda.imagenes[0]+' alt="Imagen inmueble" width="180px" ></div>' +
-                '<div class="media-body">' +
+                '<div id="marcadorMapa" class="media-body">' +
                     '<h5 class="media-heading">Precio: $'+vivienda.precio+'</h5>' +
                     '<h6 class="media-heading">'+vivienda.operacion+' - '+tipoVivienda(vivienda)+'</h6>' +
-                    crearBarraEstrellas(vivienda) + 
+                    crearBarraEstrellas(vivienda).outerHTML + 
                     '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
                     '<a href="#" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +
                 '</div>' +
@@ -82,6 +82,7 @@ function insertarListaVivienda(vivienda) {
 
 function crearBarraEstrellas(vivienda){
     var estrellas = document.createElement("div");
+    estrellas.setAttribute('id','estrellas');
     var star1 = document.createElement("span");
     var star2 = document.createElement("span");
     var star3 = document.createElement("span");

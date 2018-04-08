@@ -1,7 +1,3 @@
-.muyOscuro {
-    background-color: #19304E;
-}
-
 .oscuro {
     background-color: #0066CC;
 }
@@ -58,7 +54,7 @@
     color: white;
     background-color: #0066CC;
     outline: none !important;
-    box-shadow: 0 0 10px #7dd57d;
+    box-shadow: 0 0 20px #7dd57d;
 }
 
 .slider::-webkit-slider-thumb {

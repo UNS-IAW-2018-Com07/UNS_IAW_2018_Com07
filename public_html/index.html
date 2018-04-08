@@ -40,7 +40,9 @@ and open the template in the editor.
                     <div class="col-lg-6"> <button type="button" class="btn btn-default btnOscuro">Iniciar sesión</button> </div>
                     <div class="col-lg-6">
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default dropdown-toggle btnOscuro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Estilos </button>
+                            <button type="button" class="btn dropdown-toggle btnOscuro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                Estilos <span class="caret"></span>
+                            </button>
                             <ul id="seleccionarEstilo" class="dropdown-menu muyClaro">
                                 <li><a onClick="cambiarEstilo('css/estiloRosa.css')" class="muyClaro" >Rosa</a></li> 
                                 <li class="divider"> </li> 
@@ -51,11 +53,22 @@ and open the template in the editor.
                 </div>
             </div> 
         </nav>
-        
+
         <div id="mapa" class="mapa"></div>
         <div id="botonesMapaListar" class="container-fluid barraMapaListar"> 
             <button id="botonMapa" type="button" class="btn btnOscuro" disabled onClick="ocultarListado();">MAPA</button>
             <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
+            <div id="barraOrdenar" class="ordenar pull-right"> 
+                <p id="ordenarPor" class="letraOrdenar pull-left"> Ordenar por: </p>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        - Seleccionar - <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Precio</a></li>
+                    </ul>
+                </div>
+            </div> 
         </div> 
         <div id="barraMenu" class="container-fluid barraMenu barraMenuMapa">
             <div class="row">
