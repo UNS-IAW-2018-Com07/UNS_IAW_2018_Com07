@@ -1,5 +1,9 @@
 body{
-    display: block; 
+    display: none; 
+}
+
+.margenSuperior{
+    margin-top: 15px;
 }
 
 .barraDetallesVivienda{
@@ -18,7 +22,7 @@ body{
     bottom: 0; 
     z-index: 2; 
     right: 0;
-    background-color: black; 
+    background-color: pink; 
     padding: 15px 15px;  
     left:65%; 
 }

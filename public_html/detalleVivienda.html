@@ -18,7 +18,7 @@ and open the template in the editor.
 
         <title>Detalle Vivienda</title>
     </head>
-    <body id="body-detalleVivienda" class="muyClaro" onload="cargarEstiloLocalStorage('#body-detalleVivienda');">
+    <body class="muyClaro">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid"> 
                 <div class="navbar-header">
@@ -44,6 +44,7 @@ and open the template in the editor.
 
         <div class="barraDetallesVivienda container-fluid">
 
+<<<<<<< HEAD
             <div class="row rowAcotada">
                 <h2 id="tituloVivienda">""</h2>
             </div>
@@ -119,8 +120,16 @@ and open the template in the editor.
 
         </div>
 
-        <div class="barraComentarios">
-
+        <div id="barraComentarios" class="barraComentarios">
+            <ul id="contenedorComentarios" class="list-group">
+                <!-- Se agrega la lista de comentarios dinamicamente --> 
+            </ul>
+            <div class="media">
+                <div class="media-body">
+                    <h5 class="media-heading media-left">Nombre de usuario: </h5>
+                    <h5 class="media-heading media-right"> calificacion </h5> 
+                    <p> Aca va el comentario que hace el usuario </p> 
+            </div> 
         </div>
 
 
