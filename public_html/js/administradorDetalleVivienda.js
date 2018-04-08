@@ -1,15 +1,26 @@
-function cargarDatos() {
-    var id_vivienda = obtenerValorParametro("id");
 
-    if (!(id_vivienda === false)) {
-        var vivienda = obtenerVivienda(id_vivienda);
-        mostrarImagenes(vivienda);
+//Funcion para cargar los datos iniciales de la vivienda seleccionada
 
-    } else {
-        //hubo un error, habria que hacer algo
-    }
-
-}
+$(document).ready(function () {
+    $.get("datos/viviendas.json", function (viviendas) {
+        var id_vivienda = obtenerValorParametro("id");
+        if (id_vivienda) {
+            var i = 0;
+            var encontre = false;
+            var length = viviendas.length;
+            while (i < length && !encontre) {
+                if (parseInt(viviendas[i].id) === parseInt(id_vivienda)) {
+                    mostrarImagenes(viviendas[i]);
+                    encontre = true;
+                } else
+                    i++;
+            }
+        }
+        else {
+            alert("No se encontró la vivienda seleccionada."); 
+        }
+    });
+});
 
 function obtenerValorParametro(parametro) {
     var query = window.location.search.substring(1);
@@ -24,5 +35,18 @@ function obtenerValorParametro(parametro) {
 }
 
 function mostrarImagenes(vivienda) {
-    document.getElementById("primerImagen").src=(vivienda.imagenes[0]);
+    var grupoImg = document.getElementById("grupo-imagenes"); 
+    
+    for(var i=0; i<vivienda.imagenes.length; i++){
+        var div = document.createElement("div");
+        div.setAttribute('class','item active'); 
+        
+        var img = document.createElement("img"); 
+        img.setAttribute('id',i); 
+        img.setAttribute('src',vivienda.imagenes[i]); 
+        
+        div.appendChild(img); 
+        grupoImg.appendChild(div); 
+        //document.getElementById("primerImagen").src = (vivienda.imagenes[i]);
+    } 
 }

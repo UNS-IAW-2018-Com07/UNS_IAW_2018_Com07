@@ -18,7 +18,7 @@ and open the template in the editor.
 
         <title>Detalle Vivienda</title>
     </head>
-    <body class="muyClaro" onload="cargarDatos();">
+    <body id="body-detalleVivienda" class="muyClaro" onload="cargarEstiloLocalStorage('#body-detalleVivienda');">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid"> 
                 <div class="navbar-header">
@@ -30,9 +30,9 @@ and open the template in the editor.
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-default dropdown-toggle btnOscuro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Estilos </button>
                             <ul id="seleccionarEstilo" class="dropdown-menu muyClaro">
-                                <li><a onClick="cambiarEstilo('css/estiloRosa.css')" class="muyClaro" >Rosa</a></li> 
+                                <li><a onClick="cambiarEstilo('css/estiloRosa.css'); modificarEstiloLocalStorage()" class="muyClaro" >Rosa</a></li> 
                                 <li class="divider"> </li> 
-                                <li><a onClick="cambiarEstilo('css/estiloAzul.css')" class="muyClaro" >Azul</a></li> 
+                                <li><a onClick="cambiarEstilo('css/estiloAzul.css'); modificarEstiloLocalStorage()" class="muyClaro" >Azul</a></li> 
                             </ul>
                         </div>                       
                     </div>
@@ -50,11 +50,11 @@ and open the template in the editor.
                 </ol>
 
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner">
+                <div id="grupo-imagenes" class="carousel-inner">
                     
-                    <div class="item active">
+<!--                    <div class="item active">
                         <img id="primerImagen" src="" alt="">
-                    </div>
+                    </div>-->
                     
                     <!-- agregar un div por cada imagen que querramos añadir --> 
                     
@@ -85,6 +85,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/administradorEstilos.js"></script>
         <script type="text/javascript" src="js/administradorDatosVivienda.js"></script>
         <script type="text/javascript" src="js/administradorDetalleVivienda.js"></script>
+        <script type="text/javascript" src="js/localStorageEstilo.js"></script>
 
         <script src="js/boostrap/bootstrap.min.js"></script>
 

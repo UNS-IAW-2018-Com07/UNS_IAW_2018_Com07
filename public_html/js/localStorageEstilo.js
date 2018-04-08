@@ -6,12 +6,12 @@ function modificarEstiloLocalStorage(){
     }
 }
 
-function cargarEstiloLocalStorage(){
+function cargarEstiloLocalStorage(id){
     if (typeof (localStorage) !== "undefined") {
         if(localStorage.getItem('estilo') !== null){
             document.getElementById("linkEstilo").href = localStorage.getItem('estilo'); 
         }
     } 
-    $('body').show();
+    $(id).show();
 }
 

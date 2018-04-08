@@ -1,3 +1,7 @@
+body{
+    display: block; 
+}
+
 .barraDetallesVivienda{
     position: absolute; 
     top: 53px; 

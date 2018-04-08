@@ -1,22 +1,3 @@
-var seleccionada;
-
-function obtenerVivienda(id_vivienda) {
-    $.get("datos/viviendas.json", function (viviendas) {
-        var i=0;
-        var encontre=false;
-        var length = viviendas.length;
-        while (i < length && !encontre) {
-            if (viviendas[i].id === id_vivienda){
-                console.log(viviendas[i]);
-                seleccionada=viviendas[i];
-                encontre=true;
-            }
-            else
-                i++;
-        }
-    });
-}
-
 function tipoVivienda(vivienda) {
     var tipo;
     if (vivienda.hasOwnProperty("piso")) {

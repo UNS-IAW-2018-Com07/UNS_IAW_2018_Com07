@@ -24,7 +24,7 @@ and open the template in the editor.
 
         <title>Inicio</title>
     </head>
-    <body class="muyClaro" onload="actualizarPreciosRango(); cargarEstiloLocalStorage();">
+    <body id="body-index" class="muyClaro" onload="actualizarPreciosRango(); cargarEstiloLocalStorage('#body-index');">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid"> 
                 <div class="navbar-header">
@@ -162,7 +162,7 @@ and open the template in the editor.
 
         <div id="barraListado" class="container-fluid barraListado">
             <ul id="contenedorListado" class="list-group">
-                <!-- Aca se agrega la lista de viviendas, se agrega dinamicamente --> 
+                <!-- Se agrega la lista de viviendas dinamicamente --> 
             </ul>
         </div> 
                
