@@ -77,25 +77,39 @@ and open the template in the editor.
                 <!-- Se agrega la lista de comentarios dinamicamente --> 
             </ul>
             <div class="media">
-                <div class="media-body">
-                    <h5 class="media-heading media-left">Nombre de usuario: </h5>
-                    <h5 class="media-heading media-right"> calificacion </h5> 
-                    <p> Aca va el comentario que hace el usuario </p> 
+                <div class="media-body"> 
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Nombre de usuario: </span>
+                        <input type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1">
+                    </div>
+                    <div> 
+                        <textarea class="form-control" placeholder="Escriba su comentario" rows="5"></textarea>
+                    </div> 
+                    <button class="btn btnOscuro">Comentar</button> 
+                </div>
             </div> 
-        </div>
+            <div class="media">
+                <div class="media-left">
+                    <h5> Nombre de usuario: </h5></div>
+                <div class="media-body">
+                    <h5 class="media-heading media-left"> calificacion </h5> 
+                    <h5 class="media-heading media-right"> fecha </h5> 
+                    <p> Aca va el comentario que hace el usuario </p> 
+                </div> 
+            </div>
 
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Bootstrap JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Bootstrap JS -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-        <!-- misJS JS -->
-        <script type="text/javascript" src="js/administradorEstilos.js"></script>
-        <script type="text/javascript" src="js/administradorDatosVivienda.js"></script>
-        <script type="text/javascript" src="js/administradorDetalleVivienda.js"></script>
-        <script type="text/javascript" src="js/localStorageEstilo.js"></script>
+            <!-- misJS JS -->
+            <script type="text/javascript" src="js/administradorEstilos.js"></script>
+            <script type="text/javascript" src="js/administradorDatosVivienda.js"></script>
+            <script type="text/javascript" src="js/administradorDetalleVivienda.js"></script>
+            <script type="text/javascript" src="js/localStorageEstilo.js"></script>
 
-        <script src="js/boostrap/bootstrap.min.js"></script>
+            <script src="js/boostrap/bootstrap.min.js"></script>
 
     </body>
 </html>
