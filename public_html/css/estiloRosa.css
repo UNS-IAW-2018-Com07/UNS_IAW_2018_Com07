@@ -64,3 +64,7 @@
 .slider::-moz-range-thumb {
     background: #e9614c;
 }
+
+.divDescripcion{
+    border-color: #c4445a;
+}
