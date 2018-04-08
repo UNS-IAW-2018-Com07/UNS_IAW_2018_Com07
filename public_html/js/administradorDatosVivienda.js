@@ -1,3 +1,22 @@
+var seleccionada;
+
+function obtenerVivienda(id_vivienda) {
+    $.get("datos/viviendas.json", function (viviendas) {
+        var i=0;
+        var encontre=false;
+        var length = viviendas.length;
+        while (i < length && !encontre) {
+            if (viviendas[i].id === id_vivienda){
+                console.log(viviendas[i]);
+                seleccionada=viviendas[i];
+                encontre=true;
+            }
+            else
+                i++;
+        }
+    });
+}
+
 function tipoVivienda(vivienda) {
     var tipo;
     if (vivienda.hasOwnProperty("piso")) {
@@ -20,7 +39,7 @@ function crearDetalleVivienda(vivienda) {
                     '<h6 class="media-heading">'+vivienda.operacion+' - '+tipoVivienda(vivienda)+'</h6>' +
                     crearBarraEstrellas(vivienda).outerHTML + 
                     '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
-                    '<a href="#" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +
+                    '<a href="detalleVivienda.html?id=' + vivienda.id + '" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +
                 '</div>' +
             '</div>';
 }
@@ -61,7 +80,7 @@ function insertarListaVivienda(vivienda) {
 
     var a = document.createElement("a");
     a.setAttribute('class', 'btn btnOscuro');
-    a.setAttribute('href', '#');
+    a.setAttribute('href', 'detalleVivienda.html?id=' + vivienda.id);
     var texto_a = document.createTextNode('Ver más');
     a.appendChild(texto_a);
 
