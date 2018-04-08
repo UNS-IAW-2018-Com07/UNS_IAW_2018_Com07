@@ -18,7 +18,7 @@ function crearDetalleVivienda(vivienda) {
                 '<div id="marcadorMapa" class="media-body">' +
                     '<h5 class="media-heading">Precio: $'+vivienda.precio+'</h5>' +
                     '<h6 class="media-heading">'+vivienda.operacion+' - '+tipoVivienda(vivienda)+'</h6>' +
-                    crearBarraEstrellas(vivienda).outerHTML + 
+                    crearBarraEstrellas(calcularEstrellasVivienda(vivienda)).outerHTML + 
                     '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
                     '<a href="detalleVivienda.html?id=' + vivienda.id + '" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +
                 '</div>' +
@@ -64,12 +64,12 @@ function insertarListaVivienda(vivienda) {
     a.setAttribute('href', 'detalleVivienda.html?id=' + vivienda.id);
     var texto_a = document.createTextNode('Ver más');
     a.appendChild(texto_a);
-
+        
     div_col1.appendChild(img);
 
     div_col2.appendChild(h5);
     div_col2.appendChild(h6);
-    div_col2.appendChild(crearBarraEstrellas(vivienda));
+    div_col2.appendChild(crearBarraEstrellas(calcularEstrellasVivienda(vivienda)));
     div_col2.appendChild(p);
     div_col2.appendChild(a);
 
@@ -80,9 +80,8 @@ function insertarListaVivienda(vivienda) {
     document.getElementById("contenedorListado").appendChild(li);
 }
 
-function crearBarraEstrellas(vivienda){
+function crearBarraEstrellas(cantEstrellas){
     var estrellas = document.createElement("div");
-    estrellas.setAttribute('id','estrellas');
     var star1 = document.createElement("span");
     var star2 = document.createElement("span");
     var star3 = document.createElement("span");
@@ -93,7 +92,7 @@ function crearBarraEstrellas(vivienda){
     star3.setAttribute('class', 'fa fa-star');
     star2.setAttribute('class', 'fa fa-star');
     star1.setAttribute('class', 'fa fa-star');
-    switch (calcularEstrellasVivienda(vivienda)) {
+    switch (cantEstrellas) {
         case 5:
             star5.setAttribute('class', 'fa fa-star checkedStar');
         case 4:

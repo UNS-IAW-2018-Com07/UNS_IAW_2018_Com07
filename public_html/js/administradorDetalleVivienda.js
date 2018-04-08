@@ -11,6 +11,7 @@ $(document).ready(function () {
             while (i < length && !encontre) {
                 if (parseInt(viviendas[i].id) === parseInt(id_vivienda)) {
                     mostrarImagenes(viviendas[i]);
+                    mostrarComentarioVivienda(viviendas[i]); 
                     encontre = true;
                 } else
                     i++;
