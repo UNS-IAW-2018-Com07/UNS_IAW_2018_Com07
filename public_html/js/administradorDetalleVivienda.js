@@ -10,15 +10,17 @@ $(document).ready(function () {
             var length = viviendas.length;
             while (i < length && !encontre) {
                 if (parseInt(viviendas[i].id) === parseInt(id_vivienda)) {
-                    mostrarImagenes(viviendas[i]);
-                    mostrarComentarioVivienda(viviendas[i]); 
                     encontre = true;
                 } else
                     i++;
             }
-        }
-        else {
-            alert("No se encontró la vivienda seleccionada."); 
+            mostrarImagenes(viviendas[i]);
+            mostrarTitulo(viviendas[i]);
+            actualizarAtributos(viviendas[i]);
+            mostrarDescripcion(viviendas[i]);
+            mostrarComentarioVivienda(id_vivienda); 
+        } else {
+            alert("No se encontró la vivienda seleccionada.");
         }
     });
 });
@@ -36,18 +38,59 @@ function obtenerValorParametro(parametro) {
 }
 
 function mostrarImagenes(vivienda) {
-    var grupoImg = document.getElementById("grupo-imagenes"); 
-    
-    for(var i=0; i<vivienda.imagenes.length; i++){
+
+    var div0 = document.createElement("div");
+    div0.setAttribute('class', 'item active');
+
+    var img0 = document.createElement("img");
+    img0.setAttribute('src', vivienda.imagenes[0]);
+    img0.setAttribute('alt', 'Imagen 0 de la vivienda');
+
+    div0.appendChild(img0);
+    document.getElementById("grupo-imagenes").appendChild(div0);
+
+    var li0 = document.createElement("li");
+    li0.setAttribute('data-target', '#myCarousel');
+    li0.setAttribute('data-slide-to', 0);
+    li0.setAttribute('class', 'active');
+
+    document.getElementById("grupo-links").appendChild(li0);
+
+    for (var i = 1; i < vivienda.imagenes.length; i++) {
         var div = document.createElement("div");
-        div.setAttribute('class','item active'); 
-        
-        var img = document.createElement("img"); 
-        img.setAttribute('id',i); 
-        img.setAttribute('src',vivienda.imagenes[i]); 
-        
-        div.appendChild(img); 
-        grupoImg.appendChild(div); 
-        //document.getElementById("primerImagen").src = (vivienda.imagenes[i]);
-    } 
+        div.setAttribute('class', 'item');
+
+        var img = document.createElement("img");
+        img.setAttribute('src', vivienda.imagenes[i]);
+        img.setAttribute('alt', 'Imagen ' + i + ' de la vivienda');
+
+        div.appendChild(img);
+        document.getElementById("grupo-imagenes").appendChild(div);
+
+
+        var li = document.createElement("li");
+        li.setAttribute('data-target', '#myCarousel');
+        li.setAttribute('data-slide-to', i);
+
+        document.getElementById("grupo-links").appendChild(li);
+    }
+}
+function mostrarTitulo(vivienda) {
+    document.getElementById("tituloVivienda").innerHTML = vivienda.operacion + ' - ' + tipoVivienda(vivienda);
+    document.getElementById("direccionVivienda").innerHTML = direccionCompleta(vivienda);
+    document.getElementById("precio").innerHTML = "Precio: $"+vivienda.precio;
+}
+
+function actualizarAtributos(vivienda) {
+    document.getElementById("compartido").innerHTML = vivienda.compartido;
+    document.getElementById("ambientes").innerHTML = vivienda.cantAmbientes;
+    document.getElementById("banios").innerHTML = vivienda.cantBanios;
+    document.getElementById("dormitorios").innerHTML = vivienda.cantDormitorios;
+    document.getElementById("cocheras").innerHTML = vivienda.cantCocheras;
+    document.getElementById("antiguedad").innerHTML = getAntiguedad(vivienda);
+    document.getElementById("superficie").innerHTML = vivienda.metrosCuadrados;
+}
+
+function mostrarDescripcion(vivienda){
+        document.getElementById("contenedorDescripcion").innerHTML = vivienda.descripcion;
 }

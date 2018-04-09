@@ -1,3 +1,9 @@
+function getAntiguedad(vivienda){
+    var fecha = new Date();
+    var anio = fecha.getFullYear();
+    return anio - vivienda.anioConstruccion;
+}
+
 function tipoVivienda(vivienda) {
     var tipo;
     if (vivienda.hasOwnProperty("piso")) {
@@ -9,6 +15,17 @@ function tipoVivienda(vivienda) {
         tipo = tipo + " compartido";
     }
     return tipo;
+}
+
+function direccionCompleta(vivienda){
+    var direccion = vivienda.direccion;
+    if(vivienda.hasOwnProperty("piso")){
+        direccion= direccion + " - " + vivienda.piso;
+        if(vivienda.hasOwnProperty("numeroDepto"))
+        direccion= direccion + vivienda.numeroDepto;
+    }
+    
+    return direccion;
 }
 
 function crearDetalleVivienda(vivienda) {
@@ -56,7 +73,7 @@ function insertarListaVivienda(vivienda) {
 
     var p = document.createElement("p");
     p.setAttribute('class', 'card-text');
-    var texto_p = document.createTextNode('Direccion: ' + vivienda.direccion);
+    var texto_p = document.createTextNode('Direccion: ' + direccionCompleta(vivienda));
     p.appendChild(texto_p);
 
     var a = document.createElement("a");

@@ -11,9 +11,11 @@ and open the template in the editor.
 
         <!-- Bootstrap CSS -->
         <link href="css/Bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
 
         <!-- Estilos propios CSS -->
         <link href="css/estiloDetalleVivienda.css" rel="stylesheet">
+        <link href="css/rateBar.css" rel="stylesheet">
         <link id="linkEstilo" href="css/estiloRosa.css" rel="stylesheet">
 
         <title>Detalle Vivienda</title>
@@ -28,7 +30,9 @@ and open the template in the editor.
                     <div class="col-lg-6"> <button type="button" class="btn btn-default btnOscuro">Iniciar sesión</button> </div>
                     <div class="col-lg-6">
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default dropdown-toggle btnOscuro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Estilos </button>
+                            <button type="button" class="btn dropdown-toggle btnOscuro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                Estilos <span class="caret"></span>
+                            </button>
                             <ul id="seleccionarEstilo" class="dropdown-menu muyClaro">
                                 <li><a onClick="cambiarEstilo('css/estiloRosa.css'); modificarEstiloLocalStorage()" class="muyClaro" >Rosa</a></li> 
                                 <li class="divider"> </li> 
@@ -40,76 +44,122 @@ and open the template in the editor.
             </div> 
         </nav>
 
+        <div class="barraDetallesVivienda container-fluid">
+            <div class="row rowAcotada">
+                <h2 id="tituloVivienda">""</h2>
+            </div>
+            <div class="row rowAcotada">
+                <h3 id="direccionVivienda" class="col-lg-7">""</h3>
+                <h3 id="precio" class="col-lg-5">""</h3>
+            </div>
 
-        <div class="barraDetallesVivienda">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <!-- agregar un li por cada imagen que querramos añadir -->
-                </ol>
+            <div class="row margenSuperior">
+                <div id="myCarousel" class="carousel slide col-lg-6" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol id="grupo-links" class="carousel-indicators">
+                        <!-- agregar un li por cada imagen que querramos añadir -->
+                    </ol>
 
-                <!-- Wrapper for slides -->
-                <div id="grupo-imagenes" class="carousel-inner">
+                    <!-- Wrapper for slides -->
+                    <div id="grupo-imagenes" class="carousel-inner">
+                        <!-- agregar un div por cada imagen que querramos añadir --> 
+                    </div>
 
-                    <!--                    <div class="item active">
-                                            <img id="primerImagen" src="" alt="">
-                                        </div>-->
-
-                    <!-- agregar un div por cada imagen que querramos añadir --> 
-
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
 
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <div class="col-lg-6 listado">
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span id="compartido" class="badge oscuro"></span>
+                            Compartido
+                        <li class="list-group-item">
+                            <span id="ambientes" class="badge oscuro"></span>
+                            Ambientes
+                        </li>
+                        <li class="list-group-item">
+                            <span id="banios" class="badge oscuro"></span>
+                            Baños
+                        </li>
+                        <li class="list-group-item">
+                            <span id="dormitorios" class="badge oscuro"></span>
+                            Dormitorios
+                        </li>
+                        <li class="list-group-item">
+                            <span id="cocheras" class="badge oscuro"></span>
+                            Cocheras
+                        </li>
+                        <li class="list-group-item">
+                            <span id="antiguedad" class="badge oscuro"></span>
+                            Antigüedad (años)
+                        </li>
+                        <li class="list-group-item">
+                            <span id="superficie" class="badge oscuro"></span>
+                            Superficie (m²)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h4 class="hDescripcion">Descripción de la vivienda: </h4>
+            <div class="divDescripcion">
+                <p id="contenedorDescripcion" class="contenedorDescripcion"></p> 
             </div>
         </div>
 
-        <div id="barraComentarios" class="barraComentarios">
+        <div id="barraComentarios" class="container-fluid barraComentarios">
             <ul id="contenedorComentarios" class="list-group">
                 <!-- Se agrega la lista de comentarios dinamicamente --> 
             </ul>
             <div class="media">
-                <div class="media-body"> 
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Nombre de usuario: </span>
-                        <input type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1">
-                    </div>
-                    <div> 
-                        <textarea class="form-control" placeholder="Escriba su comentario" rows="5"></textarea>
+                <div class="media-body media-comentario"> 
+                    <div class="row"> <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">Nombre de usuario: </span>
+                            <input id="nombreUsuario" type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1">
+                        </div></div> 
+                    <div class="row ">
+                        <p class="pull-left" style="padding-top: 10px; padding-left: 5px;">Calificacion: </p> 
+                        <fieldset id="starRate" class="rating pull-right">
+                            <input type="radio" id="estrella5" name="rating" value="5" /><label for="estrella5" title="Excelente - 5 estrellas"></label>
+                            <input type="radio" id="estrella4media" name="rating" value="4 y media" /><label class="half" for="estrella4media" title="Muy bueno - 4.5 estrellas"></label>
+                            <input type="radio" id="estrella4" name="rating" value="4" /><label for="estrella4" title="Muy Bueno - 4 estrellas"></label>
+                            <input type="radio" id="estrella3media" name="rating" value="3 y media" /><label class="half" for="estrella3media" title="Bueno - 3.5 estrellas"></label>
+                            <input type="radio" id="estrella3" name="rating" value="3" /><label for="estrella3" title="Bueno - 3 estrellas"></label>
+                            <input type="radio" id="estrella2media" name="rating" value="2 y media" /><label class="half" for="estrella2media" title="Regular - 2.5 estrellas"></label>
+                            <input type="radio" id="estrella2" name="rating" value="2" /><label for="estrella2" title="Malo - 2 estrellas"></label>
+                            <input type="radio" id="estrella1media" name="rating" value="1 y media" /><label class="half" for="estrella1media" title="Malo - 1.5 estrellas"></label>
+                            <input type="radio" id="estrella1" name="rating" value="1" /><label for="estrella1" title="Horrible - 1 estrellas"></label>
+                            <input type="radio" id="estrellamedia" name="rating" value="media" /><label class="half" for="estrellamedia" title="Horrible - 0.5 estrellas"></label>
+                        </fieldset>
                     </div> 
-                    <button class="btn btnOscuro">Comentar</button> 
+                    <div class="row"> <div> 
+                            <textarea id="textComentario" class="form-control" placeholder="Escriba su comentario..." rows="5"></textarea>
+                        </div></div> 
+                    <div class="row margenSuperior"> <button class="btn btnOscuro" onclick="agregarComentarioVivienda()">Comentar</button> </div> 
                 </div>
             </div> 
-            <div class="media">
-                <div class="media-left">
-                    <h5> Nombre de usuario: </h5></div>
-                <div class="media-body">
-                    <h5 class="media-heading media-left"> calificacion </h5> 
-                    <h5 class="media-heading media-right"> fecha </h5> 
-                    <p> Aca va el comentario que hace el usuario </p> 
-                </div> 
-            </div>
+        </div> 
 
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Bootstrap JS -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- misJS JS -->
+        <script type="text/javascript" src="js/administradorEstilos.js"></script>
+        <script type="text/javascript" src="js/administradorDatosVivienda.js"></script>
+        <script type="text/javascript" src="js/administradorDetalleVivienda.js"></script>
+        <script type="text/javascript" src="js/administradorComentarios.js"></script>
+        <script type="text/javascript" src="js/localStorageEstilo.js"></script>
 
-            <!-- misJS JS -->
-            <script type="text/javascript" src="js/administradorEstilos.js"></script>
-            <script type="text/javascript" src="js/administradorDatosVivienda.js"></script>
-            <script type="text/javascript" src="js/administradorDetalleVivienda.js"></script>
-            <script type="text/javascript" src="js/localStorageEstilo.js"></script>
-
-            <script src="js/boostrap/bootstrap.min.js"></script>
+        <script src="js/boostrap/bootstrap.min.js"></script>
 
     </body>
 </html>

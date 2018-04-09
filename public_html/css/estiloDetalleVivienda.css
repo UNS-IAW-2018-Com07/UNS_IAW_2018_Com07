@@ -2,17 +2,22 @@ body{
     display: none; 
 }
 
+.media-comentario{
+    padding: 20px 20px; 
+    align-content: center; 
+    background-color: white; 
+}
+
 .margenSuperior{
     margin-top: 15px;
 }
 
 .barraDetallesVivienda{
     position: absolute; 
-    top: 53px; 
+    top:23px;; 
     bottom: 0; 
     z-index: 0; 
-    left: 0;
-    background-color: red; 
+    left: 5%;
     padding: 15px 15px;
     right: 35%;
 }
@@ -21,10 +26,49 @@ body{
     position: absolute; 
     top: 53px; 
     bottom: 0; 
-    z-index: 1; 
+    z-index: 2; 
     right: 0;
     background-color: pink; 
     padding: 15px 15px;  
     left:65%; 
 }
 
+.divDescripcion{
+    position: absolute; 
+    top:75%; 
+    bottom: 5%; 
+    z-index: 10; 
+    left: 55%;
+    right: 5%;
+    overflow-y: scroll; 
+    border-width: 2px; 
+    border: solid;
+}
+
+.hDescripcion{
+    position: absolute; 
+    top:70%; 
+    bottom: 20%; 
+    z-index: 10; 
+    left: 55%;
+    right: 5%;
+}
+
+.contenedorDescripcion{
+    padding: 5px 5px 5px 5px;
+}
+
+.rowAcotada{
+    height: 30px; 
+    padding-left: 10px;
+}
+
+.listado{ 
+    left: 7%;
+    margin-top: 2%;
+}
+
+.list-group-item{
+    width: 250px;
+    height: 35px;
+}
