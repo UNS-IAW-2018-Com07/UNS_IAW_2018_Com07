@@ -121,8 +121,7 @@ function crearComentario(comentario) {
     divEstrellas.setAttribute('class', 'media-heading text-align-right');
 
     var p2 = document.createElement("p");
-    var texto_p2 = document.createTextNode((comentario.texto).replace(/\\n/g,'\n'));
-    p2.appendChild(texto_p2);
+    p2.innerHTML=((comentario.texto).replace(/\n/g,'<br>'));
 
     div_col1.appendChild(h5);
 
