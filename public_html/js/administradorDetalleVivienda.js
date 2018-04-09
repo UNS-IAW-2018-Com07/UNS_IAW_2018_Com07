@@ -4,6 +4,7 @@
 $(document).ready(function () {
     $.get("datos/viviendas.json", function (viviendas) {
         var id_vivienda = obtenerValorParametro("id");
+        
         if (id_vivienda) {
             var i = 0;
             var encontre = false;
@@ -14,10 +15,12 @@ $(document).ready(function () {
                 } else
                     i++;
             }
+
             mostrarImagenes(viviendas[i]);
             mostrarTitulo(viviendas[i]);
             actualizarAtributos(viviendas[i]);
             mostrarDescripcion(viviendas[i]);
+            cargarDatosContacto(viviendas[i]);
         } else {
             alert("No se encontró la vivienda seleccionada.");
         }
@@ -91,5 +94,23 @@ function actualizarAtributos(vivienda) {
 }
 
 function mostrarDescripcion(vivienda){
-        document.getElementById("contenedorDescripcion").innerHTML = vivienda.descripcion;
+    document.getElementById("contenedorDescripcion").innerHTML = vivienda.descripcion;
+}
+
+function cargarDatosContacto(vivienda){
+    var cuit=vivienda.propietario;
+     $.get("datos/propietarios.json", function (propietarios) {
+            var i=0;
+            var encontre = false;
+            var length = propietarios.length;
+            while (i < length && !encontre) {
+                if (parseInt(propietarios[i].cuit) === parseInt(cuit)) {
+                    encontre = true;
+                } else
+                    i++;
+            }
+            document.getElementById("nombreContacto").innerHTML='Nombre:   '+propietarios[i].nombre;
+            document.getElementById("mailContacto").innerHTML='Mail:     '+propietarios[i].correoElectronico;
+            document.getElementById("telefonoContacto").innerHTML='Telefono: '+propietarios[i].telefono;
+    });
 }
