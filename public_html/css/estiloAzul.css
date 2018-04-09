@@ -68,3 +68,14 @@
 .divDescripcion{
     border-color: #0066CC;
 }
+
+.barraComentarios{
+    left: 10%;
+    right: 55%; 
+    border-right: 1px solid #dadada; 
+}
+
+.barraDetallesVivienda{
+    left: 45%;
+    right: 10%;
+}

@@ -5,6 +5,7 @@ function agregarComentarioVivienda() {
         var fecha = (new Date()).toDateString();
         var vivienda = obtenerValorParametro("id");
         var comentario = document.getElementById('textComentario').value;
+        comentario = comentario.replace(/(\n)+/g,'\\n'); 
 
         var objeto = '{'
                 + '"usuario" : "' + usuario + '", '
@@ -120,7 +121,7 @@ function crearComentario(comentario) {
     divEstrellas.setAttribute('class', 'media-heading text-align-right');
 
     var p2 = document.createElement("p");
-    var texto_p2 = document.createTextNode(comentario.texto);
+    var texto_p2 = document.createTextNode((comentario.texto).replace(/\\n/g,'\n'));
     p2.appendChild(texto_p2);
 
     div_col1.appendChild(h5);
