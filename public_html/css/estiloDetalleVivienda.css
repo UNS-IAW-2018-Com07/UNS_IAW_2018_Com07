@@ -2,6 +2,15 @@ body{
     display: none; 
 }
 
+#grupo-imagenes{
+    height: 300px; 
+    width: 300px; 
+}
+
+.carousel-inner > .item > img {
+    margin: auto;
+}
+
 .media-comentario{
     padding: 20px 20px; 
     align-content: center; 
@@ -20,12 +29,11 @@ body{
 }
 
 .barraComentarios{
+    height: 100%; 
     position: absolute; 
     top: 53px; 
     bottom: 0; 
-    right: 0;
-    padding: 15px 15px;  
-    left:65%; 
+    padding: 15px 15px;   
 }
 
 .divDescripcion{
