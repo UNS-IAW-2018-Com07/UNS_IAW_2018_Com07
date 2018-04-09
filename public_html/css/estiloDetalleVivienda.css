@@ -64,7 +64,7 @@ body{
     margin-top: 2%;
 }
 
-.list-group-item{
+.list-group-listado{
     width: 250px;
     height: 35px;
 }
@@ -73,4 +73,12 @@ body{
     position: absolute; 
     top: 90%; 
     left: 17%;
+}
+
+.checkedStar{
+    color: orange; 
+}
+
+.text-align-right{
+    text-align: right;  
 }

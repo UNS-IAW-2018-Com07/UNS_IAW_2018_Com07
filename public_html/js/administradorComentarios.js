@@ -1,37 +1,34 @@
 function agregarComentarioVivienda() {
-    if (typeof (localStorage) !== "undefined") {       
+    if (typeof (localStorage) !== "undefined") {
         var usuario = document.getElementById('nombreUsuario').value;
         var calificacion = obtenerCalificacion();
-        var fecha = new Date(); 
+        var fecha = (new Date()).toDateString();
         var vivienda = obtenerValorParametro("id");
         var comentario = document.getElementById('textComentario').value;
-        
-        alert(comentario); 
-        
+
         var objeto = '{'
-                +'"usuario" : "'+usuario+'", '
-                +'"calificacion" : '+calificacion+', '
-                +'"fecha" : "'+fecha+'", '
-                +'"texto" : "'+comentario+'"}'; 
-        
-        var elemento = JSON.parse(objeto); 
-        
-        arregloComentarios = localStorage.getItem(vivienda); 
-        if(arregloComentarios !== null){
-            arregloComentarios.push(elemento); 
-        }else {
-            arregloComentarios = new Array(elemento);
+                + '"usuario" : "' + usuario + '", '
+                + '"calificacion" : ' + calificacion + ', '
+                + '"fecha" : "' + fecha + '", '
+                + '"texto" : "' + comentario + '"}';
+
+        var resultado = localStorage.getItem(vivienda);
+        var array = null;
+        if (resultado !== undefined) {
+            array = new Set(JSON.parse(resultado));
+            array.add(objeto);
+        } else {
+            array = new Set();
         }
         
-        localStorage.setItem(vivienda,arregloComentarios);
-        crearComentario(elemento); 
-        
-        resetearObjetos(); 
+        localStorage.setItem(vivienda, JSON.stringify(Array.from(array.values())));
+        crearComentario(JSON.parse(objeto));
     }
+    resetearObjetos();
 }
 
 function obtenerCalificacion() {
-    var calificacion = 0; 
+    var calificacion = 0;
     if (document.getElementById('estrella5').checked) {
         calificacion = 5;
     } else {
@@ -67,30 +64,30 @@ function obtenerCalificacion() {
             }
         }
     }
-    
-    return calificacion; 
+
+    return calificacion;
 }
 
-function resetearObjetos(){
-    document.getElementById('nombreUsuario').value = ""; 
-    document.getElementById('textComentario').value = ""; 
-    document.getElementById('estrella5').checked = false; 
-    document.getElementById('estrella4media').checked = false; 
-    document.getElementById('estrella4').checked = false; 
-    document.getElementById('estrella3media').checked = false; 
-    document.getElementById('estrella3').checked = false; 
-    document.getElementById('estrella2media').checked = false; 
-    document.getElementById('estrella2').checked = false; 
-    document.getElementById('estrella1media').checked = false; 
+function resetearObjetos() {
+    document.getElementById('nombreUsuario').value = "";
+    document.getElementById('textComentario').value = "";
+    document.getElementById('estrella5').checked = false;
+    document.getElementById('estrella4media').checked = false;
+    document.getElementById('estrella4').checked = false;
+    document.getElementById('estrella3media').checked = false;
+    document.getElementById('estrella3').checked = false;
+    document.getElementById('estrella2media').checked = false;
+    document.getElementById('estrella2').checked = false;
+    document.getElementById('estrella1media').checked = false;
     document.getElementById('estrella1').checked = false;
 }
 
 function mostrarComentarioVivienda(id_vivienda) {
     if (typeof (localStorage) !== "undefined") {
         if (localStorage.getItem(id_vivienda) !== null) {
-            var comentarios = localStorage.getItem(id_vivienda); 
+            var comentarios = JSON.parse(localStorage.getItem(id_vivienda));
             for (var i = 0; i < comentarios.length; i++) {
-                crearComentario(comentarios[i]);
+                crearComentario(JSON.parse(comentarios[i]));
             }
         }
     }
@@ -99,13 +96,13 @@ function mostrarComentarioVivienda(id_vivienda) {
 function crearComentario(comentario) {
     var li = document.createElement("li");
     li.setAttribute('class', "list-group-item margenSuperior");
-    
+
     var div_row = document.createElement("div");
     div_row.setAttribute('class', 'media');
 
     var div_col1 = document.createElement("div");
-    div_col1.setAttribute('class', 'media-left');
-    
+    div_col1.setAttribute('class', 'media-left media-middle');
+
     var div_col2 = document.createElement("div");
     div_col2.setAttribute('class', 'media-body');
 
@@ -114,22 +111,22 @@ function crearComentario(comentario) {
     var texto_h5 = document.createTextNode(comentario.usuario);
     h5.appendChild(texto_h5);
 
-    var divEstrellas = crearBarraEstrellas(comentario.calificacion);
-    divEstrellas.setAttribute('class', 'media-heading media-left');
-
     var p1 = document.createElement("p");
-    p1.setAttribute('class', 'media-heading media-right');
+    p1.setAttribute('class', 'media-heading text-align-right');
     var texto_p1 = document.createTextNode('Fecha de publicación: ' + comentario.fecha);
     p1.appendChild(texto_p1);
+    
+    var divEstrellas = crearBarraEstrellas(parseInt(comentario.calificacion));
+    divEstrellas.setAttribute('class', 'media-heading text-align-right');
 
     var p2 = document.createElement("p");
     var texto_p2 = document.createTextNode(comentario.texto);
     p2.appendChild(texto_p2);
 
     div_col1.appendChild(h5);
-    
+
+     div_col2.appendChild(p1);
     div_col2.appendChild(divEstrellas);
-    div_col2.appendChild(p1);
     div_col2.appendChild(p2);
 
     div_row.appendChild(div_col1);
