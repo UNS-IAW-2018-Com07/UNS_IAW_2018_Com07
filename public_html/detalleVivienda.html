@@ -109,9 +109,35 @@ and open the template in the editor.
                     </ul>
                 </div>
             </div>
+
             <h4 class="hDescripcion">Descripción de la vivienda: </h4>
             <div class="divDescripcion">
                 <p id="contenedorDescripcion" class="contenedorDescripcion"></p> 
+            </div>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg btnOscuro botonContactarse" data-toggle="modal" data-target="#myModal">
+                Contactarse
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Datos contacto</h4>
+                        </div>
+                        <div class="modal-body">
+                                <p id="nombreContacto">""</p>
+                                <p id="mailContacto">""</p>
+                                <p id="telefonoContacto">""</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btnOscuro" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

@@ -15,8 +15,7 @@ body{
 .barraDetallesVivienda{
     position: absolute; 
     top:23px;; 
-    bottom: 0; 
-    z-index: 0; 
+    bottom: 0;  
     left: 5%;
     padding: 15px 15px;
     right: 35%;
@@ -26,7 +25,6 @@ body{
     position: absolute; 
     top: 53px; 
     bottom: 0; 
-    z-index: 2; 
     right: 0;
     background-color: pink; 
     padding: 15px 15px;  
@@ -37,7 +35,6 @@ body{
     position: absolute; 
     top:75%; 
     bottom: 5%; 
-    z-index: 10; 
     left: 55%;
     right: 5%;
     overflow-y: scroll; 
@@ -48,8 +45,7 @@ body{
 .hDescripcion{
     position: absolute; 
     top:70%; 
-    bottom: 20%; 
-    z-index: 10; 
+    bottom: 20%;  
     left: 55%;
     right: 5%;
 }
@@ -71,4 +67,10 @@ body{
 .list-group-item{
     width: 250px;
     height: 35px;
+}
+
+.botonContactarse{
+    position: absolute; 
+    top: 90%; 
+    left: 17%;
 }
