@@ -79,3 +79,12 @@ body{
 .text-align-right{
     text-align: right;  
 }
+
+.comentariosRealizados{
+    max-height: calc(100% - 300px);
+    overflow-y: auto;
+}
+
+
+
+
