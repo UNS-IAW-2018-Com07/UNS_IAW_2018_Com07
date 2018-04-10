@@ -23,8 +23,8 @@
 }
 
 .barraMenuMapa{
-    left:78%; 
-   
+    left:80%;
+    right:0; 
 }
 
 .barraMenuListado{
@@ -72,11 +72,11 @@
 .barraComentarios{
     left: 10%;
     right: 55%; 
+    border-right: 1px solid #dadada;
 }
 
 .barraDetallesVivienda{
-    border-left: 1px solid #dadada; 
-    left: 45%;
+    left: 50%;
     right: 10%;
 }
 

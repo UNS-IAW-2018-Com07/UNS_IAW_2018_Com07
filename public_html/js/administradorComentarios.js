@@ -5,7 +5,7 @@ function agregarComentarioVivienda() {
         var fecha = (new Date()).toDateString();
         var vivienda = obtenerValorParametro("id");
         var comentario = document.getElementById('textComentario').value;
-        comentario = comentario.replace(/(\n)+/g,'\\n'); 
+        comentario = comentario.replace(/(\n)+/g, '\\n');
 
         var objeto = '{'
                 + '"usuario" : "' + usuario + '", '
@@ -21,7 +21,7 @@ function agregarComentarioVivienda() {
         } else {
             array = new Set();
         }
-        
+
         localStorage.setItem(vivienda, JSON.stringify(Array.from(array.values())));
         crearComentario(JSON.parse(objeto));
     }
@@ -56,6 +56,10 @@ function obtenerCalificacion() {
                                 } else {
                                     if (document.getElementById('estrella1').checked) {
                                         calificacion = 1;
+                                    } else {
+                                        if (document.getElementById('estrellamedia').checked) {
+                                            calificacion = 0.5;
+                                        }
                                     }
                                 }
                             }
@@ -81,6 +85,7 @@ function resetearObjetos() {
     document.getElementById('estrella2').checked = false;
     document.getElementById('estrella1media').checked = false;
     document.getElementById('estrella1').checked = false;
+    document.getElementById('estrellamedia').checked = false;
 }
 
 function mostrarComentarioVivienda(id_vivienda) {
@@ -116,16 +121,16 @@ function crearComentario(comentario) {
     p1.setAttribute('class', 'media-heading text-align-right');
     var texto_p1 = document.createTextNode('Fecha de publicación: ' + comentario.fecha);
     p1.appendChild(texto_p1);
-    
+
     var divEstrellas = crearBarraEstrellas(parseInt(comentario.calificacion));
     divEstrellas.setAttribute('class', 'media-heading text-align-right');
 
     var p2 = document.createElement("p");
-    p2.innerHTML=((comentario.texto).replace(/\n/g,'<br>'));
+    p2.innerHTML = ((comentario.texto).replace(/\n/g, '<br>'));
 
     div_col1.appendChild(h5);
 
-     div_col2.appendChild(p1);
+    div_col2.appendChild(p1);
     div_col2.appendChild(divEstrellas);
     div_col2.appendChild(p2);
 

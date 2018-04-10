@@ -48,7 +48,7 @@ and open the template in the editor.
             <div class="row rowAcotada">
                 <h2 id="tituloVivienda">""</h2>
             </div>
-            <div class="row rowAcotada">
+            <div class="row rowAcotada margenSuperior">
                 <h3 id="direccionVivienda" class="col-lg-7">""</h3>
                 <h3 id="precio" class="col-lg-5">""</h3>
             </div>
@@ -77,48 +77,53 @@ and open the template in the editor.
                 </div>
 
                 <div class="col-lg-6 listado">
+                    <div class="row col-lg-12">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-listado">
+                                <span class="badge oscuro"><span id="compartido"></span></span>
+                                Compartido
+                            <li class="list-group-item list-group-listado">
+                                <span id="ambientes" class="badge oscuro"></span>
+                                Ambientes
+                            </li>
+                            <li class="list-group-item list-group-listado">
+                                <span id="banios" class="badge oscuro"></span>
+                                Baños
+                            </li>
+                            <li class="list-group-item list-group-listado">
+                                <span id="dormitorios" class="badge oscuro"></span>
+                                Dormitorios
+                            </li>
+                            <li class="list-group-item list-group-listado">
+                                <span id="cocheras" class="badge oscuro"></span>
+                                Cocheras
+                            </li>
+                            <li class="list-group-item list-group-listado">
+                                <span id="antiguedad" class="badge oscuro"></span>
+                                Antigüedad (años)
+                            </li>
+                            <li class="list-group-item list-group-listado">
+                                <span id="superficie" class="badge oscuro"></span>
+                                Superficie (m²)
+                            </li>
+                        </ul>
+                    </div> 
+                    <div class="row col-lg-12" align="center">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary btnOscuro btnContactarse" data-toggle="modal" data-target="#myModal">
+                            Contactarse
+                        </button>
+                    </div> 
 
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-listado">
-                            <span class="badge oscuro"><span id="compartido"></span></span>
-                            Compartido
-                        <li class="list-group-item list-group-listado">
-                            <span id="ambientes" class="badge oscuro"></span>
-                            Ambientes
-                        </li>
-                        <li class="list-group-item list-group-listado">
-                            <span id="banios" class="badge oscuro"></span>
-                            Baños
-                        </li>
-                        <li class="list-group-item list-group-listado">
-                            <span id="dormitorios" class="badge oscuro"></span>
-                            Dormitorios
-                        </li>
-                        <li class="list-group-item list-group-listado">
-                            <span id="cocheras" class="badge oscuro"></span>
-                            Cocheras
-                        </li>
-                        <li class="list-group-item list-group-listado">
-                            <span id="antiguedad" class="badge oscuro"></span>
-                            Antigüedad (años)
-                        </li>
-                        <li class="list-group-item list-group-listado">
-                            <span id="superficie" class="badge oscuro"></span>
-                            Superficie (m²)
-                        </li>
-                    </ul>
                 </div>
             </div>
 
-            <h4 class="hDescripcion">Descripción de la vivienda: </h4>
-            <div class="divDescripcion">
-                <p id="contenedorDescripcion" class="contenedorDescripcion"></p> 
-            </div>
-
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-lg btnOscuro botonContactarse" data-toggle="modal" data-target="#myModal">
-                Contactarse
-            </button>
+            <div class="row margenSuperior col-lg-12"> 
+                <div class="row col-lg-12"> <h4 class="hDescripcion">Descripción de la vivienda: </h4></div> 
+                <div class="row col-lg-12 divDescripcion">
+                    <p id="contenedorDescripcion" class="contenedorDescripcion"></p> 
+                </div>
+            </div>     
 
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -129,9 +134,9 @@ and open the template in the editor.
                             <h4 class="modal-title" id="myModalLabel">Datos contacto</h4>
                         </div>
                         <div class="modal-body">
-                                <p id="nombreContacto">""</p>
-                                <p id="mailContacto">""</p>
-                                <p id="telefonoContacto">""</p>
+                            <p id="nombreContacto">""</p>
+                            <p id="mailContacto">""</p>
+                            <p id="telefonoContacto">""</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default btnOscuro" data-dismiss="modal">Cerrar</button>

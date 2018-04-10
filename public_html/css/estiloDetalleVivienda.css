@@ -2,6 +2,19 @@ body{
     display: none; 
 }
 
+.carousel-inner{
+    height: 300px; 
+    width: 300px; 
+}
+
+.imagen-carousel{
+    display: block; 
+    vertical-align: middle; 
+    margin: auto;
+    max-height: 300px; 
+    max-width: 300px; 
+}
+
 .media-comentario{
     padding: 20px 20px; 
     align-content: center; 
@@ -20,31 +33,21 @@ body{
 }
 
 .barraComentarios{
+    height: 100%; 
     position: absolute; 
     top: 53px; 
     bottom: 0; 
-    right: 0;
-    padding: 15px 15px;  
-    left:65%; 
+    padding: 15px 15px;   
 }
 
 .divDescripcion{
-    position: absolute; 
-    top:75%; 
-    bottom: 5%; 
-    left: 55%;
-    right: 5%;
-    overflow-y: scroll; 
-    border-width: 2px; 
-    border: solid;
+    max-height: 150px; 
+    overflow-y: auto; 
+    text-align: justify;
 }
 
 .hDescripcion{
-    position: absolute; 
-    top:70%; 
-    bottom: 20%;  
-    left: 55%;
-    right: 5%;
+    text-align: left; 
 }
 
 .contenedorDescripcion{
@@ -66,12 +69,6 @@ body{
     height: 35px;
 }
 
-.botonContactarse{
-    position: absolute; 
-    top: 90%; 
-    left: 17%;
-}
-
 .checkedStar{
     color: orange; 
 }
@@ -83,6 +80,11 @@ body{
 .comentariosRealizados{
     max-height: calc(100% - 300px);
     overflow-y: auto;
+}
+
+.btnContactarse{
+    text-align: center; 
+    width: 70%;
 }
 
 
