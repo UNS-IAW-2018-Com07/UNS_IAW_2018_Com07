@@ -70,8 +70,12 @@ body{
     text-align: right;  
 }
 
+.text-align-justify{
+    text-align: justify; 
+}
+
 .comentariosRealizados{
-    max-height: calc(100% - 300px);
+    max-height: calc(100% - 400px);
     overflow-y: auto;
 }
 

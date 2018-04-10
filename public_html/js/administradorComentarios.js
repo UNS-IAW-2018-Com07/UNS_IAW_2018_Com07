@@ -130,10 +130,10 @@ function crearComentario(comentario) {
     h5.appendChild(texto_h5);
 
     var p2 = document.createElement("p");
+    p2.setAttribute('class','text-align-justify');
     p2.innerHTML = ((comentario.texto).replace(/\n/g, '<br>'));
 
     div_col1.appendChild(img);
-
 
     div_col2.appendChild(p1);  
     div_col2.appendChild(divEstrellas);  
