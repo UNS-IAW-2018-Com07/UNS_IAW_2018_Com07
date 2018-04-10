@@ -20,7 +20,7 @@ and open the template in the editor.
         <!-- Estilos propios CSS -->
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/rangeBar.css" rel="stylesheet">
-        <link id="linkEstilo" href="css/estiloRosa.css" rel="stylesheet">
+        <link data-color="Rosa" id="linkEstilo" href="css/estiloRosa.css" rel="stylesheet">
 
         <title>Inicio</title>
     </head>
@@ -28,7 +28,7 @@ and open the template in the editor.
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid"> 
                 <div class="navbar-header">
-                    <!--<a class="navbar-brand"> <div class="iconoBox iconoPagina"></div> </a>-->
+                     <a class="navbar-brand" href="#"> <img id="imagenLogo" alt="Logo" src="images/llaveRosa.png" class="iconoBox"></a>
                 </div> 
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-inline">
@@ -44,9 +44,9 @@ and open the template in the editor.
                                 Estilos <span class="caret"></span>
                             </button>
                             <ul id="seleccionarEstilo" class="dropdown-menu muyClaro">
-                                <li><a onClick="cambiarEstilo('css/estiloRosa.css'); modificarEstiloLocalStorage()" class="muyClaro" >Rosa</a></li> 
+                                <li><a onClick="cambiarEstilo('Rosa'); modificarEstiloLocalStorage()" class="muyClaro" >Rosa</a></li> 
                                 <li class="divider"> </li> 
-                                <li><a onClick="cambiarEstilo('css/estiloAzul.css'); modificarEstiloLocalStorage()" class="muyClaro" >Azul</a></li> 
+                                <li><a onClick="cambiarEstilo('Azul'); modificarEstiloLocalStorage()" class="muyClaro" >Azul</a></li> 
                             </ul>
                         </div>                       
                     </div>

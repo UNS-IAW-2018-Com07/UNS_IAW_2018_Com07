@@ -1,5 +1,7 @@
 function cambiarEstilo(value){
-    document.getElementById("linkEstilo").href=value;
+    document.getElementById("linkEstilo").setAttribute('data-color',value); 
+    document.getElementById("linkEstilo").href="css/estilo"+value+".css";
+    document.getElementById("imagenLogo").src = 'images/llave'+value+'.png'; 
 }
 
 function showCheckboxes(id) {

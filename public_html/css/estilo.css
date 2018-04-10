@@ -2,7 +2,14 @@ body{
     display:none; 
 }
 
-div.iconoBox{
+.navbar-brand{
+    width: 50px;
+}
+
+.iconoBox{
+    position: absolute; 
+    top: 5px; 
+    left: 10px; 
     background-color: transparent;
     background-repeat: no-repeat; 
     background-position: center center;

@@ -16,7 +16,7 @@ and open the template in the editor.
         <!-- Estilos propios CSS -->
         <link href="css/estiloDetalleVivienda.css" rel="stylesheet">
         <link href="css/rateBar.css" rel="stylesheet">
-        <link id="linkEstilo" href="css/estiloRosa.css" rel="stylesheet">
+        <link data-color="Rosa" id="linkEstilo" href="css/estiloRosa.css" rel="stylesheet">
 
         <title>Detalle Vivienda</title>
     </head>
@@ -24,7 +24,7 @@ and open the template in the editor.
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid"> 
                 <div class="navbar-header">
-                    <!--<a class="navbar-brand"> <div class="iconoBox iconoPagina"></div> </a>-->
+                    <a class="navbar-brand" href="#"> <img class="iconoBox" id="imagenLogo" alt="Logo" src="images/llaveRosa.png"></a>
                 </div> 
                 <div class="navbar-form navbar-right">
                     <div class="col-lg-6"> <button type="button" class="btn btn-default btnOscuro">Iniciar sesión</button> </div>
@@ -34,9 +34,9 @@ and open the template in the editor.
                                 Estilos <span class="caret"></span>
                             </button>
                             <ul id="seleccionarEstilo" class="dropdown-menu muyClaro">
-                                <li><a onClick="cambiarEstilo('css/estiloRosa.css'); modificarEstiloLocalStorage()" class="muyClaro" >Rosa</a></li> 
+                                <li><a onClick="cambiarEstilo('Rosa'); modificarEstiloLocalStorage()" class="muyClaro" >Rosa</a></li> 
                                 <li class="divider"> </li> 
-                                <li><a onClick="cambiarEstilo('css/estiloAzul.css'); modificarEstiloLocalStorage()" class="muyClaro" >Azul</a></li> 
+                                <li><a onClick="cambiarEstilo('Azul'); modificarEstiloLocalStorage()" class="muyClaro" >Azul</a></li> 
                             </ul>
                         </div>                       
                     </div>
@@ -48,12 +48,12 @@ and open the template in the editor.
             <div class="row col-lg-12" align="center">
                 <h2 id="tituloVivienda">""</h2>
             </div>
-            <div class="row col-lg-12 margenSuperior">
-                <div class="col-lg-7 pull-left text-align-left"> <h3 id="direccionVivienda">""</h3> </div> 
-                <div class="col-lg-5 pull-right text-align-right"> <h3 id="precio">""</h3> </div> 
+            <div class="row col-lg-12 rowAcotada">
+                <div class="col-lg-8 pull-left text-align-left"> <p id="direccionVivienda" class="textoDetalleVivienda">""</p> </div> 
+                <div class="col-lg-4 text-align-center"> <p id="precio" class="textoDetalleVivienda">""</p> </div> 
             </div>
 
-            <div class="row col-lg-12 margenSuperior">
+            <div class="row col-lg-12 margenSuperior rowCarousel">
                 <div class="col-lg-8"> 
                     <div id="myCarousel" class="carousel carousel-size" data-ride="carousel">
                         <!-- Indicators -->
@@ -120,7 +120,7 @@ and open the template in the editor.
                 </div>
             </div>
 
-            <div class="row col-lg-12 margenSuperior"> 
+            <div class="row col-lg-12 margenSuperior borderDescripcion"> 
                 <div class="row col-lg-12"> <h4 class="text-align-left">Descripción de la vivienda: </h4></div> 
                 <div class="row col-lg-12 divDescripcion">
                     <p id="contenedorDescripcion" class="contenedorDescripcion"></p> 

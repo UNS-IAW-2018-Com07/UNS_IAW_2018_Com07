@@ -2,9 +2,30 @@ body{
     display: none; 
 }
 
+.navbar-brand{
+    width: 50px;
+}
+
+.iconoBox{
+    position: absolute; 
+    top: 5px; 
+    left: 10px; 
+    background-color: transparent;
+    background-repeat: no-repeat; 
+    background-position: center center;
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px; 
+    float: left; 
+}
+
 .carousel-size{
     max-height: 300px; 
     max-width: 500px; 
+}
+
+.rowCarousel{
+    height: 300px; 
 }
 
 .imagen-carousel{
@@ -31,7 +52,9 @@ body{
     position: absolute; 
     top: 23px;; 
     bottom: 0;  
-    padding: 3% 3%;
+    padding-top: 1.5%; 
+    padding-right: 0%;
+    padding-left: 3%;
 }
 
 .barraComentarios{
@@ -40,6 +63,14 @@ body{
     top: 53px; 
     bottom: 0; 
     padding: 15px 15px;   
+}
+
+.borderDescripcion{
+    border: 1px solid #dadada;
+    padding-top: 1%; 
+    padding-bottom: 3%; 
+    padding-left: 3%; 
+    padding-right: 2%;
 }
 
 .divDescripcion{
@@ -58,6 +89,16 @@ body{
     height: 35px;
 }
 
+.listadoComentario{
+    max-height: 120px;
+    overflow-y: auto; 
+}
+
+.usuarioComentario{
+    margin-left: 10px;
+    margin-right: 10px; 
+}
+
 .checkedStar{
     color: orange; 
 }
@@ -72,6 +113,10 @@ body{
 
 .text-align-justify{
     text-align: justify; 
+}
+
+.text-align-center{
+    text-align: center; 
 }
 
 .comentariosRealizados{
@@ -90,3 +135,12 @@ body{
    height: 49px;
 }
 
+.rowAcotada{
+    margin-top: 0%; 
+    margin-bottom: 0%;
+}
+
+.textoDetalleVivienda{
+    font-size: 1.5em; 
+    margin-bottom: 0%;
+}

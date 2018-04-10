@@ -101,16 +101,22 @@ function mostrarComentarioVivienda(id_vivienda) {
 
 function crearComentario(comentario) {
     var li = document.createElement("li");
-    li.setAttribute('class', "list-group-item margenSuperior");
+    li.setAttribute('class', "list-group-item margenSuperior listadoComentario");
 
     var div_row = document.createElement("div");
     div_row.setAttribute('class', 'media');
 
     var div_col1 = document.createElement("div");
-    div_col1.setAttribute('class', 'media-left media-middle');
+    div_col1.setAttribute('class', 'media-left');
 
     var div_col2 = document.createElement("div");
     div_col2.setAttribute('class', 'media-body');
+      
+    var div_row1 = document.createElement("div"); 
+    div_row1.setAttribute('class', 'row usuarioComentario');
+    
+    var div_row2 = document.createElement("div"); 
+    div_row2.setAttribute('class', 'row');
 
     var img = document.createElement("img");
     img.setAttribute('class', 'media-object imgComentario text-align-left');
@@ -130,15 +136,18 @@ function crearComentario(comentario) {
     h5.appendChild(texto_h5);
 
     var p2 = document.createElement("p");
-    p2.setAttribute('class','text-align-justify');
+    p2.setAttribute('class','text-align-justify col-lg-12');
     p2.innerHTML = ((comentario.texto).replace(/\n/g, '<br>'));
 
     div_col1.appendChild(img);
 
-    div_col2.appendChild(p1);  
-    div_col2.appendChild(divEstrellas);  
-    div_col2.appendChild(h5);
-    div_col2.appendChild(p2);
+    div_row1.appendChild(p1);  
+    div_row1.appendChild(divEstrellas);  
+    div_row1.appendChild(h5);
+    div_row2.appendChild(p2);
+    
+    div_col2.appendChild(div_row1); 
+    div_col2.appendChild(div_row2); 
 
     div_row.appendChild(div_col1);
     div_row.appendChild(div_col2);

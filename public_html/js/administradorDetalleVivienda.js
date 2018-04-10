@@ -81,7 +81,7 @@ function mostrarImagenes(vivienda) {
 }
 function mostrarTitulo(vivienda) {
     document.getElementById("tituloVivienda").innerHTML = vivienda.operacion + ' - ' + tipoVivienda(vivienda);
-    document.getElementById("direccionVivienda").innerHTML = direccionCompleta(vivienda);
+    document.getElementById("direccionVivienda").innerHTML = "Dirección: "+direccionCompleta(vivienda);
     document.getElementById("precio").innerHTML = "Precio: $"+vivienda.precio;
 }
 
