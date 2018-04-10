@@ -112,26 +112,32 @@ function crearComentario(comentario) {
     var div_col2 = document.createElement("div");
     div_col2.setAttribute('class', 'media-body');
 
-    var h5 = document.createElement("h5");
-    h5.setAttribute('class', 'media-heading media-left');
-    var texto_h5 = document.createTextNode(comentario.usuario);
-    h5.appendChild(texto_h5);
+    var img = document.createElement("img");
+    img.setAttribute('class', 'media-object imgComentario text-align-left');
+    img.setAttribute('src','images/imgComentario.png');
 
     var p1 = document.createElement("p");
     p1.setAttribute('class', 'media-heading text-align-right');
     var texto_p1 = document.createTextNode('Fecha de publicación: ' + comentario.fecha);
     p1.appendChild(texto_p1);
-
+    
     var divEstrellas = crearBarraEstrellas(parseInt(comentario.calificacion));
-    divEstrellas.setAttribute('class', 'media-heading text-align-right');
+    divEstrellas.setAttribute('class', 'media-heading pull-right');
+    
+    var h5 = document.createElement("h5");
+    h5.setAttribute('class', 'media-heading pull-left');
+    var texto_h5 = document.createTextNode(comentario.usuario+':');
+    h5.appendChild(texto_h5);
 
     var p2 = document.createElement("p");
     p2.innerHTML = ((comentario.texto).replace(/\n/g, '<br>'));
 
-    div_col1.appendChild(h5);
+    div_col1.appendChild(img);
 
-    div_col2.appendChild(p1);
-    div_col2.appendChild(divEstrellas);
+
+    div_col2.appendChild(p1);  
+    div_col2.appendChild(divEstrellas);  
+    div_col2.appendChild(h5);
     div_col2.appendChild(p2);
 
     div_row.appendChild(div_col1);
