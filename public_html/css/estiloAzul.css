@@ -23,8 +23,8 @@
 }
 
 .barraMenuMapa{
-    left:78%; 
-   
+    left:80%;
+    right:0; 
 }
 
 .barraMenuListado{
@@ -76,7 +76,7 @@
 }
 
 .barraDetallesVivienda{
-    left: 45%;
+    left: 50%;
     right: 10%;
 }
 
