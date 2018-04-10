@@ -84,7 +84,10 @@ function mostrarTitulo(vivienda) {
 }
 
 function actualizarAtributos(vivienda) {
-    document.getElementById("compartido").innerHTML = vivienda.compartido;
+    if(vivienda.compartido)
+        document.getElementById("compartido").setAttribute('class','glyphicon glyphicon-ok');
+    else
+        document.getElementById("compartido").setAttribute('class','glyphicon glyphicon-remove');
     document.getElementById("ambientes").innerHTML = vivienda.cantAmbientes;
     document.getElementById("banios").innerHTML = vivienda.cantBanios;
     document.getElementById("dormitorios").innerHTML = vivienda.cantDormitorios;
