@@ -64,7 +64,7 @@ function mostrarImagenes(vivienda) {
         div.setAttribute('class', 'item');
 
         var img = document.createElement("img");
-        img.setAttribute('class', "img-responsive center-block");
+        img.setAttribute('class', "img-responsive center-block imagen-carousel");
         img.setAttribute('src', vivienda.imagenes[i]);
         img.setAttribute('alt', 'Imagen ' + i + ' de la vivienda');
 

@@ -2,17 +2,19 @@ body{
     display: none; 
 }
 
-.carousel-inner{
-    height: 300px; 
-    width: 300px; 
+.carousel-size{
+    max-height: 300px; 
+    max-width: 500px; 
 }
 
 .imagen-carousel{
-    display: block; 
+    overflow: hidden; 
     vertical-align: middle; 
     margin: auto;
+    width: auto; 
+    height: auto; 
     max-height: 300px; 
-    max-width: 300px; 
+    max-width: 500px; 
 }
 
 .media-comentario{
@@ -27,9 +29,9 @@ body{
 
 .barraDetallesVivienda{
     position: absolute; 
-    top:23px;; 
+    top: 23px;; 
     bottom: 0;  
-    padding: 15px 15px;
+    padding: 3% 3%;
 }
 
 .barraComentarios{
@@ -41,36 +43,27 @@ body{
 }
 
 .divDescripcion{
-    max-height: 150px; 
+    max-height: 100px; 
     overflow-y: auto; 
     text-align: justify;
-}
-
-.hDescripcion{
-    text-align: left; 
 }
 
 .contenedorDescripcion{
     padding: 5px 5px 5px 5px;
 }
 
-.rowAcotada{
-    height: 30px; 
-    padding-left: 10px;
-}
-
-.listado{ 
-    left: 7%;
-    margin-top: 2%;
-}
-
 .list-group-listado{
-    width: 250px;
+    min-width: 25px;
+    width: 100%; 
     height: 35px;
 }
 
 .checkedStar{
     color: orange; 
+}
+
+.text-align-left{
+    text-align: left; 
 }
 
 .text-align-right{
@@ -85,8 +78,8 @@ body{
 .btnContactarse{
     text-align: center; 
     width: 70%;
+    background-color: transparent;
 }
-
 
 
 

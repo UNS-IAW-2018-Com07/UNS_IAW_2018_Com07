@@ -29,7 +29,7 @@
 
 .barraMenuListado{
     border-right: 1px solid #dadada; 
-    left:10%; 
+    left: 10%; 
     right: 70%; 
 }
 
@@ -70,14 +70,14 @@
 }
 
 .barraComentarios{
-    left: 55%;
-    right: 10%;
+    left: 65%;
+    right: 7%;
     border-left: 1px solid #dadada;
 }
 
 .barraDetallesVivienda{ 
-    left: 10%;
-    right: 50%;
+    left: 7%;
+    right: 35%;
 }
 
 ::-webkit-scrollbar-track {
