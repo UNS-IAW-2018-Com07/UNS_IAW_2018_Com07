@@ -124,7 +124,7 @@ function crearComentario(comentario) {
 
     var p1 = document.createElement("p");
     p1.setAttribute('class', 'media-heading text-align-right');
-    var texto_p1 = document.createTextNode('Fecha de publicación: ' + comentario.fecha);
+    var texto_p1 = document.createTextNode(comentario.fecha);
     p1.appendChild(texto_p1);
     
     var divEstrellas = crearBarraEstrellas(parseInt(comentario.calificacion));
