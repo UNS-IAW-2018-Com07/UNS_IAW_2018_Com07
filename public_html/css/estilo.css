@@ -1,5 +1,11 @@
 body{
-    display:none; 
+    display:none;
+    min-width: 1191px; 
+}
+
+.navbar{
+    min-width: 1191px; 
+    max-height: 52px; 
 }
 
 .navbar-brand{
@@ -46,6 +52,7 @@ body{
     position: absolute; 
     height: 100%; 
     min-height: 55em; 
+    min-width: 318px; 
     top: 53px; 
     opacity: 0.98; 
     z-index: 1; 
@@ -99,7 +106,7 @@ body{
 
 .ordenar{
     display: none; 
-    margin-left: 400px; 
+    min-width: 233px; 
 }
 
 .letraOrdenar{

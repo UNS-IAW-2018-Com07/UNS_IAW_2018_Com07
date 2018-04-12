@@ -11,8 +11,8 @@ function tipoVivienda(vivienda) {
     } else {
         tipo = "Casa";
     }
-    if (vivienda.compartida) {
-        tipo = tipo + " compartido";
+    if (vivienda.compartido) {
+        tipo = tipo+" compartido";
     }
     return tipo;
 }
