@@ -14,11 +14,6 @@
     background-color: #FFFFFF;
 }
 
-.cuerpo-pagina{
-    padding-left: 0; 
-    padding-right: 20px; 
-}
-
 .barraMapaListar{
     left: 11%; 
 }
@@ -28,7 +23,7 @@
 }
 
 .barraMenuMapa{
-    float: right; 
+    float: right;    
 }
 
 .barraMenuListado{
