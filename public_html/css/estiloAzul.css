@@ -14,24 +14,30 @@
     background-color: #FFFFFF;
 }
 
+.cuerpo-pagina{
+    padding-left: 0; 
+    padding-right: 20px; 
+}
+
 .barraMapaListar{
     left: 11%; 
 }
 
+.mapa{
+    float: left; 
+}
+
 .barraMenuMapa{
-    left:80%;
-    right:0; 
+    float: right; 
 }
 
 .barraMenuListado{
-    border-left: 1px solid #dadada; 
-    left:70%; 
-    right: 10%; 
+    border-left: 1px solid #dadada;  
+    float: right; 
 }
 
 .barraListado{
-    left: 10%; 
-    right: 30%;
+    float: left; 
 }
 
 .btnOscuro {

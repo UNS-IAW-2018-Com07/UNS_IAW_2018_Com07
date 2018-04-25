@@ -53,119 +53,128 @@ and open the template in the editor.
                 </div>
             </div> 
         </nav>
-
-        <div id="mapa" class="mapa"></div>
-        <div id="botonesMapaListar" class="container-fluid barraMapaListar"> 
-            <button id="botonMapa" type="button" class="btn btnOscuro" disabled onClick="ocultarListado();">MAPA</button>
-            <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
-            <div id="barraOrdenar" class="ordenar pull-right"> 
-                <p id="ordenarPor" class="letraOrdenar pull-left"> Ordenar por: </p>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        - Seleccionar - <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Precio</a></li>
-                    </ul>
+        
+        <div id="cuerpoPagina" class="container-fluid cuerpo-pagina"> 
+            <div class="row">
+                <div id="botonesMapaListar" class="barraMapaListar"> 
+                    <button id="botonMapa" type="button" class="btn btnOscuro" disabled onClick="ocultarListado();">MAPA</button>
+                    <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
+                    <div id="barraOrdenar" class="ordenar pull-right"> 
+                        <p id="ordenarPor" class="letraOrdenar pull-left"> Ordenar por: </p>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                - Seleccionar - <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Precio</a></li>
+                            </ul>
+                        </div>
+                    </div> 
                 </div>
             </div> 
-        </div> 
-        <div id="barraMenu" class="container-fluid barraMenu barraMenuMapa">
-            <div class="row">
-                <p class="seleccioneBuscar">Seleccione para buscar: <p>
-            </div> 
-            <div class="row margenIzquierdo">
-                <div class="row rowAcotada">
-                    <div class="checkbox"> <label for="Alquiler"><input type="checkbox" id="Alquiler" value="Alquiler">Alquiler</label> </div>
-                </div> 
-                <div class="row rowAcotada">
-                    <div class="checkbox"> <label for="Compra"><input type="checkbox" id="Compra" value="Compra">Compra</label> </div>
-                </div> 
-                <div class="row rowAcotada margenSuperior">
-                    <div class="checkbox"> <label for="Departamento"><input type="checkbox" id="Departamento" value="Departamento">Departamento</label> </div>
-                </div> 
-                <div class="row rowAcotada">
-                    <div class="checkbox"><label for="Casa"><input type="checkbox" id="Casa" value="Casa">Casa</label> </div>
-                </div> 
-                <div class="row">
-                    <div class="checkbox"><label for="viviendaCompartida"><input type="checkbox" id="viviendaCompartida" value="Vivienda Compartida">Vivienda Compartida</label> </div>
-                </div> 
-                <div class="row margenSuperior">
-                    <p>Ambientes:</p> 
-                </div> 
-                <div class="row">
-                    <select id="ambienteCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
-                        <option id="1Amb">1</option>
-                        <option id="2Amb">2</option>
-                        <option id="3Amb">3</option>
-                        <option id="4Amb">4</option>
-                        <option id="5Amb">5</option>
-                        <option id="masAmb">más de 5</option>
-                    </select>
-                </div> 
-                <div class="row margenSuperior">
-                    <p>Dormitorios:</p> 
-                </div> 
-                <div class="row">
-                    <select id="dormitoriosCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
-                        <option id="1Dor">1</option>
-                        <option id="2Dor">2</option>
-                        <option id="3Dor">3</option>
-                        <option id="4Dor">4</option>
-                        <option id="5Dor">5</option>
-                        <option id="masDor">más de 5</option>
-                    </select>
-                </div> 
-                <div class="row margenSuperior">
-                    <p>Baños: </p> 
-                </div> 
-                <div class="row">
-                    <select id="banosCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
-                        <option id="1Ban">1</option>
-                        <option id="2Ban">2</option>
-                        <option id="3Ban">3</option>
-                        <option id="masBan">más de 3</option>
-                    </select>
-                </div> 
-                <div class="row margenSuperior">
-                    <p>Cocheras: </p> 
-                </div> 
-                <div class="row">
-                    <select id="cocherasCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
-                        <option id="1Coch">1</option>
-                        <option id="2Coch">2</option>
-                        <option id="masCoch">más de 2</option>
-                    </select>
-                </div> 
-            </div> 
+
             <div class="row"> 
-                <div class="centeredContainer"> 
-                    <p class="precioMaximo">Precio máximo: <span id="idTxt">0</span></p>
+                <div id="barraMenu" class="col-md-2 barraMenu barraMenuMapa">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <p class="withoutMargin">$<span id="minimo"></span></p>
+                        <p class="seleccioneBuscar">Seleccione para buscar: <p>
+                    </div> 
+                    <div class="row margenIzquierdo">
+                        <div class="row rowAcotada">
+                            <div class="checkbox"> <label for="Alquiler"><input type="checkbox" id="Alquiler" value="Alquiler">Alquiler</label> </div>
                         </div> 
-                        <div class="col-lg-6 alineadoDerecha">
-                            <p class="withoutMargin">$<span id="maximo"></span></p>
+                        <div class="row rowAcotada">
+                            <div class="checkbox"> <label for="Compra"><input type="checkbox" id="Compra" value="Compra">Compra</label> </div>
+                        </div> 
+                        <div class="row rowAcotada margenSuperior">
+                            <div class="checkbox"> <label for="Departamento"><input type="checkbox" id="Departamento" value="Departamento">Departamento</label> </div>
+                        </div> 
+                        <div class="row rowAcotada">
+                            <div class="checkbox"><label for="Casa"><input type="checkbox" id="Casa" value="Casa">Casa</label> </div>
+                        </div> 
+                        <div class="row">
+                            <div class="checkbox"><label for="viviendaCompartida"><input type="checkbox" id="viviendaCompartida" value="Vivienda Compartida">Vivienda Compartida</label> </div>
+                        </div> 
+                        <div class="row margenSuperior">
+                            <p>Ambientes:</p> 
+                        </div> 
+                        <div class="row">
+                            <select id="ambienteCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                                <option id="1Amb">1</option>
+                                <option id="2Amb">2</option>
+                                <option id="3Amb">3</option>
+                                <option id="4Amb">4</option>
+                                <option id="5Amb">5</option>
+                                <option id="masAmb">más de 5</option>
+                            </select>
+                        </div> 
+                        <div class="row margenSuperior">
+                            <p>Dormitorios:</p> 
+                        </div> 
+                        <div class="row">
+                            <select id="dormitoriosCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                                <option id="1Dor">1</option>
+                                <option id="2Dor">2</option>
+                                <option id="3Dor">3</option>
+                                <option id="4Dor">4</option>
+                                <option id="5Dor">5</option>
+                                <option id="masDor">más de 5</option>
+                            </select>
+                        </div> 
+                        <div class="row margenSuperior">
+                            <p>Baños: </p> 
+                        </div> 
+                        <div class="row">
+                            <select id="banosCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                                <option id="1Ban">1</option>
+                                <option id="2Ban">2</option>
+                                <option id="3Ban">3</option>
+                                <option id="masBan">más de 3</option>
+                            </select>
+                        </div> 
+                        <div class="row margenSuperior">
+                            <p>Cocheras: </p> 
+                        </div> 
+                        <div class="row">
+                            <select id="cocherasCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                                <option id="1Coch">1</option>
+                                <option id="2Coch">2</option>
+                                <option id="masCoch">más de 2</option>
+                            </select>
                         </div> 
                     </div> 
-                    <div class="slidecontainer">
-                        <input type="range" min="0" max="100" value="0" class="slider" id="miRango" oninput="sliderPrecio('miRango','idTxt')">
-                    </div>
-                    <div>
-                        <button class="btn btnOscuro centeredContainer">Buscar</button>
-                    </div>
+                    <div class="row"> 
+                        <div class="centeredContainer"> 
+                            <p class="precioMaximo">Precio máximo: <span id="idTxt">0</span></p>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <p class="withoutMargin">$<span id="minimo"></span></p>
+                                </div> 
+                                <div class="col-lg-6 alineadoDerecha">
+                                    <p class="withoutMargin">$<span id="maximo"></span></p>
+                                </div> 
+                            </div> 
+                            <div class="slidecontainer">
+                                <input type="range" min="0" max="100" value="0" class="slider" id="miRango" oninput="sliderPrecio('miRango','idTxt')">
+                            </div>
+                            <div>
+                                <button class="btn btnOscuro centeredContainer">Buscar</button>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
-            </div> 
-        </div>
 
+                <div class="col-md-10"> 
+                    <div id="mapa" class="mapa"></div>
+                </div>
 
-        <div id="barraListado" class="container-fluid barraListado">
-            <ul id="contenedorListado" class="list-group">
-                <!-- Se agrega la lista de viviendas dinamicamente --> 
-            </ul>
+                <div id="barraListado" class="col-md-10 barraListado">
+                    <ul id="contenedorListado" class="list-group">
+                        <!-- Se agrega la lista de viviendas dinamicamente --> 
+                    </ul>
+                </div> 
+            </div>        
         </div> 
-               
+            
         <!-- jQuery first, then Bootstrap JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 

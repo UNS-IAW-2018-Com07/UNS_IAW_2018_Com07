@@ -1,10 +1,13 @@
 body{
     display:none;
-    min-width: 1191px; 
+    overflow-x: hidden;
+}
+
+.cuerpo-pagina{
+    margin-top: 53px; 
 }
 
 .navbar{
-    min-width: 1191px; 
     max-height: 52px; 
 }
 
@@ -30,12 +33,6 @@ body{
     height: 100%;
     min-height: 55em; 
     background:white; 
-    position: absolute; 
-    top: 53px; 
-    bottom: 0; 
-    left: 0; 
-    right: 0; 
-    z-index: 0;
 }
 
 .barraMapaListar{
@@ -43,28 +40,22 @@ body{
     top: 55px; 
     height: 40px; 
     opacity: 0.90; 
-    z-index: 2; 
     background-color: white; 
     padding: 3px 3px; 
+    z-index: 1; 
 }
 
 .barraMenu{
-    position: absolute; 
     height: 100%; 
+    min-width: 260px; 
     min-height: 55em; 
-    min-width: 318px; 
-    top: 53px; 
-    opacity: 0.98; 
-    z-index: 1; 
+    max-width: 270px; 
     background-color: white; 
     padding: 15px 15px; 
 }
 
 .barraListado{
-    position: absolute; 
-    top: 90px; 
     bottom: 0; 
-    z-index: 1; 
     display: none;
 }
 
