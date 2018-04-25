@@ -14,7 +14,7 @@ and open the template in the editor.
 
         <!-- Multiselect Checkbox -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-        <!-- Star icon --> 
+        <!-- Star icon -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- Estilos propios CSS -->
@@ -24,42 +24,50 @@ and open the template in the editor.
 
         <title>Inicio</title>
     </head>
-    <body class="muyClaro" onload="actualizarPreciosRango();">
+    <body onload="actualizarPreciosRango();">
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid"> 
+            <div class="container-fluid">
                 <div class="navbar-header">
-                     <a class="navbar-brand" href="index.html"> <img id="imagenLogo" alt="Logo" src="images/llaveRosa.png" class="iconoBox"></a>
-                </div> 
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-inline">
-                        <input type="search" class="form-control" placeholder="Búsqueda por palabra">
-                        <button type="submit" class="btn btn-default btnOscuro">Buscar</button>
-                    </div>
-                </form>
-                <div class="navbar-form navbar-right">
-                    <div class="col-lg-6"> <button type="button" class="btn btn-default btnOscuro">Iniciar sesión</button> </div>
-                    <div class="col-lg-6">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn dropdown-toggle btnOscuro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                                Estilos <span class="caret"></span>
-                            </button>
-                            <ul id="seleccionarEstilo" class="dropdown-menu muyClaro">
-                                <li><a onClick="cambiarEstilo('Rosa'); modificarEstiloLocalStorage()" class="muyClaro" >Rosa</a></li> 
-                                <li class="divider"> </li> 
-                                <li><a onClick="cambiarEstilo('Azul'); modificarEstiloLocalStorage()" class="muyClaro" >Azul</a></li> 
-                            </ul>
-                        </div>                       
-                    </div>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"> <img id="imagenLogo" alt="Logo" src="images/llaveRosa.png" class="iconoBox"></a>
                 </div>
-            </div> 
+                <!-- Collection of nav links, forms, and other content for toggling -->
+                <div id="navbarCollapse" class="collapse navbar-collapse">
+                    <form class="navbar-form navbar-left">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="Búsqueda por palabra">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default btnOscuro">Buscar</button>
+                            </span>
+                        </div>
+                    </form>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Iniciar sesión</a></li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"> Estilos <b class="caret"></b></a>
+                            <ul id="seleccionarEstilo" class="dropdown-menu">
+                                <li><a onClick="cambiarEstilo('Rosa'); modificarEstiloLocalStorage()">Rosa</a></li>
+                                <li class="divider"> </li>
+                                <li><a onClick="cambiarEstilo('Azul'); modificarEstiloLocalStorage()">Azul</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
-        
-        <div id="cuerpoPagina" class="container-fluid cuerpo-pagina"> 
+
+        <div class="container-fluid cuerpo-pagina">
             <div class="row">
-                <div id="botonesMapaListar" class="barraMapaListar"> 
+                <div id="botonesMapaListar" class="barraMapaListar">
                     <button id="botonMapa" type="button" class="btn btnOscuro" disabled onClick="ocultarListado();">MAPA</button>
                     <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
-                    <div id="barraOrdenar" class="ordenar pull-right"> 
+                    <div id="barraOrdenar" class="ordenar pull-right">
                         <p id="ordenarPor" class="letraOrdenar pull-left"> Ordenar por: </p>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,36 +77,36 @@ and open the template in the editor.
                                 <li><a href="#">Precio</a></li>
                             </ul>
                         </div>
-                    </div> 
+                    </div>
                 </div>
-            </div> 
+            </div>
 
-            <div class="row center-block"> 
+            <div class="row center-block">
                 <div id="barraMenu" class="col-xs-12 col-sm-5 col-md-4 col-lg-3 barraMenu barraMenuMapa">
                     <div class="row">
                         <p class="seleccioneBuscar">Seleccione para buscar: <p>
-                    </div> 
+                    </div>
                     <div class="row margenIzquierdo">
                         <div class="row rowAcotada">
                             <div class="checkbox"> <label for="Alquiler"><input type="checkbox" id="Alquiler" value="Alquiler">Alquiler</label> </div>
-                        </div> 
+                        </div>
                         <div class="row rowAcotada">
                             <div class="checkbox"> <label for="Compra"><input type="checkbox" id="Compra" value="Compra">Compra</label> </div>
-                        </div> 
+                        </div>
                         <div class="row rowAcotada margenSuperior">
                             <div class="checkbox"> <label for="Departamento"><input type="checkbox" id="Departamento" value="Departamento">Departamento</label> </div>
-                        </div> 
+                        </div>
                         <div class="row rowAcotada">
                             <div class="checkbox"><label for="Casa"><input type="checkbox" id="Casa" value="Casa">Casa</label> </div>
-                        </div> 
+                        </div>
                         <div class="row">
                             <div class="checkbox"><label for="viviendaCompartida"><input type="checkbox" id="viviendaCompartida" value="Vivienda Compartida">Vivienda Compartida</label> </div>
-                        </div> 
+                        </div>
                         <div class="row margenSuperior">
-                            <p>Ambientes:</p> 
-                        </div> 
+                            <p>Ambientes:</p>
+                        </div>
                         <div class="row">
-                            <select id="ambienteCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                            <select id="ambienteCheckboxes" class="selectpicker" multiple title="- Seleccionar -">
                                 <option id="1Amb">1</option>
                                 <option id="2Amb">2</option>
                                 <option id="3Amb">3</option>
@@ -106,12 +114,12 @@ and open the template in the editor.
                                 <option id="5Amb">5</option>
                                 <option id="masAmb">más de 5</option>
                             </select>
-                        </div> 
+                        </div>
                         <div class="row margenSuperior">
-                            <p>Dormitorios:</p> 
-                        </div> 
+                            <p>Dormitorios:</p>
+                        </div>
                         <div class="row">
-                            <select id="dormitoriosCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                            <select id="dormitoriosCheckboxes" class="selectpicker" multiple title="- Seleccionar -">
                                 <option id="1Dor">1</option>
                                 <option id="2Dor">2</option>
                                 <option id="3Dor">3</option>
@@ -119,40 +127,40 @@ and open the template in the editor.
                                 <option id="5Dor">5</option>
                                 <option id="masDor">más de 5</option>
                             </select>
-                        </div> 
+                        </div>
                         <div class="row margenSuperior">
-                            <p>Baños: </p> 
-                        </div> 
+                            <p>Baños: </p>
+                        </div>
                         <div class="row">
-                            <select id="banosCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                            <select id="banosCheckboxes" class="selectpicker" multiple title="- Seleccionar -">
                                 <option id="1Ban">1</option>
                                 <option id="2Ban">2</option>
                                 <option id="3Ban">3</option>
                                 <option id="masBan">más de 3</option>
                             </select>
-                        </div> 
+                        </div>
                         <div class="row margenSuperior">
-                            <p>Cocheras: </p> 
-                        </div> 
+                            <p>Cocheras: </p>
+                        </div>
                         <div class="row">
-                            <select id="cocherasCheckboxes" class="selectpicker" multiple title="- Seleccionar -"> 
+                            <select id="cocherasCheckboxes" class="selectpicker" multiple title="- Seleccionar -">
                                 <option id="1Coch">1</option>
                                 <option id="2Coch">2</option>
                                 <option id="masCoch">más de 2</option>
                             </select>
-                        </div> 
-                    </div> 
-                    <div class="row"> 
-                        <div class="centeredContainer"> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="centeredContainer">
                             <p class="precioMaximo">Precio máximo: <span id="idTxt">0</span></p>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <p class="withoutMargin">$<span id="minimo"></span></p>
-                                </div> 
+                                </div>
                                 <div class="col-lg-6 alineadoDerecha">
                                     <p class="withoutMargin">$<span id="maximo"></span></p>
-                                </div> 
-                            </div> 
+                                </div>
+                            </div>
                             <div class="slidecontainer">
                                 <input type="range" min="0" max="100" value="0" class="slider" id="miRango" oninput="sliderPrecio('miRango','idTxt')">
                             </div>
@@ -160,19 +168,19 @@ and open the template in the editor.
                                 <button class="btn btnOscuro centeredContainer">Buscar</button>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
 
                 <div id="mapa" class="col-xs-12 col-sm-7 col-md-8 col-lg-9 mapa"></div>
 
                 <div id="barraListado" class="col-xs-12 col-sm-12 col-md-8 col-lg-9 barraListado">
                     <ul id="contenedorListado" class="list-group">
-                        <!-- Se agrega la lista de viviendas dinamicamente --> 
+                        <!-- Se agrega la lista de viviendas dinamicamente -->
                     </ul>
-                </div> 
-            </div>        
-        </div> 
-            
+                </div>
+            </div>
+        </div>
+
         <!-- jQuery first, then Bootstrap JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 

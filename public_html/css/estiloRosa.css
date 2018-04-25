@@ -1,17 +1,10 @@
-.oscuro {
+.navbar-inverse .navbar-toggle .icon-bar {
     background-color: #c4445a;
 }
 
-.medio {
-    background-color: #e9614c;
-}
-
-.claro {
-    background-color: #ffeff2;
-}
-
-.muyClaro {
-    background-color: #FFFFFF;
+.navbar-inverse .navbar-nav a{
+    color: #c4445a;
+    font-weight: bold;
 }
 
 .barraMapaListar{
