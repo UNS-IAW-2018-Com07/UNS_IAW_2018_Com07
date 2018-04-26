@@ -15,17 +15,13 @@
     float: right; 
 }
 
-.barraMenuMapa{
+.barraMenu{
+    border-right: 1px solid #dadada;
     float:left; 
 }
 
-.barraMenuListado{
-    border-right: 1px solid #dadada;
-    float: left; 
-}
-
-.barraListado{
-    float: right; 
+.listadoViviendas{
+    padding-left: 10px;
 }
 
 .btnOscuro {

@@ -8,7 +8,7 @@ function mostrarListado() {
     document.getElementById("barraListado").style.display = "block";
     document.getElementById("barraOrdenar").style.display = "block";
     
-    document.getElementById("barraMenu").setAttribute('class','col-xs-12 col-sm-5 col-md-4 col-lg-3 barraMenu barraMenuListado'); 
+    document.getElementById("barraMenu").setAttribute('class','col-xs-12 col-sm-5 col-md-4 col-lg-3 barraMenu'); 
 
     if (listado_creado === false){
         $.get("datos/viviendas.json", function (viviendas) {
@@ -28,6 +28,6 @@ function ocultarListado() {
     document.getElementById("barraListado").style.display = "none";
     document.getElementById("barraOrdenar").style.display = "none";
     document.getElementById("mapa").style.display = "block";
-    document.getElementById("barraMenu").setAttribute('class','col-xs-12 col-sm-5 col-md-4 col-lg-3 barraMenu barraMenuMapa'); 
+    document.getElementById("barraMenu").setAttribute('class','col-xs-12 col-sm-5 col-md-4 col-lg-3 barraMenu'); 
 }
 

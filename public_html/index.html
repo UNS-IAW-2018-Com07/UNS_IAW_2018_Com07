@@ -63,26 +63,10 @@ and open the template in the editor.
         </nav>
 
         <div class="container-fluid cuerpo-pagina">
-            <div class="row">
-                <div id="botonesMapaListar" class="barraMapaListar">
-                    <button id="botonMapa" type="button" class="btn btnOscuro" disabled onClick="ocultarListado();">MAPA</button>
-                    <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
-                    <div id="barraOrdenar" class="ordenar pull-right">
-                        <p id="ordenarPor" class="letraOrdenar pull-left"> Ordenar por: </p>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                - Seleccionar - <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Precio</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="row center-block">
-                <div id="barraMenu" class="col-xs-12 col-sm-5 col-md-4 col-lg-3 barraMenu barraMenuMapa">
+                <div id="barraMenu" class="col-xs-12 col-sm-5 col-md-4 col-lg-3 barraMenu">
                     <div class="row">
                         <p class="seleccioneBuscar">Seleccione para buscar: <p>
                     </div>
@@ -171,13 +155,36 @@ and open the template in the editor.
                     </div>
                 </div>
 
-                <div id="mapa" class="col-xs-12 col-sm-7 col-md-8 col-lg-9 mapa"></div>
+                <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+                    <div class="row rowConPadding">
+                        <div id="botonesMapaListar">
+                            <button id="botonMapa" type="button" class="btn btnOscuro" disabled onClick="ocultarListado();">MAPA</button>
+                            <button id="botonListado" type="button" class="btn btnOscuro" onClick="mostrarListado();">LISTADO</button>
+                            <div id="barraOrdenar" class="listadoViviendas pull-right">
+                                <p id="ordenarPor" class="letraOrdenar pull-left"> Ordenar por: </p>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        - Seleccionar - <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Precio</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row rowConPadding listadoViviendas"><div id="mapa" class="mapa"></div>  </div>
 
-                <div id="barraListado" class="col-xs-12 col-sm-12 col-md-8 col-lg-9 barraListado">
-                    <ul id="contenedorListado" class="list-group">
-                        <!-- Se agrega la lista de viviendas dinamicamente -->
-                    </ul>
+                    <div id="barraListado" class="row listadoViviendas">
+                        <ul id="contenedorListado" class="list-group">
+                            <!-- Se agrega la lista de viviendas dinamicamente -->
+                        </ul>
+                    </div>
                 </div>
+
+
+
             </div>
         </div>
 

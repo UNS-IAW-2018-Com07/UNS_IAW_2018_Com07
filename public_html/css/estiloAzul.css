@@ -7,25 +7,19 @@
     font-weight: bold;
 }
 
-.barraMapaListar{
-    left: 11%; 
-}
 
-.mapa{
-    float: left; 
-}
 
-.barraMenuMapa{
-    float: right;    
-}
-
-.barraMenuListado{
-    border-left: 1px solid #dadada;  
+.barraMenu{
+    border-left: 1px solid #dadada;
     float: right; 
 }
 
-.barraListado{
-    float: left; 
+.listadoViviendas{
+    padding-right: 10px;
+}
+
+.marginLeft{
+    margin-left: 10px;
 }
 
 .btnOscuro {

@@ -44,7 +44,7 @@ function crearDetalleVivienda(vivienda) {
 
 function insertarListaVivienda(vivienda) {
     var li = document.createElement("li");
-    li.setAttribute('class', "list-group-item margenSuperior");
+    li.setAttribute('class', "list-group-item margenInferior marginLeft");
 
     var div_row = document.createElement("div");
     div_row.setAttribute('class', 'media');

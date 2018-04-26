@@ -26,18 +26,9 @@ body{
 
 .mapa{
     height: 100%;
+    width: 100%;
     min-height: 55em; 
     background:white; 
-}
-
-.barraMapaListar{
-    position: absolute; 
-    top: 55px; 
-    height: 40px; 
-    opacity: 0.90; 
-    background-color: white; 
-    padding: 3px 3px; 
-    z-index: 1; 
 }
 
 .barraMenu{
@@ -49,13 +40,12 @@ body{
     padding: 15px 15px; 
 }
 
-.barraListado{
-    bottom: 0; 
-    display: none;
-}
-
 .margenSuperior{
     margin-top: 15px;
+}
+
+.margenInferior{
+    margin-bottom: 15px;
 }
 
 .margenIzquierdo{
@@ -82,6 +72,11 @@ body{
     height: 27px; 
 }
 
+.rowConPadding{
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
 .checkedStar{
     color: orange; 
 }
@@ -90,12 +85,7 @@ body{
     margin-left: 5%; 
 }
 
-.ordenar{
-    display: none; 
-    min-width: 233px; 
-}
-
 .letraOrdenar{
-    padding: 10px 10px; 
+    padding-top: 10px;
     margin-right: 5px; 
 }
