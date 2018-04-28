@@ -1,0 +1,32 @@
+{% extends 'layout.twig' %}
+
+{% block stylesheets %}
+	<!-- Multiselect Checkbox -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <!-- Star icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Estilos propios CSS -->
+	<link rel='stylesheet' href='/stylesheets/estilo.css'> 
+    <link rel='stylesheet' href='/stylesheets/rangeBar.css'>
+    <link rel='stylesheet' href='/stylesheets/estiloRosa.css' data-color='Rosa' id='linkEstilo'>
+{% endblock %}
+
+{% block body %}
+    {% set activemenu = "buildings-list" %}
+    {% include 'navbar.twig' %} 
+	{% include 'buildings-list-content.twig' %}
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="javascripts/administradorEstilos.js"></script>
+    <script type="text/javascript" src="javascripts/administradorMapa.js"></script>
+    <script type="text/javascript" src="javascripts/administradorRangoPrecios.js"></script>
+    <script type="text/javascript" src="javascripts/administradorListado.js"></script>
+    <script type="text/javascript" src="javascripts/administradorDatosVivienda.js"></script>
+    <script type="text/javascript" src="javascripts/localStorageEstilo.js"></script>
+    <!-- Bootstrap select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-es_ES.min.js"></script>
+    <!-- Google maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxamqbB6tYlc4G2gN4A4EbPgYCCT7jVsg&callback=myMap&libraries=geometry"></script>
+{% endblock %}

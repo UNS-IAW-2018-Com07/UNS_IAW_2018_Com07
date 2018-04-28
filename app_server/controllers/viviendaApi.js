@@ -18,5 +18,5 @@ const getViviendas = function (req, res) {
 }
 
 module.exports = {
-	getPizzas
+	getViviendas
 };
