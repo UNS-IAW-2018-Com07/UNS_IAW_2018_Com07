@@ -27,5 +27,8 @@ function actualizarPreciosRango(operacion) {
         document.getElementById("maximo").innerHTML = maximo;
         document.getElementById("idTxt").innerHTML = medio;
     }
-
 }
+
+$( window ).on( "load", function() { 
+    actualizarPreciosRango(); 
+});

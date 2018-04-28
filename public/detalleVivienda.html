@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Bootstrap CSS -->
-        <link href="css/Bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap/stylesheets/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> 
 
         <!-- Estilos propios CSS -->
-        <link href="css/estiloDetalleVivienda.css" rel="stylesheet">
-        <link href="css/rateBar.css" rel="stylesheet">
-        <link data-color="Rosa" id="linkEstilo" href="css/estiloRosa.css" rel="stylesheet">
+        <link href="stylesheets/estiloDetalleVivienda.css" rel="stylesheet">
+        <link href="stylesheets/rateBar.css" rel="stylesheet">
+        <link data-color="Rosa" id="linkEstilo" href="stylesheets/estiloRosa.css" rel="stylesheet">
 
         <title>Detalle Vivienda</title>
     </head>
-    <body class="muyClaro">
+    <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid"> 
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html"> <img class="iconoBox" id="imagenLogo" alt="Logo" src="images/llaveRosa.png"></a>
+                    <a class="navbar-brand" href="/"> <img class="iconoBox" id="imagenLogo" alt="Logo" src="images/llaveRosa.png"></a>
                 </div> 
                 <div class="navbar-form navbar-right">
                     <div class="col-lg-6"> <button type="button" class="btn btn-default btnOscuro">Iniciar sesión</button> </div>
@@ -33,10 +28,10 @@ and open the template in the editor.
                             <button type="button" class="btn dropdown-toggle btnOscuro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                                 Estilos <span class="caret"></span>
                             </button>
-                            <ul id="seleccionarEstilo" class="dropdown-menu muyClaro">
-                                <li><a onClick="cambiarEstilo('Rosa'); modificarEstiloLocalStorage()" class="muyClaro" >Rosa</a></li> 
+                            <ul id="seleccionarEstilo" class="dropdown-menu">
+                                <li><a onClick="cambiarEstilo('Rosa'); modificarEstiloLocalStorage()">Rosa</a></li> 
                                 <li class="divider"> </li> 
-                                <li><a onClick="cambiarEstilo('Azul'); modificarEstiloLocalStorage()" class="muyClaro" >Azul</a></li> 
+                                <li><a onClick="cambiarEstilo('Azul'); modificarEstiloLocalStorage()">Azul</a></li> 
                             </ul>
                         </div>                       
                     </div>
@@ -188,13 +183,13 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
         <!-- misJS JS -->
-        <script type="text/javascript" src="js/administradorEstilos.js"></script>
-        <script type="text/javascript" src="js/administradorDatosVivienda.js"></script>
-        <script type="text/javascript" src="js/administradorDetalleVivienda.js"></script>
-        <script type="text/javascript" src="js/administradorComentarios.js"></script>
-        <script type="text/javascript" src="js/localStorageEstilo.js"></script>
+        <script type="text/javascript" src="javascripts/administradorEstilos.js"></script>
+        <script type="text/javascript" src="javascripts/administradorDatosVivienda.js"></script>
+        <script type="text/javascript" src="javascripts/administradorDetalleVivienda.js"></script>
+        <script type="text/javascript" src="javascripts/administradorComentarios.js"></script>
+        <script type="text/javascript" src="javascripts/localStorageEstilo.js"></script>
 
-        <script src="js/boostrap/bootstrap.min.js"></script>
+        <script src="bootstrap/javascripts/bootstrap.min.js"></script>
 
     </body>
 </html>
