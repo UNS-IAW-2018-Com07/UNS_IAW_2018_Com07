@@ -17,6 +17,23 @@ const getViviendas = function (req, res) {
 		})
 }
 
+const getViviendaPorId = function (req, res) {
+	Vivienda
+		.findById(req.params.id)
+		.exec((err, vivienda) =>{
+			if (err) { 
+				res
+					.status(404)
+					.json(err);    
+        	} else {
+				res
+					.status(200)
+					.json(vivienda);
+			}
+		})
+}
+
 module.exports = {
-	getViviendas
+	getViviendas,
+	getViviendaPorId
 };
