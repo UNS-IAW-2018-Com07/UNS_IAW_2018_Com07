@@ -37,7 +37,7 @@ function crearDetalleVivienda(vivienda) {
                     '<h6 class="media-heading">'+vivienda.operacion+' - '+tipoVivienda(vivienda)+'</h6>' +
                     crearBarraEstrellas(calcularEstrellasVivienda(vivienda)).outerHTML + 
                     '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
-                    '<a href="detalleVivienda.html?id=' + vivienda.id + '" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +
+                    '<a href="detalleVivienda.html?id=' + vivienda._id.toString() + '" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +
                 '</div>' +
             '</div>';
 }
@@ -78,7 +78,7 @@ function insertarListaVivienda(vivienda) {
 
     var a = document.createElement("a");
     a.setAttribute('class', 'btn btnOscuro');
-    a.setAttribute('href', 'detalleVivienda.html?id=' + vivienda.id);
+    a.setAttribute('href', 'detalleVivienda.html?id=' + vivienda._id.toString());
     var texto_a = document.createTextNode('Ver más');
     a.appendChild(texto_a);
         

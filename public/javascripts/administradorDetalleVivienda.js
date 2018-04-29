@@ -2,7 +2,7 @@
 //Funcion para cargar los datos iniciales de la vivienda seleccionada
 
 $(document).ready(function () {
-    $.get("datos/viviendas.json", function (viviendas) {
+    $.get("./api/viviendas", function (viviendas) {
         var id_vivienda = obtenerValorParametro("id");
         
         if (id_vivienda) {
@@ -10,7 +10,7 @@ $(document).ready(function () {
             var encontre = false;
             var length = viviendas.length;
             while (i < length && !encontre) {
-                if (parseInt(viviendas[i].id) === parseInt(id_vivienda)) {
+                if (viviendas[i]._id.toString()===(id_vivienda)) {
                     encontre = true;
                 } else
                     i++;
@@ -20,7 +20,7 @@ $(document).ready(function () {
             actualizarAtributos(viviendas[i]);
             mostrarDescripcion(viviendas[i]);
             mostrarComentarioVivienda(id_vivienda); 
-            cargarDatosContacto(viviendas[i]);
+            cargarDatosContacto(viviendas[i].propietario);
         } else {
             alert("No se encontró la vivienda seleccionada.");
         }
@@ -102,20 +102,9 @@ function mostrarDescripcion(vivienda){
     document.getElementById("contenedorDescripcion").innerHTML = vivienda.descripcion;
 }
 
-function cargarDatosContacto(vivienda){
-    var cuit=vivienda.propietario;
-     $.get("datos/propietarios.json", function (propietarios) {
-            var i=0;
-            var encontre = false;
-            var length = propietarios.length;
-            while (i < length && !encontre) {
-                if (parseInt(propietarios[i].cuit) === parseInt(cuit)) {
-                    encontre = true;
-                } else
-                    i++;
-            }
-            document.getElementById("nombreContacto").innerHTML='Nombre:   '+propietarios[i].nombre;
-            document.getElementById("mailContacto").innerHTML='Mail:     '+propietarios[i].correoElectronico;
-            document.getElementById("telefonoContacto").innerHTML='Telefono: '+propietarios[i].telefono;
-    });
+function cargarDatosContacto(propietario){
+    var cuit=propietario.cuit;
+        document.getElementById("nombreContacto").innerHTML='Nombre:   '+propietario.nombre;
+        document.getElementById("mailContacto").innerHTML='Mail:     '+propietario.correoElectronico;
+        document.getElementById("telefonoContacto").innerHTML='Telefono: '+propietario.telefono;
 }
