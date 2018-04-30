@@ -10,7 +10,8 @@ function mostrarListado() {
     
     document.getElementById("barraMenu").setAttribute('class','col-xs-12 col-sm-5 col-md-4 col-lg-3 barraMenu'); 
 
-    if (listado_creado === false){
+    if (listado_creado === false){}
+
         $.get("./api/viviendas", function (viviendas) {
             var length = viviendas.length;
             for (i = 0; i < length; i++) {

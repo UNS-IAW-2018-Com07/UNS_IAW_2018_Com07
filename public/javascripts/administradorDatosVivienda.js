@@ -6,10 +6,10 @@ function getAntiguedad(vivienda){
 
 function tipoVivienda(vivienda) {
     var tipo;
-    if (vivienda.hasOwnProperty("piso")) {
-        tipo = "Departamento";
-    } else {
+    if (vivienda.piso===null) {
         tipo = "Casa";
+    } else {
+        tipo = "Departamento";
     }
     if (vivienda.compartido) {
         tipo = tipo+" compartido";
@@ -19,9 +19,8 @@ function tipoVivienda(vivienda) {
 
 function direccionCompleta(vivienda){
     var direccion = vivienda.direccion;
-    if(vivienda.hasOwnProperty("piso")){
+    if(vivienda.piso!==null){
         direccion= direccion + " - " + vivienda.piso;
-        if(vivienda.hasOwnProperty("numeroDepto"))
         direccion= direccion + vivienda.numeroDepto;
     }
     
