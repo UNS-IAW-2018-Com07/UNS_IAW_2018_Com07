@@ -118,6 +118,12 @@ const viviendaSchema = new mongoose.Schema({
   },
   descripcion: String,
   imagenes: [String],
+  calificacion: {
+    type: Number, 
+    "default": 0, 
+    min: 0, 
+    max: 5
+  },
   propietario: {
   	type: propietarioSchema,
   	required: true

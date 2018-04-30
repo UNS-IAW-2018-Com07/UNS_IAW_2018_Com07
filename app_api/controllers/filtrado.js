@@ -38,7 +38,7 @@ const getViviendas = function (req, res) {
 					.json(viviendas);
 			}
 		})
-}
+};
 
 module.exports = {
 	getViviendas
