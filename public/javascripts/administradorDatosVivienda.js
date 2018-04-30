@@ -42,6 +42,7 @@ function crearDetalleVivienda(vivienda) {
             '</div>';
 }
 
+//Hecho en twig. 
 function insertarListaVivienda(vivienda) {
     var li = document.createElement("li");
     li.setAttribute('class', "list-group-item margenInferior marginLeft");
@@ -97,6 +98,7 @@ function insertarListaVivienda(vivienda) {
     document.getElementById("contenedorListado").appendChild(li);
 }
 
+//Hecho en twig. 
 function crearBarraEstrellas(cantEstrellas){
     var estrellas = document.createElement("div");
     var star1 = document.createElement("span");

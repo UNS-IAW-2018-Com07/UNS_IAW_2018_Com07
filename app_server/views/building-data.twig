@@ -1,0 +1,17 @@
+<li class="list-group-item margenInferior marginLeft">
+    <div class="media"> 
+        <div class="media-left"> 
+            <img class="media-left media-middle img-fluid" src="vivienda.imagenes[0]" alt="Imagen inmueble" width="200px"> 
+        </div>
+        <div class="media-body"> 
+            <h5 class="card-title">Precio: $ {{vivienda.precio}}</h5>
+            {# <h6 class="card-title">{{vivienda.operacion}} - {{tipoVivienda(vivienda)}}</h6> #}
+            {# {% set cantEstrellas = calcularEstrellasVivienda(vivienda) %} #}
+            {% set cantEstrellas = 3 %} 
+            {% include 'rating.twig' %} 
+            {# <p class="card-text">Direccion: {{direccionCompleta(vivienda)}}</p> #}
+            <a class="btn btnOscuro" href='detalleVivienda.html?id=' + vivienda.id> Ver más</a>
+        </div>
+    </div>
+</li> 
+

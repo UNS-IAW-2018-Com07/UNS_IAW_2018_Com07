@@ -81,6 +81,10 @@ body{
     color: orange; 
 }
 
+.nonCheckedStar{
+	color: lightgrey; 
+}
+
 .mediaContainer{
     margin-left: 5%; 
 }

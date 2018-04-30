@@ -1,0 +1,10 @@
+
+<div>
+    {% for i in 1..5 %}
+        {% if i<=cantEstrellas %}
+            <span class="fa fa-star checkedStar"> 
+        {% else %}
+            <span class="fa fa-star nonCheckedStar"> 
+        {% endif %}
+    {% endfor %}
+</div> 

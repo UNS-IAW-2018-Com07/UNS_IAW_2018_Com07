@@ -105,6 +105,10 @@ body{
     color: orange; 
 }
 
+.nonCheckedStar{
+    color: lightgrey; 
+}
+
 .text-align-left{
     text-align: left; 
 }

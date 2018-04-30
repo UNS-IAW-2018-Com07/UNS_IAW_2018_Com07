@@ -112,7 +112,9 @@
 
             <div id="barraListado" class="row listadoViviendas">
                 <ul id="contenedorListado" class="list-group">
-                    <!-- Se agrega la lista de viviendas dinamicamente -->
+                    {% for vivienda in viviendas %}
+                        {% include 'building-data.twig' %} 
+                    {% endfor %}
                 </ul>
             </div>
         </div>
