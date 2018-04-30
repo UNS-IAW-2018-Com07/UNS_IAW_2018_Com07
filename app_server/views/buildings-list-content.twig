@@ -25,12 +25,12 @@
                 </div>
                 <div class="row">
                     <select id="ambienteCheckboxes" class="selectpicker" multiple title="- Seleccionar -">
-                        <option id="1Amb">1</option>
-                        <option id="2Amb">2</option>
-                        <option id="3Amb">3</option>
-                        <option id="4Amb">4</option>
-                        <option id="5Amb">5</option>
-                        <option id="masAmb">más de 5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="">más de 5</option>
                     </select>
                 </div>
                 <div class="row margenSuperior">
@@ -83,7 +83,7 @@
                         <input type="range" min="0" max="100" value="0" class="slider" id="miRango" oninput="sliderPrecio('miRango','idTxt')">
                     </div>
                     <div>
-                        <button class="btn btnOscuro centeredContainer">Buscar</button>
+                        <button class="btn btnOscuro centeredContainer" onClick="buscar();">Buscar</button>
                     </div>
                 </div>
             </div>

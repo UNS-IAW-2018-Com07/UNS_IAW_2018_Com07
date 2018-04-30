@@ -1,3 +1,6 @@
+//ver el capitulo 6 del libro
+//las dos funciones no contemplan que retorne vacio o que no existan los parametros
+
 const mongoose = require('mongoose');
 const Vivienda = mongoose.model('Vivienda');
 
