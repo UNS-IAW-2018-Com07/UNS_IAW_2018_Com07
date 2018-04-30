@@ -2,8 +2,19 @@ body{
     display: none; 
 }
 
+.word-wrap{
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
 .navbar-brand{
     width: 50px;
+}
+
+.cuerpo-pagina{
+    margin-top: 53px; 
+    margin-left: 7%; 
+    margin-right: 7%; 
 }
 
 .iconoBox{
@@ -19,13 +30,13 @@ body{
     float: left; 
 }
 
+.rowCarousel{
+    height: 300px; 
+}
+
 .carousel-size{
     max-height: 300px; 
     max-width: 500px; 
-}
-
-.rowCarousel{
-    height: 300px; 
 }
 
 .imagen-carousel{
@@ -48,25 +59,16 @@ body{
     margin-top: 15px;
 }
 
-.barraDetallesVivienda{
-    position: absolute; 
-    top: 23px;; 
-    bottom: 0;  
-    padding-top: 1.5%; 
-    padding-right: 0%;
-    padding-left: 3%;
-}
-
 .barraComentarios{
     height: 100%; 
-    position: absolute; 
-    top: 53px; 
     bottom: 0; 
-    padding: 15px 15px;   
+    padding-top: 20px;
 }
 
 .borderDescripcion{
     border: 1px solid #dadada;
+	overflow-y: auto;
+	overflow-x: hidden; 
     padding-top: 1%; 
     padding-bottom: 3%; 
     padding-left: 3%; 
@@ -74,8 +76,7 @@ body{
 }
 
 .divDescripcion{
-    max-height: 100px; 
-    overflow-y: auto; 
+    max-height: 100px;  
     text-align: justify;
 }
 
@@ -86,17 +87,18 @@ body{
 .list-group-listado{
     min-width: 25px;
     width: 100%; 
-    height: 35px;
+    height: 35px; 
 }
 
 .listadoComentario{
     max-height: 120px;
-    overflow-y: auto; 
+	overflow-y: auto;
+
 }
 
 .usuarioComentario{
     margin-left: 10px;
-    margin-right: 10px; 
+    margin-right: 10px;  
 }
 
 .checkedStar{
@@ -120,7 +122,8 @@ body{
 }
 
 .comentariosRealizados{
-    max-height: calc(100% - 400px);
+	height: auto; 
+    max-height: calc(55em - 400px);
     overflow-y: auto;
 }
 
