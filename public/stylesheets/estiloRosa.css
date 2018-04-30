@@ -11,16 +11,11 @@
     font-weight: bold;
 }
 
-.barraMapaListar{
-    left: 31%; 
-}
-
 .mapa{
     float: right; 
 }
 
 .barraMenu{
-    border-right: 1px solid #dadada;
     float:left; 
 }
 
@@ -56,14 +51,11 @@
 }
 
 .barraComentarios{
-    left: 65%;
-    right: 7%;
-    border-left: 1px solid #dadada;
+    float: right;
 }
 
 .barraDetallesVivienda{ 
-    left: 7%;
-    right: 35%;
+    float: left;  
 }
 
 ::-webkit-scrollbar-track {

@@ -69,7 +69,7 @@ function crearComentario(comentario) {
     div_col1.setAttribute('class', 'media-left');
 
     var div_col2 = document.createElement("div");
-    div_col2.setAttribute('class', 'media-body');
+    div_col2.setAttribute('class', 'media-body word-wrap');
 
     var div_row1 = document.createElement("div");
     div_row1.setAttribute('class', 'row usuarioComentario');

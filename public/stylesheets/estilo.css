@@ -27,17 +27,17 @@ body{
 .mapa{
     height: 100%;
     width: 100%;
-    min-height: 55em; 
+    min-height: 48em; 
     background:white; 
 }
 
 .barraMenu{
     height: 100%;  
     max-width: 400px; 
-    min-height: 55em; 
+    min-height: 50em; 
     margin: 0; 
     background-color: white; 
-    padding: 15px 15px; 
+    padding-top: 15px; 
 }
 
 .margenSuperior{
@@ -83,6 +83,10 @@ body{
 
 .mediaContainer{
     margin-left: 5%; 
+}
+
+#barraOrdenar{
+    display:none; 
 }
 
 .letraOrdenar{
