@@ -1,30 +1,20 @@
 function agregarComentarioVivienda() {
-    if (typeof (localStorage) !== "undefined") {
-        var usuario = document.getElementById('nombreUsuario').value;
-        var calificacion = obtenerCalificacion();
-        var fecha = (new Date()).toDateString();
-        var vivienda = obtenerValorParametro("id");
-        var comentario = document.getElementById('textComentario').value;
-        comentario = comentario.replace(/(\n)+/g, '\\n');
+    var user = document.getElementById('nombreUsuario').value;
+    var calif = parseInt(obtenerCalificacion());
+    var date = new Date();
+    var id_vivienda = obtenerValorParametro("id");
+    var comentario = document.getElementById('textComentario').value;
+    comentario = comentario.replace(/(\n)+/g, '\\n');
 
-        var objeto = '{'
-                + '"usuario" : "' + usuario + '", '
-                + '"calificacion" : ' + calificacion + ', '
-                + '"fecha" : "' + fecha + '", '
-                + '"texto" : "' + comentario + '"}';
-
-        var resultado = localStorage.getItem(vivienda);
-        var array = null;
-        if (resultado !== undefined) {
-            array = new Set(JSON.parse(resultado));
-            array.add(objeto);
-        } else {
-            array = new Set();
-        }
-
-        localStorage.setItem(vivienda, JSON.stringify(Array.from(array.values())));
-        crearComentario(JSON.parse(objeto));
-    }
+    $.post("./api/viviendas/"+id_vivienda+"/comentarios", 
+        {
+            usuario: user,
+            calificacion: calif,
+            fecha: date,
+            texto: comentario
+        }, function (comentario) {
+            crearComentario(comentario);
+        });
     resetearObjetos();
 }
 
@@ -35,7 +25,6 @@ function obtenerCalificacion() {
             calificacion = i / 2;
         }
     }
-    console.log(calificacion);
     return calificacion;
 }
 
@@ -47,15 +36,27 @@ function resetearObjetos() {
     }
 }
 
-function mostrarComentarioVivienda(id_vivienda) {
-    if (typeof (localStorage) !== "undefined") {
-        if (localStorage.getItem(id_vivienda) !== null) {
-            var comentarios = JSON.parse(localStorage.getItem(id_vivienda));
-            for (var i = 0; i < comentarios.length; i++) {
-                crearComentario(JSON.parse(comentarios[i]));
+function  mostrarComentarioVivienda(id_vivienda) {
+    $.get("./api/viviendas/"+id_vivienda+"/comentarios", function (comentarios) {
+        if(!(comentarios instanceof Array)){
+            mostrarMensajeDeError("Hubo un error durante la conexion."); 
+        }
+        else {
+            if(comentarios.length){
+                for (i = 0; i < comentarios.length; i++) {
+                    crearComentario(comentarios[i]);
+                }
             }
         }
-    }
+    });
+}
+
+function mostrarMensajeDeError(mensaje){
+    var div = document.createElement("div");
+    div.setAttribute('class', 'alert alert-estilo');
+    div.setAttribute('role','alert'); 
+    var txt = document.createTextNode(mensaje);
+    div.appendChild(txt);
 }
 
 function crearComentario(comentario) {
@@ -96,7 +97,7 @@ function crearComentario(comentario) {
 
     var p2 = document.createElement("p");
     p2.setAttribute('class', 'text-align-justify col-lg-12');
-    p2.innerHTML = ((comentario.texto).replace(/\n/g, '<br>'));
+    p2.innerHTML = ((comentario.texto).replace(/\\n/g, '<br>'));
 
     div_col1.appendChild(img);
 

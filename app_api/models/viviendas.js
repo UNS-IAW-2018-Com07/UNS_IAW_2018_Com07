@@ -10,8 +10,8 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 
 const propietarioSchema = new mongoose.Schema({
   cuit: {
-	type: Number,
-	validate : [esEntero,errNoEsEntero],
+    type: Number,
+    validate : [esEntero,errNoEsEntero],
     required: true,
     unique: true,
     dropDups: true
@@ -31,7 +31,6 @@ const propietarioSchema = new mongoose.Schema({
   }
 });
 
-
 const comentarioSchema = new mongoose.Schema({
 	usuario: {
 		type: String,
@@ -45,7 +44,7 @@ const comentarioSchema = new mongoose.Schema({
 	},
 	fecha: {
 		type: Date, 
-		default: Date.now,
+		"default": Date.now,
 		required: true
 	},
 	texto: {
@@ -125,7 +124,7 @@ const viviendaSchema = new mongoose.Schema({
     max: 5
   },
   propietario: {
-  	type: propietarioSchema,
+  	type: Number,
   	required: true
   },
   comentarios: [comentarioSchema],
@@ -134,4 +133,3 @@ const viviendaSchema = new mongoose.Schema({
 
 mongoose.model('Vivienda', viviendaSchema);
 mongoose.model('Propietario', propietarioSchema);
-mongoose.model('Comentario', comentarioSchema);

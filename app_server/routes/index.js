@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-var ctrlLocations = require('../controllers/locations');
+var ctrlLocations = require('../controllers/viviendas');
 var ctrlOthers = require('../controllers/others');
 
 /* Locations pages. */
 router.get('/', ctrlLocations.homelist);
-router.get('/location', ctrlLocations.locationInfo);
-router.get('/locations/addLocation', ctrlLocations.addLocation);
+router.get('/viviendas/:idVivienda', ctrlLocations.infoVivienda);
+router.get('/viviendas/agregarVivienda', ctrlLocations.agregarVivienda);
 
 /* Other pages. */
 router.get('/login', ctrlOthers.login);

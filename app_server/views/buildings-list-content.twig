@@ -112,6 +112,11 @@
 
             <div id="barraListado" class="row listadoViviendas">
                 <ul id="contenedorListado" class="list-group">
+                    {% if mensaje %}
+                        <div class="alert alert-estilo" role="alert">
+                            {{mensaje}}
+                        </div>
+                    {% endif %}
                     {% for vivienda in viviendas %}
                         {% include 'building-data.twig' %} 
                     {% endfor %}

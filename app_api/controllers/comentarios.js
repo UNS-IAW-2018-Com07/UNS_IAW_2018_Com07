@@ -24,16 +24,8 @@ const getComentarios = function (req, res) {
 						sendJsonResponse(res, 400,err); 
 						return; 
 					}
-					if(vivienda.comentarios && vivienda.comentarios.length > 0){
-						respuesta = {
-							comentarios: vivienda.comentarios
-						}; 
-						sendJsonResponse(res,200,respuesta);  
-					}
-					else {
-						sendJsonResponse(res, 404, {
-							"mensaje": "No se encontraron comentarios."
-						});
+					if(vivienda.comentarios){ 
+						sendJsonResponse(res,200,vivienda.comentarios);  
 					}
 				}
 			);
@@ -74,10 +66,10 @@ var agregarComentario = function(req,res,vivienda){
 		});
 	} else {
 		vivienda.comentarios.push({
-			/*usuario: req.body.usuario; 
-			calificacion: req.body.calificacion; 
-			fecha: req.body.fecha; 
-			texto: req.body.texto; */
+			usuario: req.body.usuario,
+			calificacion: req.body.calificacion,
+			fecha: req.body.fecha,
+			texto: req.body.texto 
 		}); 
 		vivienda.save(function(err,vivienda){
 			var comentario; 
@@ -92,7 +84,7 @@ var agregarComentario = function(req,res,vivienda){
 	}
 }; 
 
-var actualizarCalificacionPromedio() = function(idVivienda){
+var actualizarCalificacionPromedio = function(idVivienda){
 	Vivienda
 		.findById(idVivienda)
 		.select('calificacion comentarios')
