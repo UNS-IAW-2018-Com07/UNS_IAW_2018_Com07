@@ -74,10 +74,10 @@ var agregarComentario = function(req,res,vivienda){
 		});
 	} else {
 		vivienda.comentarios.push({
-			usuario: req.body.usuario; 
+			/*usuario: req.body.usuario; 
 			calificacion: req.body.calificacion; 
 			fecha: req.body.fecha; 
-			texto: req.body.texto; 
+			texto: req.body.texto; */
 		}); 
 		vivienda.save(function(err,vivienda){
 			var comentario; 
