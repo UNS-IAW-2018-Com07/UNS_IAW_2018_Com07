@@ -9,7 +9,7 @@ router.get('/viviendas', ctrlViviendas.getViviendas);
 router.get('/viviendas/:id', ctrlViviendas.getViviendaPorId);
 
 //filtroBusqueda
-router.get('/filtrado/:filtro', ctrlFiltrado.getViviendas);
+router.get('/filtrado', ctrlFiltrado.getViviendas);
 
 //comentarios 
 router.get('/viviendas/:idVivienda/comentarios', ctrlComentarios.getComentarios); 

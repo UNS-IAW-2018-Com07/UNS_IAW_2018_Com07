@@ -4,26 +4,11 @@ function getAntiguedad(vivienda){
     return anio - vivienda.anioConstruccion;
 }
 
-function tipoVivienda(vivienda) {
-    var tipo;
-    if (vivienda.piso===null) {
-        tipo = "Casa";
-    } else {
-        tipo = "Departamento";
-    }
-    if (vivienda.compartido) {
-        tipo = tipo+" compartido";
-    }
-    return tipo;
-}
-
 function direccionCompleta(vivienda){
     var direccion = vivienda.direccion;
-    if(vivienda.piso!==null){
-        direccion= direccion + " - " + vivienda.piso;
-        direccion= direccion + vivienda.numeroDepto;
+    if(vivienda.tipoVivienda==="Departamento"){
+        direccion= direccion + " - " + vivienda.piso + vivienda.numeroDepto;
     }
-    
     return direccion;
 }
 
@@ -33,7 +18,7 @@ function crearDetalleVivienda(vivienda) {
                     '<img class="media-object" src='+vivienda.imagenes[0]+' alt="Imagen inmueble" width="180px" ></div>' +
                 '<div id="marcadorMapa" class="media-body">' +
                     '<h5 class="media-heading">Precio: $'+vivienda.precio+'</h5>' +
-                    '<h6 class="media-heading">'+vivienda.operacion+' - '+tipoVivienda(vivienda)+'</h6>' +
+                    '<h6 class="media-heading">'+vivienda.operacion+' - '+vivienda.tipoVivienda+'</h6>' +
                     crearBarraEstrellas(calcularEstrellasVivienda(vivienda)).outerHTML + 
                     '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
                     '<a href="detalleVivienda.html?id=' + vivienda._id.toString() + '" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +

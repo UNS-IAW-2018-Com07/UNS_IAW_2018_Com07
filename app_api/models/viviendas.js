@@ -55,14 +55,16 @@ const comentarioSchema = new mongoose.Schema({
 });
 
 const viviendaSchema = new mongoose.Schema({
+  tipoVivienda:{
+     type: String,
+     enum: ['Casa','Departamento'],
+     required: true
+  },
   piso: {
-    type: Number,
-    validate : [esEntero,'{VALUE} is not an integer value'],
-    default: null
+    type: String
   },
   numeroDepto: {
-    type: String,
-    default: null
+    type: String
   },
   compartido: {
     type: Boolean,
