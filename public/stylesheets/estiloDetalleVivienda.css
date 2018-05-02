@@ -7,27 +7,10 @@ body{
 	word-break: break-all;
 }
 
-.navbar-brand{
-    width: 50px;
-}
-
 .cuerpo-pagina{
     margin-top: 53px; 
     margin-left: 7%; 
     margin-right: 7%; 
-}
-
-.iconoBox{
-    position: absolute; 
-    top: 5px; 
-    left: 10px; 
-    background-color: transparent;
-    background-repeat: no-repeat; 
-    background-position: center center;
-    background-size: 40px 40px;
-    width: 40px;
-    height: 40px; 
-    float: left; 
 }
 
 .rowCarousel{

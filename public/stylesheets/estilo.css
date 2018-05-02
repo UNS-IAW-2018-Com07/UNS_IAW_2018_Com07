@@ -3,27 +3,6 @@ body{
     overflow-x: hidden;
 }
 
-.navbar-brand{
-    width: 50px;
-}
-
-.iconoBox{
-    position: absolute; 
-    top: 5px; 
-    left: 10px; 
-    background-color: transparent;
-    background-repeat: no-repeat; 
-    background-position: center center;
-    background-size: 40px 40px;
-    width: 40px;
-    height: 40px; 
-    float: left; 
-}
-
-.cuerpo-pagina{
-    margin-top: 53px; 
-}
-
 .mapa{
     height: 100%;
     width: 100%;
