@@ -1,29 +1,37 @@
-
-//ver el capitulo 6 del libro
-//la funcion no contempla que retorne vacio o que no existan los parametros
-
 const mongoose = require('mongoose');
 const Vivienda = mongoose.model('Vivienda');
 
 const queryString = require('query-string');
 
+var sendJsonResponse = function(res, status, content) {
+	res.status(status);
+	res.json(content);
+};
+
 const getViviendas = function (req, res) {
-
-console.log(req.query);
-
-	Vivienda
-		.find(req.query)
-		.exec((err, viviendas) => {
-			if (err) { 
-				res
-					.status(404)
-					.json(err);    
-        	} else {
-				res
-					.status(200)
-					.json(viviendas);
-			}
-		})
+	if(req.query){
+		Vivienda
+			.find(req.query)
+			.exec((err, viviendas) =>{
+				if(!viviendas){
+					sendJsonResponse(res, 404, {
+						"mensaje": "No se encontraron viviendas con las características seleccionadas."
+					});
+					return ; 
+				}
+				else if (err) { 
+					sendJsonResponse(res,400,err); 
+					return;     
+		        	} else {
+		        		sendJsonResponse(res,200,viviendas); 
+					}
+			})
+	}
+	else {
+		sendJsonResponse(res, 404, {
+			"mensaje": "No se especificó filtro en la solicitud."
+		});
+	}
 };
 
 module.exports = {

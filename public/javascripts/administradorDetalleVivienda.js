@@ -66,7 +66,7 @@ function mostrarImagenes(vivienda) {
     }
 }
 function mostrarTitulo(vivienda) {
-    document.getElementById("tituloVivienda").innerHTML = vivienda.operacion + ' - ' + tipoVivienda(vivienda);
+    document.getElementById("tituloVivienda").innerHTML = vivienda.operacion + ' - ' +vivienda.tipoVivienda;
     document.getElementById("direccionVivienda").innerHTML = "Dirección: "+direccionCompleta(vivienda);
     document.getElementById("precio").innerHTML = "Precio: $"+vivienda.precio;
 }
@@ -88,9 +88,10 @@ function mostrarDescripcion(vivienda){
     document.getElementById("contenedorDescripcion").innerHTML = vivienda.descripcion;
 }
 
-function cargarDatosContacto(propietario){
-    var cuit=propietario.cuit;
+function cargarDatosContacto(cuit){
+    $.get("./api/propietarios/"+cuit, function (propietario) {
         document.getElementById("nombreContacto").innerHTML='Nombre:   '+propietario.nombre;
         document.getElementById("mailContacto").innerHTML='Mail:     '+propietario.correoElectronico;
         document.getElementById("telefonoContacto").innerHTML='Telefono: '+propietario.telefono;
+    });     
 }

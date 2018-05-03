@@ -26,7 +26,7 @@ const propietarioSchema = new mongoose.Schema({
   },
   telefono: {
   	type: Number,
-	validate : [esEntero,errNoEsEntero],
+	  validate : [esEntero,errNoEsEntero],
     required: true,
   }
 });
