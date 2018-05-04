@@ -1,16 +1,20 @@
 <li class="list-group-item margenInferior marginLeft">
     <div class="media"> 
         <div class="media-left"> 
-            <img class="media-left media-middle img-fluid" src={{vivienda.imagenes[0]}} alt="Imagen inmueble" width="200px"> 
+            <img class="media-left media-middle img-fluid" src={{'/public/'~vivienda.imagenes[0]}} alt="Imagen inmueble" width="200px"> 
         </div>
         <div class="media-body"> 
-            <h5 class="card-title">Precio: $ {{vivienda.precio}}</h5>
-            <h6 class="card-title">{{vivienda.operacion}} - {{vivienda.tipoVivienda}}</h6>
-           {# {% set cantEstrellas = calcularEstrellasVivienda(vivienda) %} #}
-            {% set cantEstrellas = 3 %} 
+            <p class="card-title">Precio: $ {{vivienda.precio}}</p>
+            <p class="card-title">{{vivienda.operacion}} - {{vivienda.tipoVivienda}}</p>
+            {% set cantEstrellas = vivienda.calificacion %} 
             {% include 'rating.twig' %} 
-            {#<p class="card-text">Direccion: {{direccionCompleta(vivienda)}}</p>#}
-            <a class="btn btnOscuro" href={{'detalleVivienda.html?id='~vivienda._id}}> Ver más</a>
+            {% if vivienda.tipoVivienda == "Departamento" %}
+                {%set direccion = vivienda.direccion + " - " + vivienda.piso + vivienda.numeroDepto %}
+            {% else %}
+                {%set direccion = vivienda.direccion %}
+            {% endif %}
+            <p class="card-text">Direccion: {{direccion}}</p>
+            <a class="btn btnOscuro" href={{'/viviendas/'~vivienda._id}}> Ver más</a>
         </div>
     </div>
 </li> 

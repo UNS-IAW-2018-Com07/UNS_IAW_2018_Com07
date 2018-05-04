@@ -1,0 +1,149 @@
+{# hay que poner los valores que se sacan de la base de datos (que manda desde el controlador) #}
+
+<div class="container-fluid cuerpo-pagina"> 
+    <div class="col-sm-12 col-md-7 col-lg-8 barraDetallesVivienda"> 
+        <div class="row col-lg-12" align="center">
+            <h2 id="tituloVivienda">{{vivienda.operacion}}PUTAaaaaaaaaaaa - {{vivienda.tipoVivienda}}</h2>
+        </div>
+
+        <div class="row col-lg-12 rowAcotada">
+            <div class="col-xs-12 col-sm-7 col-lg-8 pull-left text-align-left"> <p id="direccionVivienda" class="textoDetalleVivienda">""</p> </div> 
+            <div class="col-xs-12 col-sm-5 col-lg-4 text-align-center"> <p id="precio" class="textoDetalleVivienda">""</p> </div> 
+        </div>
+
+        <div class="row col-lg-12 margenSuperior">
+            <div class="col-xs-12 col-sm-7 col-lg-8 rowCarousel"> 
+                <div id="myCarousel" class="carousel carousel-size" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol id="grupo-links" class="carousel-indicators">
+                        <!-- agregar un li por cada imagen que querramos añadir -->
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div id="grupo-imagenes" class="carousel-inner">
+                        <!-- agregar un div por cada imagen que querramos añadir --> 
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div> 
+            </div>
+
+            <div class="col-xs-12 col-sm-5 col-lg-4">
+                <ul class="row col-lg-12 list-group">
+                    <li class="list-group-item list-group-listado">
+                        <span class="badge oscuro"><span id="compartido"></span></span>
+                        Compartido
+                    <li class="list-group-item list-group-listado">
+                        <span id="ambientes" class="badge oscuro"></span>
+                        Ambientes
+                    </li>
+                    <li class="list-group-item list-group-listado">
+                        <span id="banios" class="badge oscuro"></span>
+                        Baños
+                    </li>
+                    <li class="list-group-item list-group-listado">
+                        <span id="dormitorios" class="badge oscuro"></span>
+                        Dormitorios
+                    </li>
+                    <li class="list-group-item list-group-listado">
+                        <span id="cocheras" class="badge oscuro"></span>
+                        Cocheras
+                    </li>
+                    <li class="list-group-item list-group-listado">
+                        <span id="antiguedad" class="badge oscuro"></span>
+                        Antigüedad (años)
+                    </li>
+                    <li class="list-group-item list-group-listado">
+                        <span id="superficie" class="badge oscuro"></span>
+                        Superficie (m²)
+                    </li>
+                </ul>
+                <div class="row col-lg-12" align="center">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btnOscuro btnContactarse" data-toggle="modal" data-target="#myModal">
+                        Contactarse
+                    </button>
+                </div> 
+            </div>
+        </div>
+
+        <div class="row col-lg-12 margenSuperior"> 
+            <div class="panel panel-default">
+                <div class="panel-heading">Descripción de la vivienda:</div>
+                <div id="contenedorDescripcion"  class="panel-body">Panel Content</div>
+            </div>
+        </div>     
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title text-center">Datos contacto</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="nombreContacto">""</p>
+                        <p id="mailContacto">""</p>
+                        <p id="telefonoContacto">""</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btnOscuro center-block" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="barraComentarios" class="col-xs-12 col-sm-12 col-md-5 col-lg-4 barraComentarios">
+        <ul id="contenedorComentarios" class="list-group comentariosRealizados">
+            {% if mensaje %}
+                <div class="alert alert-estilo" role="alert">
+                    {{mensaje}}
+                </div>
+            {% endif %}
+            {% for comentario in vivienda.comentarios %}
+                {% include 'building-comments.twig' %} 
+            {% endfor %}
+        </ul>
+        <div class="media">
+            <div class="media-body media-comentario"> 
+                <div class="row"> <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Nombre de usuario: </span>
+                        <input id="nombreUsuario" type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1">
+                    </div></div> 
+                <div class="row ">
+                    <p class="pull-left" style="padding-top: 10px; padding-left: 5px;">Calificacion: </p> 
+                    <fieldset id="starRate" class="rating pull-right">
+                        <input type="radio" id="est10" name="rating" value="5" /><label for="est10" title="Excelente - 5 estrellas"></label>
+                        <input type="radio" id="est9" name="rating" value="4.5"/><label class="half" for="est9" title="Muy bueno - 4.5 estrellas"></label>
+                        <input type="radio" id="est8" name="rating" value="4"/><label for="est8" title="Muy Bueno - 4 estrellas"></label>
+                        <input type="radio" id="est7" name="rating" value="3.5"/><label class="half" for="est7" title="Bueno - 3.5 estrellas"></label>
+                        <input type="radio" id="est6" name="rating" value="3"/><label for="est6" title="Bueno - 3 estrellas"></label>
+                        <input type="radio" id="est5" name="rating" value="2.5"/><label class="half" for="est5" title="Regular - 2.5 estrellas"></label>
+                        <input type="radio" id="est4" name="rating" value="2"/><label for="est4" title="Malo - 2 estrellas"></label>
+                        <input type="radio" id="est3" name="rating" value="1.5"/><label class="half" for="est3" title="Malo - 1.5 estrellas"></label>
+                        <input type="radio" id="est2" name="rating" value="1"/><label for="est2" title="Horrible - 1 estrellas"></label>
+                        <input type="radio" id="est1" name="rating" value="0.5"/><label class="half" for="est1" title="Horrible - 0.5 estrellas"></label>
+                    </fieldset>
+                </div> 
+                <div class="row"> <div> 
+                        <textarea id="textComentario" class="form-control" placeholder="Escriba su comentario..." rows="5"></textarea>
+                    </div></div> 
+                <div class="row margenSuperior" align="center"> 
+                    <button class="btn btnOscuro btnContactarse" onclick="agregarComentarioVivienda()">Comentar</button> 
+                </div> 
+            </div>
+        </div> 
+    </div> 
+</div>

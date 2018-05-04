@@ -36,6 +36,8 @@ function resetearObjetos() {
     }
 }
 
+
+//Deberia hacerse en el controlador. 
 function  mostrarComentarioVivienda(id_vivienda) {
     $.get("./api/viviendas/"+id_vivienda+"/comentarios", function (comentarios) {
         if(!(comentarios instanceof Array)){
@@ -80,7 +82,7 @@ function crearComentario(comentario) {
 
     var img = document.createElement("img");
     img.setAttribute('class', 'media-object imgComentario text-align-left');
-    img.setAttribute('src', 'images/imgComentario.png');
+    img.setAttribute('src', 'public/images/imgComentario.png');
 
     var p1 = document.createElement("p");
     p1.setAttribute('class', 'media-heading text-align-right');

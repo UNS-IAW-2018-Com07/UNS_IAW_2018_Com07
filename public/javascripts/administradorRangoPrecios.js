@@ -2,7 +2,7 @@ function actualizarPreciosRango(operacion) {
     var minimo;
     var maximo;
     var medio;
-    $.get("datos/rangoPrecios.json", function (precios) {
+    $.get("public/datos/rangoPrecios.json", function (precios) {
         if (operacion === "Venta") {
             minimo = precios.minimoVenta;
             maximo = precios.maximoVenta;

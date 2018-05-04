@@ -1,17 +1,16 @@
-
 //Funcion para cargar los datos iniciales de la vivienda seleccionada
 
-$(document).ready(function () {
-    var id_vivienda = obtenerValorParametro("id");
-    $.get("./api/viviendas/"+id_vivienda, function (vivienda) {
-        mostrarImagenes(vivienda);
-        mostrarTitulo(vivienda);
-        actualizarAtributos(vivienda);
-        mostrarDescripcion(vivienda);
-        mostrarComentarioVivienda(id_vivienda); 
-        cargarDatosContacto(vivienda.propietario);
-    });
-});
+// $(document).ready(function () {
+//     var id_vivienda = obtenerValorParametro("id");
+//     $.get("./api/viviendas/"+id_vivienda, function (vivienda) {
+//         mostrarImagenes(vivienda);
+//         mostrarTitulo(vivienda);
+//         actualizarAtributos(vivienda);
+//         mostrarDescripcion(vivienda);
+//         mostrarComentarioVivienda(id_vivienda); 
+//         cargarDatosContacto(vivienda.propietario);
+//     });
+// });
 
 function obtenerValorParametro(parametro) {
     var query = window.location.search.substring(1);

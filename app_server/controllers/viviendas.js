@@ -10,6 +10,8 @@ if(process.env.NODE_ENV == 'production'){
 	apiOptions.server = "https://algo-que-no-tenemos.herokuapp.com"; 
 }
 
+/* PAGINA DE INICIO. */
+
 var renderPaginaInicio = function(req, res, body){
 	var mensaje; 
 	if(!(body instanceof Array)){
@@ -31,7 +33,6 @@ var renderPaginaInicio = function(req, res, body){
   	});
 }
 
-/* GET home page. */
 module.exports.homelist = function (req, res) { 
 	var solicitud, path; 
 	path = '/api/viviendas'; 
@@ -45,12 +46,51 @@ module.exports.homelist = function (req, res) {
 	}); 
 };
 
-/* GET Location Info page. */
-module.exports.infoVivienda = function (req, res) { 
-  res.render('layout', { title: 'Detalle Vivienda' });
+/* DETALLE VIVIENDA */
+
+var renderDetalleVivienda = function(req, res, body){
+	console.log(body); 
+	res.render('building-detail', { 
+  		title: 'Detalle Vivienda',
+  		vivienda: body,
+  		user: req.user
+  	});
+}
+
+var _showError = function(req, res, status){
+	var title, content; 
+	if(status === 404){
+		title = "Página no encontrada."
+		content = "Lo sentimos, no se pudo encontrar la pagina solicitada."; 
+	}
+	else {
+		title = status + ", ocurrió un error."; 
+		content = "Lo sentimos, hubo un error."; 
+	}
+	res.status(status); 
+	res.render('error', {
+		title: title, 
+		message: content
+	}); 
 };
 
-/* GET Add Location page. */
-module.exports.agregarVivienda = function (req, res) { 
-  res.render('layout', { title: 'Añadir Vivienda' });
+module.exports.infoVivienda = function (req, res) { 
+	var solicitud, path;  
+	path = '/api/viviendas/'+req.params.id; 
+	solicitud = {
+		url: apiOptions.server + path, 
+		method: "GET", 
+		json: {}
+	}; 
+	console.log(solicitud.url); 
+	request(
+		solicitud, 
+		function(err,response,body){
+			if(response.statusCode === 200){
+				renderDetalleVivienda(req,res); 
+			}
+			else {
+				_showError(req,res,response.statusCode); 
+			}
+	}); 
 };

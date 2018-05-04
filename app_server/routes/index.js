@@ -4,10 +4,9 @@ var router = express.Router();
 var ctrlLocations = require('../controllers/viviendas');
 var ctrlOthers = require('../controllers/others');
 
-/* Locations pages. */
+/* Paginas de viviendas. */
 router.get('/', ctrlLocations.homelist);
-router.get('/viviendas/:idVivienda', ctrlLocations.infoVivienda);
-router.get('/viviendas/agregarVivienda', ctrlLocations.agregarVivienda);
+router.get('/viviendas/:id', ctrlLocations.infoVivienda);
 
 /* Other pages. */
 router.get('/about', ctrlOthers.about);

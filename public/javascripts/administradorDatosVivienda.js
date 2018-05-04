@@ -15,7 +15,7 @@ function direccionCompleta(vivienda){
 function crearDetalleVivienda(vivienda) {
     return '<div class="media" style="width: 35rem;">' +
                 '<div class="media-left media-middle">' +
-                    '<img class="media-object" src='+vivienda.imagenes[0]+' alt="Imagen inmueble" width="180px" ></div>' +
+                    '<img class="media-object" src=public/'+vivienda.imagenes[0]+' alt="Imagen inmueble" width="180px" ></div>' +
                 '<div id="marcadorMapa" class="media-body">' +
                     '<h5 class="media-heading">Precio: $'+vivienda.precio+'</h5>' +
                     '<h6 class="media-heading">'+vivienda.operacion+' - '+vivienda.tipoVivienda+'</h6>' +
