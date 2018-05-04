@@ -3,11 +3,13 @@
 <div class="container-fluid cuerpo-pagina"> 
     <div class="col-sm-12 col-md-7 col-lg-8 barraDetallesVivienda"> 
         <div class="row col-lg-12" align="center">
-            <h2 id="tituloVivienda">{{vivienda.operacion}}PUTAaaaaaaaaaaa - {{vivienda.tipoVivienda}}</h2>
+            <h2 id="tituloVivienda">{{vivienda.operacion}} - {{vivienda.tipoVivienda}}</h2>
         </div>
 
         <div class="row col-lg-12 rowAcotada">
-            <div class="col-xs-12 col-sm-7 col-lg-8 pull-left text-align-left"> <p id="direccionVivienda" class="textoDetalleVivienda">""</p> </div> 
+            <div class="col-xs-12 col-sm-7 col-lg-8 pull-left text-align-left"> 
+                <p id="direccionVivienda" class="textoDetalleVivienda"></p> 
+            </div> 
             <div class="col-xs-12 col-sm-5 col-lg-4 text-align-center"> <p id="precio" class="textoDetalleVivienda">""</p> </div> 
         </div>
 
@@ -78,7 +80,7 @@
         <div class="row col-lg-12 margenSuperior"> 
             <div class="panel panel-default">
                 <div class="panel-heading">Descripción de la vivienda:</div>
-                <div id="contenedorDescripcion"  class="panel-body">Panel Content</div>
+                <div id="contenedorDescripcion"  class="panel-body">{{vivienda.descripcion}}</div>
             </div>
         </div>     
 
@@ -112,7 +114,9 @@
                     {{mensaje}}
                 </div>
             {% endif %}
-            {% for comentario in vivienda.comentarios %}
+            {% set comentarios = vivienda.comentarios %}
+                {{vivienda.comentarios}}
+            {% for comentario in comentarios %}
                 {% include 'building-comments.twig' %} 
             {% endfor %}
         </ul>
@@ -141,7 +145,7 @@
                         <textarea id="textComentario" class="form-control" placeholder="Escriba su comentario..." rows="5"></textarea>
                     </div></div> 
                 <div class="row margenSuperior" align="center"> 
-                    <button class="btn btnOscuro btnContactarse" onclick="agregarComentarioVivienda()">Comentar</button> 
+                    <button class="btn btnOscuro btnContactarse" onclick="agregarComentarioVivienda('{{vivienda._id}}');">Comentar</button> 
                 </div> 
             </div>
         </div> 

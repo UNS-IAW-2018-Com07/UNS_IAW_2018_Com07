@@ -1,20 +1,28 @@
-function agregarComentarioVivienda() {
+function agregarComentarioVivienda(id_vivienda) {
     var user = document.getElementById('nombreUsuario').value;
     var calif = parseInt(obtenerCalificacion());
     var date = new Date();
-    var id_vivienda = obtenerValorParametro("id");
     var comentario = document.getElementById('textComentario').value;
     comentario = comentario.replace(/(\n)+/g, '\\n');
 
-    $.post("./api/viviendas/"+id_vivienda+"/comentarios", 
-        {
+    $.ajax({
+        url: "/api/viviendas/"+id_vivienda+"/comentarios",
+        type: 'POST',
+        data: {
             usuario: user,
             calificacion: calif,
             fecha: date,
             texto: comentario
-        }, function (comentario) {
-            crearComentario(comentario);
-        });
+        },
+        dataType: "json",
+        success: function(data){ 
+            crearComentario(data);
+        },
+        error: function(xhr,textStatus,err) {
+            console.log(err); 
+        }
+    });
+
     resetearObjetos();
 }
 
@@ -38,20 +46,20 @@ function resetearObjetos() {
 
 
 //Deberia hacerse en el controlador. 
-function  mostrarComentarioVivienda(id_vivienda) {
-    $.get("./api/viviendas/"+id_vivienda+"/comentarios", function (comentarios) {
-        if(!(comentarios instanceof Array)){
-            mostrarMensajeDeError("Hubo un error durante la conexion."); 
-        }
-        else {
-            if(comentarios.length){
-                for (i = 0; i < comentarios.length; i++) {
-                    crearComentario(comentarios[i]);
-                }
-            }
-        }
-    });
-}
+// function  mostrarComentarioVivienda(id_vivienda) {
+//     $.get("./api/viviendas/"+id_vivienda+"/comentarios", function (comentarios) {
+//         if(!(comentarios instanceof Array)){
+//             mostrarMensajeDeError("Hubo un error durante la conexion."); 
+//         }
+//         else {
+//             if(comentarios.length){
+//                 for (i = 0; i < comentarios.length; i++) {
+//                     crearComentario(comentarios[i]);
+//                 }
+//             }
+//         }
+//     });
+// }
 
 function mostrarMensajeDeError(mensaje){
     var div = document.createElement("div");
@@ -82,7 +90,7 @@ function crearComentario(comentario) {
 
     var img = document.createElement("img");
     img.setAttribute('class', 'media-object imgComentario text-align-left');
-    img.setAttribute('src', 'public/images/imgComentario.png');
+    img.setAttribute('src', '/public/images/imgComentario.png');
 
     var p1 = document.createElement("p");
     p1.setAttribute('class', 'media-heading text-align-right');

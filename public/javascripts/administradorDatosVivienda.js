@@ -21,7 +21,7 @@ function crearDetalleVivienda(vivienda) {
                     '<h6 class="media-heading">'+vivienda.operacion+' - '+vivienda.tipoVivienda+'</h6>' +
                     crearBarraEstrellas(calcularEstrellasVivienda(vivienda)).outerHTML + 
                     '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
-                    '<a href="detalleVivienda.html?id=' + vivienda._id.toString() + '" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +
+                    '<a href="/viviendas/' + vivienda._id.toString() + '" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +
                 '</div>' +
             '</div>';
 }

@@ -135,3 +135,4 @@ const viviendaSchema = new mongoose.Schema({
 
 mongoose.model('Vivienda', viviendaSchema);
 mongoose.model('Propietario', propietarioSchema);
+mongoose.model('Comentario', comentarioSchema);

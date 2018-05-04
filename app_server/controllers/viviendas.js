@@ -87,7 +87,7 @@ module.exports.infoVivienda = function (req, res) {
 		solicitud, 
 		function(err,response,body){
 			if(response.statusCode === 200){
-				renderDetalleVivienda(req,res); 
+				renderDetalleVivienda(req,res,body); 
 			}
 			else {
 				_showError(req,res,response.statusCode); 
