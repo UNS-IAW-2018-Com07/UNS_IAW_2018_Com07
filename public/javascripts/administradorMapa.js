@@ -2,8 +2,6 @@
 /* global map */
 
 function myMap() {
-    ocultarListado(); 
-
     var mapOptions = {
         center: new google.maps.LatLng(-38.7167, -62.2603),
         zoom: 13,

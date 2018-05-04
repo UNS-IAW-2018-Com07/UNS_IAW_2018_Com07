@@ -9,6 +9,9 @@ var sendJsonResponse = function(res, status, content) {
 };
 
 const getViviendas = function (req, res) {
+
+	console.log(req.query);
+
 	if(req.query){
 		Vivienda
 			.find(req.query)
