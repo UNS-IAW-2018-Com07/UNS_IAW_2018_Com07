@@ -35,10 +35,10 @@ var renderPaginaInicio = function(req, res, body){
 
 module.exports.homelist = function (req, res) { 
 	var solicitud, path; 
-	path = '/api/viviendas'; 
+	path = '/api/viviendasResumidas'; 
 	solicitud = {
 		url: apiOptions.server + path, 
-		method: "GET", 
+		method: "GET",
 		json: {}
 	}; 
 	request(solicitud, function(err,response,body){
