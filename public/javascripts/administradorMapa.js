@@ -14,7 +14,7 @@ function myMap() {
 
     geocoder = new google.maps.Geocoder();
 
-    $.get("./api/viviendas", function (viviendas) {
+    $.get("./api/viviendasResumidas", function (viviendas) {
         var length = viviendas.length;
         for (i = 0; i < length; i++) {
             var detalle = crearDetalleVivienda(viviendas[i]);

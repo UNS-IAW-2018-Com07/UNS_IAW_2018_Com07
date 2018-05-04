@@ -8,6 +8,7 @@ var ctrlPropietarios = require('../controllers/propietarios');
 // viviendas
 router.get('/viviendas', ctrlViviendas.getViviendas);
 router.get('/viviendas/:id', ctrlViviendas.getViviendaPorId);
+router.get('/viviendasResumidas', ctrlViviendas.getViviendasResumidas);
 
 //filtroBusqueda
 router.get('/filtrado', ctrlFiltrado.getViviendas);

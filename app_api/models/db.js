@@ -38,3 +38,5 @@ process.on('SIGTERM', () => {
 
 require('./viviendas');
 require('./usuario'); 
+require('./propietarios'); 
+
