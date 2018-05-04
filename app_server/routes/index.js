@@ -10,7 +10,6 @@ router.get('/viviendas/:idVivienda', ctrlLocations.infoVivienda);
 router.get('/viviendas/agregarVivienda', ctrlLocations.agregarVivienda);
 
 /* Other pages. */
-router.get('/login', ctrlOthers.login);
 router.get('/about', ctrlOthers.about);
 
 module.exports = router;

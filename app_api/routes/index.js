@@ -16,3 +16,4 @@ router.get('/viviendas/:idVivienda/comentarios', ctrlComentarios.getComentarios)
 router.post('/viviendas/:idVivienda/comentarios', ctrlComentarios.crearComentario); 
 
 module.exports = router;
+

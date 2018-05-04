@@ -22,9 +22,11 @@ var renderPaginaInicio = function(req, res, body){
 			mensaje = "No se encontraron viviendas en Bahia Blanca."; 
 		}
 	}
+	console.log(req.user); 
 	res.render('buildings-list', { 
   		title: 'Inicio',
-  		viviendas: body, 
+  		viviendas: body,
+  		user: req.user,  
   		mensaje: mensaje
   	});
 }

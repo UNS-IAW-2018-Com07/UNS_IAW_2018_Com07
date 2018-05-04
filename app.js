@@ -1,13 +1,13 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser'); 
 var logger = require('morgan');
-
-require('./app_api/models/db');
+var passport = require('passport'); 
+require('./app_api/models/db'); 
 
 const indexRouter = require('./app_server/routes/index');
-const usersRouter = require('./app_server/routes/users');
+const authRouter = require('./app_auth/routes/auth'); 
 const routesApi = require('./app_api/routes/index');
 
 var app = express();
@@ -21,10 +21,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//**app.use(bodyParser.json()); 
+
+app.use(require('express-session')({
+  secret: 'ProyectoIAW',
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
+app.use('/', authRouter)
 app.use('/api', routesApi);
+
+require('./app_auth/passport')(passport);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
