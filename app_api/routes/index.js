@@ -3,6 +3,7 @@ var router = express.Router();
 var ctrlViviendas = require('../controllers/viviendas');
 var ctrlFiltrado = require('../controllers/filtrado');
 var ctrlComentarios = require('../controllers/comentarios'); 
+var ctrlPropietarios = require('../controllers/propietarios'); 
 
 // viviendas
 router.get('/viviendas', ctrlViviendas.getViviendas);
@@ -13,7 +14,10 @@ router.get('/filtrado', ctrlFiltrado.getViviendas);
 
 //comentarios 
 router.get('/viviendas/:idVivienda/comentarios', ctrlComentarios.getComentarios); 
-router.post('/viviendas/:idVivienda/comentarios', ctrlComentarios.crearComentario); 
+router.post('/viviendas/:idVivienda/comentarios', ctrlComentarios.crearComentario);
+
+//propietarios
+router.get('/propietarios/:cuit', ctrlPropietarios.getPropietario);
 
 module.exports = router;
 

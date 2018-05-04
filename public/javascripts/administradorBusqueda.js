@@ -1,8 +1,4 @@
-var indiceFiltroOr=0;
-
 function buscar(){
-
-//{$or: [ {cantAmbientes: {$gt: 5}}, {cantAmbientes: [5]} ]};
 
 	var filtro={};
 
@@ -13,7 +9,9 @@ function buscar(){
 	setFiltroDormitorios(filtro);
 	setFiltroBanios(filtro);
 	setFiltroCocheras(filtro);
-	setFiltroPrecio(filtro);
+	setFiltroPrecio(filtro); 
+
+	console.log(filtro);
 
 	$.get("./api/filtrado",filtro, function (viviendas) {
          console.log(viviendas);   
@@ -54,11 +52,9 @@ function setFiltroAmbientes(filtro){
 		if(aux[aux.length-1]==="+5"){ //se selecciono la opcion +5
 			delete aux[aux.length-1];
 			if(aux.length>0){ //se seleccionó otra opción además de +5
-				if(indiceFiltroOr==0)
-					filtro.$or=[];
-				filtro.$or[indiceFiltroOr]={cantAmbientes: {$gt: 5}};
-				filtro.$or[indiceFiltroOr+1]={cantAmbientes: aux};
-				indiceFiltroOr=indiceFiltroOr+2;
+				filtro.$or=[];
+				filtro.$or[0]={cantAmbientes: {$gt: 5}};
+				filtro.$or[1]={cantAmbientes: aux};
 			}
 			else{//solo se selecciono +5
 				filtro.cantAmbientes= {$gt: 5};
@@ -68,29 +64,32 @@ function setFiltroAmbientes(filtro){
 			filtro.cantAmbientes=aux;
 		}
 	}
-}
+}//En esta funcion no me fijo si existe otro $or porque es la primera
 
 function setFiltroDormitorios(filtro){
 	var aux=$('#dormitoriosCheckboxes').val();
 
 	if(aux!==null){
-
 		if(aux[aux.length-1]==="+5"){ //se selecciono la opcion +5
 			delete aux[aux.length-1];
 			if(aux.length>0){ //se seleccionó otra opción además de +5
-				if(indiceFiltroOr==0)
-					filtro.$or=[];
-				filtro.$or[indiceFiltroOr]={cantDormitorios: {$gt: 5}};
-				filtro.$or[indiceFiltroOr+1]={cantDormitorios: aux};
-				indiceFiltroOr=indiceFiltroOr+2;
-			}
-			else{//solo se selecciono +5
+				if(filtro.$or){//ya existe un $or, tengo que crear un $and
+					filtro.$and=[];
+					filtro.$and[0]={$or: filtro.$or};
+					delete filtro.$or;
+					filtro.$and[1]={$or: [{cantDormitorios: {$gt: 5}},{cantDormitorios: aux}]};
+				}	
+				else{
+					filtro.$or=[];		
+					filtro.$or[0]={cantDormitorios: {$gt: 5}};
+					filtro.$or[1]={cantDormitorios: aux};	
+				}
+		    }
+			else//solo se selecciono +5
 				filtro.cantDormitorios= {$gt: 5};
-			}
 		}
-		else{
+		else //no se selecciono +5
 			filtro.cantDormitorios=aux;
-		}
 	}
 }
 
@@ -102,19 +101,27 @@ function setFiltroBanios(filtro){
 		if(aux[aux.length-1]==="+3"){ //se selecciono la opcion +3
 			delete aux[aux.length-1];
 			if(aux.length>0){ //se seleccionó otra opción además de +3
-				if(indiceFiltroOr==0)
-					filtro.$or=[];
-				filtro.$or[indiceFiltroOr]={cantBanios: {$gt: 3}};
-				filtro.$or[indiceFiltroOr+1]={cantBanios: aux};
-				indiceFiltroOr=indiceFiltroOr+2;
+				if(filtro.$or){ //si existe $or no hay $and
+					filtro.$and=[];
+					filtro.$and[0]={$or: filtro.$or};
+					delete filtro.$or;
+					filtro.$and[1]={$or: [{cantBanios: {$gt: 3}},{cantBanios: aux}]};
+				}	
+				else{
+					if(filtro.$and)//ya esta el $and creado, necesito insertar el $or adentro. Solo puede haber dos &or dentro del $and
+						filtro.$and[3]={$or: [{cantBanios: {$gt: 3}},{cantBanios: aux}]};
+					else{ //no hay $or creado
+						filtro.$or=[];		
+						filtro.$or[0]={cantBanios: {$gt: 3}};
+						filtro.$or[1]={cantBanios: aux};	
+					}
+				}
 			}
-			else{//solo se selecciono +5
+			else//solo se selecciono +3
 				filtro.cantBanios= {$gt: 3};
-			}
 		}
-		else{
+		else//no se selecciono +3
 			filtro.cantBanios=aux;
-		}
 	}
 }
 
@@ -123,30 +130,35 @@ function setFiltroCocheras(filtro){
 
 	if(aux!==null){
 
-		if(aux[aux.length-1]==="+2"){ //se selecciono la opcion +5
+		if(aux[aux.length-1]==="+2"){ //se selecciono la opcion +2
 			delete aux[aux.length-1];
-			if(aux.length>0){ //se seleccionó otra opción además de +5
-				if(indiceFiltroOr==0)
-					filtro.$or=[];
-				filtro.$or[indiceFiltroOr]={cantCocheras: {$gt: 5}};
-				filtro.$or[indiceFiltroOr+1]={cantCocheras: aux};
-				indiceFiltroOr=indiceFiltroOr+2;
+			if(aux.length>0){ //se seleccionó otra opción además de +2
+				if(filtro.$or){ //si existe $or no hay $and
+					filtro.$and=[];
+					filtro.$and[0]={$or: filtro.$or};
+					delete filtro.$or;
+					filtro.$and[1]={$or: [{cantCocheras: {$gt: 2}},{cantCocheras: aux}]};
+				}	
+				else{
+					if(filtro.$and)//ya esta el $and creado, necesito insertar el $or adentro. 
+						filtro.$and[filtro.$and.length]={$or: [{cantCocheras: {$gt: 2}},{cantCocheras: aux}]};
+					else{ //no hay $or creado
+						filtro.$or=[];		
+						filtro.$or[0]={cantCocheras: {$gt: 2}};
+						filtro.$or[1]={cantCocheras: aux};	
+					}
+				}
 			}
-			else{//solo se selecciono +5
-				filtro.cantCocheras= {$gt: 5};
-			}
+			else//solo se selecciono +2
+				filtro.cantCocheras= {$gt: 2};
 		}
-		else{
+		else//no se selecciono +2
 			filtro.cantCocheras=aux;
-		}
 	}
 }
-
 
 function setFiltroPrecio(filtro){
 
  	filtro.precio={$lte: document.getElementById("miRango").value};
 
 }
-
-//VEEEEEEEERRRR, METE TODOS LOS OR ADENTRO, SOLO SE FIJA POR UNO

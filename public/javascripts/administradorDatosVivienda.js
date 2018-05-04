@@ -53,7 +53,7 @@ function insertarListaVivienda(vivienda) {
 
     var h6 = document.createElement("h6");
     h6.setAttribute('class', 'card-title');
-    var texto_h6 = document.createTextNode(vivienda.operacion + ' - ' + tipoVivienda(vivienda));
+    var texto_h6 = document.createTextNode(vivienda.operacion + ' - ' + vivienda.tipoVivienda);
     h6.appendChild(texto_h6);
 
     var p = document.createElement("p");
