@@ -14,7 +14,7 @@ const getViviendas = function (req, res) {
 
 	if(req.query){
 		Vivienda
-			.find(req.query)
+			.find(req.query,{_id:1})
 			.exec((err, viviendas) =>{
 				if(!viviendas){
 					sendJsonResponse(res, 404, {
