@@ -114,9 +114,7 @@
                     {{mensaje}}
                 </div>
             {% endif %}
-            {% set comentarios = vivienda.comentarios %}
-                {{vivienda.comentarios}}
-            {% for comentario in comentarios %}
+            {% for comentario in vivienda.comentarios %}
                 {% include 'building-comments.twig' %} 
             {% endfor %}
         </ul>

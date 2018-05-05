@@ -69,7 +69,7 @@ var agregarComentario = function(req,res,vivienda){
 			usuario: req.body.usuario,
 			calificacion: req.body.calificacion,
 			fecha: req.body.fecha,
-			texto: req.body.texto 
+			texto: req.body.texto
 		}); 
 		vivienda.save(function(err,vivienda){
 			var comentario; 
