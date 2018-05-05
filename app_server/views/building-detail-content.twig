@@ -3,14 +3,20 @@
 <div class="container-fluid cuerpo-pagina"> 
     <div class="col-sm-12 col-md-7 col-lg-8 barraDetallesVivienda"> 
         <div class="row col-lg-12" align="center">
-            <h2 id="tituloVivienda">{{vivienda.operacion}} - {{vivienda.tipoVivienda}}</h2>
+            <h2>{{vivienda.operacion}} - {{vivienda.tipoVivienda}}</h2>
         </div>
 
         <div class="row col-lg-12 rowAcotada">
             <div class="col-xs-12 col-sm-7 col-lg-8 pull-left text-align-left"> 
-                <p id="direccionVivienda" class="textoDetalleVivienda"></p> 
+                {% if vivienda.tipoVivienda == "Departamento" %}
+                    {%set direccion = vivienda.direccion + " - " + vivienda.piso + vivienda.numeroDepto %}
+                {% else %}
+                    {% set direccion = vivienda.direccion %}
+                {% endif %}
+                <p class="textoDetalleVivienda"> {{direccion}} </p> 
             </div> 
-            <div class="col-xs-12 col-sm-5 col-lg-4 text-align-center"> <p id="precio" class="textoDetalleVivienda">""</p> </div> 
+            <div class="col-xs-12 col-sm-5 col-lg-4 text-align-center"> 
+                <p id="precio" class="textoDetalleVivienda">Precio: $ {{vivienda.precio}}</p> </div> 
         </div>
 
         <div class="row col-lg-12 margenSuperior">
@@ -19,11 +25,13 @@
                     <!-- Indicators -->
                     <ol id="grupo-links" class="carousel-indicators">
                         <!-- agregar un li por cada imagen que querramos añadir -->
+                        {% include  building-images-li.twig %}
                     </ol>
 
                     <!-- Wrapper for slides -->
                     <div id="grupo-imagenes" class="carousel-inner">
                         <!-- agregar un div por cada imagen que querramos añadir --> 
+                        {% include  building-images.twig %}
                     </div>
 
                     <!-- Left and right controls -->
@@ -114,9 +122,7 @@
                     {{mensaje}}
                 </div>
             {% endif %}
-            {% set comentarios = vivienda.comentarios %}
-                {{vivienda.comentarios}}
-            {% for comentario in comentarios %}
+            {% for comentario in viviendas.comentarios %}
                 {% include 'building-comments.twig' %} 
             {% endfor %}
         </ul>

@@ -9,9 +9,9 @@
             {% set cantEstrellas = vivienda.calificacion %} 
             {% include 'rating.twig' %} 
             {% if vivienda.tipoVivienda == "Departamento" %}
-                {%set direccion = vivienda.direccion + " - " + vivienda.piso + vivienda.numeroDepto %}
+                {% set direccion = vivienda.direccion + " - " + vivienda.piso + vivienda.numeroDepto %}
             {% else %}
-                {%set direccion = vivienda.direccion %}
+                {% set direccion = vivienda.direccion %}
             {% endif %}
             <p class="card-text">Direccion: {{direccion}}</p>
             <a class="btn btnOscuro" href={{'/viviendas/'~vivienda._id}}> Ver más</a>

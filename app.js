@@ -33,8 +33,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-//app.use('/users', usersRouter);
-app.use('/', authRouter)
+app.use('/auth', authRouter); 
 app.use('/api', routesApi);
 
 require('./app_auth/passport')(passport);

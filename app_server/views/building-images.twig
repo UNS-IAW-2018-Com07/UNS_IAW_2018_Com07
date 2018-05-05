@@ -1,0 +1,8 @@
+<div class="item active">
+    <img class="img-responsive center-block imagen-carousel" src={{"/public"~vivienda.images[0]}} alt="Imagen Vivienda"/> 
+    {% for images in vivienda.images-vivienda.images[0] %}
+        <div class="item">
+            <img class="img-responsive center-block imagen-carousel" src={{"/public"~images}} alt="Imagen Vivienda"/> 
+        </div>
+    {% endfor %}    
+</div>

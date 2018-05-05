@@ -19,15 +19,15 @@ module.exports = function(passport){
 
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
+        User.findOne({'id': id}, function(err, user) {
             done(err, user);
         });
     });
 
 	// Configuración del autenticado con Github
 	passport.use(new GoogleStrategy({
-        clientID        : configAuth.googleAuth.clientID,
-        clientSecret    : configAuth.googleAuth.clientSecret,
+        clientID     : configAuth.googleAuth.clientID,
+        clientSecret  : configAuth.googleAuth.clientSecret,
         callbackURL     : configAuth.googleAuth.callbackURL,
         //Nos permite pasar el req de nuestra route para chequear si un usuario esta logueado o no
         passReqToCallback : true 

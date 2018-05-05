@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 const UsuarioSchema = new mongoose.Schema ({
 	id: {
 		type: String, 
-		unique: true
+		// unique: true
 	},  
 	token: String, 
 	nombre: String, 
-	foto:String, 
+	foto: String, 
 	fechaCreacion: {type:Date, "default": Date.now}
 }); 
 
