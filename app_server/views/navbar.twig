@@ -22,12 +22,12 @@
                 </form>
             {% endif %} 
             <ul class="nav navbar-nav navbar-right">
-                {# {% if user==null %} #}
+                {% if user is not defined %}
                     <li><a href='#' data-toggle="modal" data-target="#loginModal">Iniciar sesión</a></li>
-                {# {% else %} #}
-                    {# <li><a href='/logout'>Cerrar sesión</a></li> #}
-                    {# <li><a href='/unlink'>Eliminar cuenta</a></li> #}
-                {# {% endif %}} #}
+                {% else %}
+                    <li><a href='auth/logout'>Cerrar sesión</a></li>
+                    <li><a href='auth/unlink'>Eliminar cuenta</a></li>
+                {% endif %}}
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href='#'> Estilos <b class="caret"></b></a>
                     <ul id="seleccionarEstilo" class="dropdown-menu">
@@ -41,7 +41,7 @@
     </div>
 </header>
 
-{# {% if user==null %} #}
+{% if user is not defined %}
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -69,4 +69,4 @@
             </div>
         </div>
     </div>
-{# {% endif %} #}
+{% endif %}

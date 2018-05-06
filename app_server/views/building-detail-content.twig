@@ -1,5 +1,3 @@
-{# hay que poner los valores que se sacan de la base de datos (que manda desde el controlador) #}
-
 <div class="container-fluid cuerpo-pagina"> 
     <div class="col-sm-12 col-md-7 col-lg-8 barraDetallesVivienda"> 
         <div class="row col-lg-12" align="center">
@@ -9,7 +7,7 @@
         <div class="row col-lg-12 rowAcotada">
             <div class="col-xs-12 col-sm-7 col-lg-8 pull-left text-align-left"> 
                 {% if vivienda.tipoVivienda == "Departamento" %}
-                    {%set direccion = vivienda.direccion + " - " + vivienda.piso + vivienda.numeroDepto %}
+                    {% set direccion = vivienda.direccion + " - " + vivienda.piso + vivienda.numeroDepto %}
                 {% else %}
                     {% set direccion = vivienda.direccion %}
                 {% endif %}
@@ -25,13 +23,13 @@
                     <!-- Indicators -->
                     <ol id="grupo-links" class="carousel-indicators">
                         <!-- agregar un li por cada imagen que querramos añadir -->
-                        {% include  building-images-li.twig %}
+                        {% include  'building-images-li.twig' %}
                     </ol>
 
                     <!-- Wrapper for slides -->
                     <div id="grupo-imagenes" class="carousel-inner">
                         <!-- agregar un div por cada imagen que querramos añadir --> 
-                        {% include  building-images.twig %}
+                        {% include  'building-images.twig' %}
                     </div>
 
                     <!-- Left and right controls -->
@@ -49,30 +47,36 @@
             <div class="col-xs-12 col-sm-5 col-lg-4">
                 <ul class="row col-lg-12 list-group">
                     <li class="list-group-item list-group-listado">
-                        <span class="badge oscuro"><span id="compartido"></span></span>
+                        {% if vivienda.compartido %}
+                            {% set clase = 'glyphicon glyphicon-ok' %}
+                        {% else %}
+                            {% set clase = 'glyphicon glyphicon-remove' %}
+                        {% endif %}
+                        <span class="badge oscuro"><span class='{{clase}}'></span></span>
                         Compartido
                     <li class="list-group-item list-group-listado">
-                        <span id="ambientes" class="badge oscuro"></span>
+                        <span id="ambientes" class="badge oscuro">{{vivienda.cantAmbientes}}</span>
                         Ambientes
                     </li>
                     <li class="list-group-item list-group-listado">
-                        <span id="banios" class="badge oscuro"></span>
+                        <span id="banios" class="badge oscuro">{{vivienda.cantBanios}}</span>
                         Baños
                     </li>
                     <li class="list-group-item list-group-listado">
-                        <span id="dormitorios" class="badge oscuro"></span>
+                        <span id="dormitorios" class="badge oscuro">{{vivienda.cantDormitorios}}</span>
                         Dormitorios
                     </li>
                     <li class="list-group-item list-group-listado">
-                        <span id="cocheras" class="badge oscuro"></span>
+                        <span id="cocheras" class="badge oscuro">{{vivienda.cantCocheras}}</span>
                         Cocheras
                     </li>
+                    {% set antig = "now"|date("Y")- vivienda.anioConstruccion %}
                     <li class="list-group-item list-group-listado">
-                        <span id="antiguedad" class="badge oscuro"></span>
+                        <span id="antiguedad" class="badge oscuro">{{ antig }}</span>
                         Antigüedad (años)
                     </li>
                     <li class="list-group-item list-group-listado">
-                        <span id="superficie" class="badge oscuro"></span>
+                        <span id="superficie" class="badge oscuro">{{vivienda.metrosCuadrados}}</span>
                         Superficie (m²)
                     </li>
                 </ul>
@@ -101,9 +105,9 @@
                         <h4 class="modal-title text-center">Datos contacto</h4>
                     </div>
                     <div class="modal-body">
-                        <p id="nombreContacto">""</p>
-                        <p id="mailContacto">""</p>
-                        <p id="telefonoContacto">""</p>
+                        <p id="nombreContacto">Nombre: {{propietario.nombre}}</p>
+                        <p id="mailContacto">Mail: {{propietario.correoElectronico}}</p>
+                        <p id="telefonoContacto">Telefono: {{propietario.telefono}}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btnOscuro center-block" data-dismiss="modal">
@@ -117,11 +121,6 @@
 
     <div id="barraComentarios" class="col-xs-12 col-sm-12 col-md-5 col-lg-4 barraComentarios">
         <ul id="contenedorComentarios" class="list-group comentariosRealizados">
-            {% if mensaje %}
-                <div class="alert alert-estilo" role="alert">
-                    {{mensaje}}
-                </div>
-            {% endif %}
             {% for comentario in vivienda.comentarios %}
                 {% include 'building-comments.twig' %} 
             {% endfor %}

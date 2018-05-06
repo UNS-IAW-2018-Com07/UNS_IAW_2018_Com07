@@ -49,10 +49,10 @@ module.exports.homelist = function (req, res) {
 /* DETALLE VIVIENDA */
 
 var renderDetalleVivienda = function(req, res, body){
-	console.log(body); 
 	res.render('building-detail', { 
   		title: 'Detalle Vivienda',
-  		vivienda: body,
+  		vivienda: body.vivienda,
+  		propietario: body.propietario, 
   		user: req.user
   	});
 }
@@ -81,13 +81,28 @@ module.exports.infoVivienda = function (req, res) {
 		url: apiOptions.server + path, 
 		method: "GET", 
 		json: {}
-	}; 
-	console.log(solicitud.url); 
+	};  
 	request(
 		solicitud, 
 		function(err,response,body){
 			if(response.statusCode === 200){
-				renderDetalleVivienda(req,res,body); 
+				var vivienda = body; 
+				var solicitudProp; 
+				path = "/api/propietarios/"+body.propietario; 
+				solicitudProp = {
+					url: apiOptions.server + path, 
+					method: "GET",  
+					json:{}
+				};  
+				request(solicitudProp, function(err,response,body){
+					if(response.statusCode === 200){
+						body={vivienda: vivienda, propietario: body}; 
+						renderDetalleVivienda(req,res,body);
+					}
+					else {
+						_showError(req,res,response.statusCode); 
+					}
+				});
 			}
 			else {
 				_showError(req,res,response.statusCode); 

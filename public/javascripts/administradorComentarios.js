@@ -44,31 +44,6 @@ function resetearObjetos() {
     }
 }
 
-
-//Deberia hacerse en el controlador. 
-// function  mostrarComentarioVivienda(id_vivienda) {
-//     $.get("./api/viviendas/"+id_vivienda+"/comentarios", function (comentarios) {
-//         if(!(comentarios instanceof Array)){
-//             mostrarMensajeDeError("Hubo un error durante la conexion."); 
-//         }
-//         else {
-//             if(comentarios.length){
-//                 for (i = 0; i < comentarios.length; i++) {
-//                     crearComentario(comentarios[i]);
-//                 }
-//             }
-//         }
-//     });
-// }
-
-function mostrarMensajeDeError(mensaje){
-    var div = document.createElement("div");
-    div.setAttribute('class', 'alert alert-estilo');
-    div.setAttribute('role','alert'); 
-    var txt = document.createTextNode(mensaje);
-    div.appendChild(txt);
-}
-
 function crearComentario(comentario) {
     var li = document.createElement("li");
     li.setAttribute('class', "list-group-item margenSuperior listadoComentario");

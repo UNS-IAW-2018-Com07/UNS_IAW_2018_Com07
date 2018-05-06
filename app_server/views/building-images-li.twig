@@ -1,6 +1,7 @@
-<li class="active" data-target='#myCarousel' data-slide-to=0> 
-    <img class="img-responsive center-block imagen-carousel" src={{"/public"~vivienda.images[0]}} alt="Imagen Vivienda"/> 
-    {% for images in vivienda.images-vivienda.images[0] %}
-        <li data-target='#myCarousel' data-slide-to={{index.loop}}> </li>
-    {% endfor %}    
-</li>
+<li class="active" data-target='#myCarousel' data-slide-to=0> </li>
+{% for images in vivienda.imagenes|slice(1) %}
+    <li data-target='#myCarousel' data-slide-to={{loop.index}}> </li>
+{% endfor %}    
+
+
+

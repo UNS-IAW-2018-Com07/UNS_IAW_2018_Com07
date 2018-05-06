@@ -57,7 +57,6 @@ const getViviendasResumidas = function (req, res) {
 		.find({},{precio:1,operacion:1,tipoVivienda:1,calificacion:1,direccion:1,piso:1,numeroDepto:1,imagenes:1})
 		.exec((err, viviendas) => {
 			if(!viviendas){
-				console.log("viviendas nulo");
 				//Mongoose no retorna viviendas, por lo que se envia un mensaje de error 404
 				sendJsonResponse(res,404,{
 					"mensaje": "No se encontraron las viviendas"
@@ -65,11 +64,9 @@ const getViviendasResumidas = function (req, res) {
 				return;
 			}
 			else if (err) { 
-					console.log("error");
 					sendJsonResponse(res, 400, err); 
 					return; 
 	        	} else {
-	        		console.log(viviendas);
 	        		sendJsonResponse(res,200,viviendas); 
 				}
 		})
