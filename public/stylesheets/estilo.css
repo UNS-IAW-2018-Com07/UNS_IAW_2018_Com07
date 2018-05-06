@@ -80,3 +80,8 @@ body{
     padding-top: 10px;
     margin-right: 5px; 
 }
+
+#contenedorListado{
+    display: flex;
+    flex-direction: column;
+}

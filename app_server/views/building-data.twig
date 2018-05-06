@@ -1,4 +1,4 @@
-<li class="list-group-item margenInferior marginLeft">
+<li class="list-group-item margenInferior marginLeft" id={{vivienda._id}}>
     <div class="media"> 
         <div class="media-left"> 
             <img class="media-left media-middle img-fluid" src={{'/public/'~vivienda.imagenes[0]}} alt="Imagen inmueble" width="200px"> 
@@ -9,11 +9,10 @@
             {% set cantEstrellas = vivienda.calificacion %} 
             {% include 'rating.twig' %} 
             {% if vivienda.tipoVivienda == "Departamento" %}
-                {% set direccion = vivienda.direccion + " - " + vivienda.piso + vivienda.numeroDepto %}
+                <p class="card-text"> {{ vivienda.direccion ~ ' - ' ~ vivienda.piso ~ vivienda.numeroDepto}} </p>
             {% else %}
-                {% set direccion = vivienda.direccion %}
+                <p class="card-text"> {{vivienda.direccion}} </p> 
             {% endif %}
-            <p class="card-text">Direccion: {{direccion}}</p>
             <a class="btn btnOscuro" href={{'/viviendas/'~vivienda._id}}> Ver más</a>
         </div>
     </div>

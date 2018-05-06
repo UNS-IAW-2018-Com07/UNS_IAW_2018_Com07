@@ -11,11 +11,18 @@ function buscar(){
 	setFiltroCocheras(filtro);
 	setFiltroPrecio(filtro); 
 
-	console.log(filtro);
+	$("#contenedorListado").children().css({"display": "none"});
 
-	$.get("./api/filtrado",filtro, function (viviendas) {
-         console.log(viviendas);   
-        });
+	$.get("./api/viviendasSoloId",filtro, function (viviendas) {
+       	viviendas.forEach(function(vivienda) {
+       		if(document.getElementById(vivienda._id)) 
+       			//es porque puede que se actualice la base de datos pero como el listado se creo antes
+       			//no existe un li con esa id
+  				document.getElementById(vivienda._id).style.display = "block";
+  			//else podria agregarse un nuevo li pero eso requiere otra consulta a la db
+		});
+
+    });
 }
 
 function setFiltroCompartido(filtro){

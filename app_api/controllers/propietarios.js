@@ -9,7 +9,7 @@ var sendJsonResponse = function(res, status, content) {
 const getPropietario = function (req, res) {
 	if(req.params && req.params.cuit){
 		Propietario
-			.find({cuit : req.params.cuit})
+			.findOne({cuit : req.params.cuit})
 			.exec((err, propietario) =>{
 				if(!propietario){
 					sendJsonResponse(res, 404, {
@@ -21,7 +21,7 @@ const getPropietario = function (req, res) {
 					sendJsonResponse(res,400,err); 
 					return;     
 		        	} else {
-		        		sendJsonResponse(res,200,propietario[0]); 
+		        		sendJsonResponse(res,200,propietario); 
 					}
 			})
 	}

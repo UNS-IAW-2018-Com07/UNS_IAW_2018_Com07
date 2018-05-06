@@ -35,7 +35,7 @@ var renderPaginaInicio = function(req, res, body){
 
 module.exports.homelist = function (req, res) { 
 	var solicitud, path; 
-	path = '/api/viviendasResumidas'; 
+	path = '/api/viviendas'; 
 	solicitud = {
 		url: apiOptions.server + path, 
 		method: "GET",
@@ -94,3 +94,21 @@ module.exports.infoVivienda = function (req, res) {
 			}
 	}); 
 };
+
+/* ORDENAR LISTADO */
+
+// module.exports.sortlist = function (req, res) { 
+// 	var solicitud, path; 
+// 	path = '/api/sort'; 
+// 	solicitud = {
+// 		url: apiOptions.server + path, 
+// 		method: "GET",
+// 		json: {},
+// 		qs: req.query
+// 	}; 
+	
+// 	request(solicitud, function(err,response,body){
+// 		renderPaginaInicio(req,res,body);
+// 	}); 
+// };
+
