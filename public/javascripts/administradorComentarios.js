@@ -1,9 +1,9 @@
-function agregarComentarioVivienda(id_vivienda) {
+function agregarComentarioVivienda(id_vivienda, user) {
     var user = document.getElementById('nombreUsuario').value;
     var calif = parseInt(obtenerCalificacion());
     var date = new Date();
     var comentario = document.getElementById('textComentario').value;
-    comentario = comentario.replace(/(\n)+/g, '\\n');
+    comentario = comentario.replace(/(\n)+/g, '<br>');
 
     $.ajax({
         url: "/api/viviendas/"+id_vivienda+"/comentarios",
