@@ -7,7 +7,7 @@ var apiOptions = {
 
 if(process.env.NODE_ENV == 'production'){
 	//Si la aplicacion se ejecuta en "production mode" se setea una base URL diferente. 
-	apiOptions.server = "https://algo-que-no-tenemos.herokuapp.com"; 
+	apiOptions.server = "https://ktphi.herokuapp.com"; 
 }
 
 /* PAGINA DE INICIO. */
