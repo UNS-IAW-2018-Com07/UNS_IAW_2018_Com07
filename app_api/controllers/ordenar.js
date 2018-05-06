@@ -16,7 +16,7 @@ const ordenar = function (req, res) {
 		orden={};
 
 	Vivienda
-		.find({},{precio:1,operacion:1,tipoVivienda:1,calificacion:1,direccion:1,piso:1,numeroDepto:1,imagenes:1})
+		.find({},{_id:1})
 		.sort(orden)
 		.exec((err, viviendas) => {
 			if(!viviendas){

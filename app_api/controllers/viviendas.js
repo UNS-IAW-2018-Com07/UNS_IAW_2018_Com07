@@ -16,7 +16,7 @@ const getViviendas = function (req, res) {
 		filtro={};
 
 	Vivienda
-		.find(filtro,{precio:1,operacion:1,tipoVivienda:1,calificacion:1,direccion:1,piso:1,numeroDepto:1,imagenes:1})
+		.find(filtro,{_id:1,precio:1,operacion:1,tipoVivienda:1,calificacion:1,direccion:1,piso:1,numeroDepto:1,imagenes:1})
 		.exec((err, viviendas) => {
 			if(!viviendas){
 				//Mongoose no retorna viviendas, por lo que se envia un mensaje de error 404
