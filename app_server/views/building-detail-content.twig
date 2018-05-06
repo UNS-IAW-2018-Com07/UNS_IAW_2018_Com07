@@ -7,11 +7,10 @@
         <div class="row col-lg-12 rowAcotada">
             <div class="col-xs-12 col-sm-7 col-lg-8 pull-left text-align-left"> 
                 {% if vivienda.tipoVivienda == "Departamento" %}
-                    {% set direccion = vivienda.direccion + " - " + vivienda.piso + vivienda.numeroDepto %}
+                    <p class="textoDetalleVivienda"> {{ vivienda.direccion ~ ' - ' ~ vivienda.piso ~ vivienda.numeroDepto}} </p>
                 {% else %}
-                    {% set direccion = vivienda.direccion %}
+                    <p class="textoDetalleVivienda"> {{vivienda.direccion}} </p> 
                 {% endif %}
-                <p class="textoDetalleVivienda"> {{direccion}} </p> 
             </div> 
             <div class="col-xs-12 col-sm-5 col-lg-4 text-align-center"> 
                 <p id="precio" class="textoDetalleVivienda">Precio: $ {{vivienda.precio}}</p> </div> 
@@ -25,7 +24,6 @@
                         <!-- agregar un li por cada imagen que querramos añadir -->
                         {% include  'building-images-li.twig' %}
                     </ol>
-
                     <!-- Wrapper for slides -->
                     <div id="grupo-imagenes" class="carousel-inner">
                         <!-- agregar un div por cada imagen que querramos añadir --> 
