@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
-const dbURI = process.env.MLAB_URI;
 
+//Se setea el URL por defecto del server para desarrollo local. 
+var dbURI = 'mongodb://localhost/database';
+
+//Si la aplicacion se ejecuta en "production mode" se setea una base URL diferente. 
+if(process.env.NODE_ENV == 'production')
+  dbURI=process.env.MLAB_URI;
+  
 mongoose.connect(dbURI); 
 
 mongoose.connection.on('connected', () => {
