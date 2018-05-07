@@ -9,7 +9,7 @@ const errNoEsEntero = '{VALUE} is not an integer value';
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 const comentarioSchema = new mongoose.Schema({
-	usuario: {
+	idUsuario: {
 		type: String,
 		required: true
 	},

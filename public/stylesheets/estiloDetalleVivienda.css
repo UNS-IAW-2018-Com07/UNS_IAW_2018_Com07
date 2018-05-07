@@ -133,3 +133,11 @@ body{
     font-size: 1.5em; 
     margin-bottom: 0%;
 }
+
+.form-control[disabled] {
+    cursor: default;
+}
+
+textarea {
+    resize: none;
+}

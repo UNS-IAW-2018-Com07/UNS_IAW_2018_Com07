@@ -1,22 +1,61 @@
 function agregarComentarioVivienda(id_vivienda, user) {
-    var user = document.getElementById('nombreUsuario').value;
+    if (typeof user !== "undefined" && user!=null && user.length>0) {
+        agregarComentarioViviendaAux(id_vivienda,JSON.parse(user)); 
+    }
+    else {
+        mostrarMensajeDeErrorUsuario(); 
+    }
+}
+
+function mostrarMensajeDeErrorUsuario(){
+    var div = document.createElement("div");
+    div.setAttribute('class', 'alert alert-danger alert-dismissible');
+    div.setAttribute('role', 'alert'); 
+
+    var cerrar = document.createElement("button"); 
+    cerrar.setAttribute('type', 'button'); 
+    cerrar.setAttribute('class', 'close');
+    cerrar.setAttribute('data-dismiss', 'alert');
+    cerrar.setAttribute('aria-label', 'Close');
+
+    var span = document.createElement("span"); 
+    span.setAttribute('aria-hidden', 'true');
+    $(span).html("&times;");
+
+    cerrar.appendChild(span); 
+
+    var strong = document.createElement("strong"); 
+    var texto_p1 = document.createTextNode('Oops! ');
+    strong.appendChild(texto_p1);
+
+    var texto_p2 = document.createTextNode('Debe loguearse para realizar un comentario.');
+
+    div.appendChild(strong);
+    div.appendChild(texto_p2); 
+    div.appendChild(cerrar); 
+
+    document.getElementById("barraComentarios").appendChild(div);
+}
+
+
+function agregarComentarioViviendaAux(id_vivienda,user){
     var calif = parseInt(obtenerCalificacion());
     var date = new Date();
     var comentario = document.getElementById('textComentario').value;
     comentario = comentario.replace(/(\n)+/g, '<br>');
-
+    console.log(user.id); 
     $.ajax({
         url: "/api/viviendas/"+id_vivienda+"/comentarios",
         type: 'POST',
         data: {
-            usuario: user,
+            idUsuario: user.id,
             calificacion: calif,
             fecha: date,
             texto: comentario
         },
         dataType: "json",
         success: function(data){ 
-            crearComentario(data);
+            crearComentario(data,user);
         },
         error: function(xhr,textStatus,err) {
             console.log(err); 
@@ -44,7 +83,7 @@ function resetearObjetos() {
     }
 }
 
-function crearComentario(comentario) {
+function crearComentario(comentario,user) {
     var li = document.createElement("li");
     li.setAttribute('class', "list-group-item margenSuperior listadoComentario");
 
@@ -65,7 +104,7 @@ function crearComentario(comentario) {
 
     var img = document.createElement("img");
     img.setAttribute('class', 'media-object imgComentario text-align-left');
-    img.setAttribute('src', '/public/images/imgComentario.png');
+    img.setAttribute('src', user.foto);
 
     var p1 = document.createElement("p");
     p1.setAttribute('class', 'media-heading text-align-right');
@@ -77,7 +116,7 @@ function crearComentario(comentario) {
 
     var h5 = document.createElement("h5");
     h5.setAttribute('class', 'media-heading pull-left');
-    var texto_h5 = document.createTextNode(comentario.usuario + ':');
+    var texto_h5 = document.createTextNode(user.nombre + ':');
     h5.appendChild(texto_h5);
 
     var p2 = document.createElement("p");

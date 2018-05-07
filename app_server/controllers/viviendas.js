@@ -95,8 +95,26 @@ module.exports.infoVivienda = function (req, res) {
 					json:{}
 				};  
 				request(solicitudProp, function(err,response,body){
+					var prop = body; 
 					if(response.statusCode === 200){
-						body={vivienda: vivienda, propietario: body}; 
+						var solicitudUsuario; 
+						vivienda.comentarios.forEach(function(comentario){
+							path = "/api/usuario/"+comentario.idUsuario; 
+							solicitudUsuario = {
+								url: apiOptions.server + path, 
+								method: "GET", 
+								json: {}
+							}; 
+							request(solicitudUsuario, function(err,response,usuario){
+								if(response.statusCode === 200){
+									comentario.idUsuario = usuario; 
+								}
+								else{
+									_showError(req,res,response.statusCode); 
+								}
+							}); 
+						});
+						body={vivienda: vivienda, propietario: prop}; 
 						renderDetalleVivienda(req,res,body);
 					}
 					else {
@@ -109,21 +127,4 @@ module.exports.infoVivienda = function (req, res) {
 			}
 	}); 
 };
-
-/* ORDENAR LISTADO */
-
-// module.exports.sortlist = function (req, res) { 
-// 	var solicitud, path; 
-// 	path = '/api/sort'; 
-// 	solicitud = {
-// 		url: apiOptions.server + path, 
-// 		method: "GET",
-// 		json: {},
-// 		qs: req.query
-// 	}; 
-	
-// 	request(solicitud, function(err,response,body){
-// 		renderPaginaInicio(req,res,body);
-// 	}); 
-// };
 

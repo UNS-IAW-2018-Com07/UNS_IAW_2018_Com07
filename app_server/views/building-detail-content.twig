@@ -125,15 +125,17 @@
         </ul>
         <div class="media">
             <div class="media-body media-comentario"> 
-                <div class="row"> <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">Nombre de usuario: </span>
-                    {% if user is defined %}
-                        {% set nombreUsuario = user.nombre %}
-                    {% else %}
-                        {% set nombreUsuario = '' %}
-                    {% endif %}
-                    <input id="nombreUsuario" type="text" class="form-control" placeholder="{{nombreUsuario}}" aria-describedby="basic-addon1">
-                </div></div> 
+                <div class="row"> 
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Nombre de usuario: </span>
+                        {% if user is defined %}
+                            {% set nombreUsuario = user.nombre %}
+                        {% else %}
+                            {% set nombreUsuario = '' %}
+                        {% endif %}
+                        <input id="nombreUsuario" type="text" class="form-control" placeholder="{{nombreUsuario}}" aria-describedby="basic-addon1" disabled>
+                    </div>
+                </div> 
                 <div class="row ">
                     <p class="pull-left" style="padding-top: 10px; padding-left: 5px;">Calificacion: </p> 
                     <fieldset id="starRate" class="rating pull-right">
@@ -153,7 +155,19 @@
                         <textarea id="textComentario" class="form-control" placeholder="Escriba su comentario..." rows="5"></textarea>
                     </div></div> 
                 <div class="row margenSuperior" align="center"> 
-                    <button class="btn btnOscuro btnContactarse" onclick="agregarComentarioVivienda('{{vivienda._id}}',user);">Comentar</button> 
+                    {% if user is defined %}
+                        {% set usuario = "{ 'id': " ~ user.id ~ ", 'nombre': '" ~ user.nombre ~ "', 'foto': '" ~ user.foto ~ "'}" %}
+                            {# {{usuario|json_encode}} #}
+                        {# {% set user = user|json_encode %} #}
+{#                         {% set function = "agregarComentarioVivienda('%s', '{ 'id': " ~ user.id ~ ", 'nombre': '" ~ user.nombre ~ "', 'foto': '" ~ user.foto ~ "'}');"|format(vivienda._id) %} #}
+                        {% set function = 'agregarComentarioVivienda("%s", %s);'|format(vivienda._id,usuario) %}
+                    {% else %}
+{#                         {% set usuario = '' %} #}
+                        {% set function = 'agregarComentarioVivienda("%s", "");'|format(vivienda._id) %} 
+                    {% endif %}
+                    <button class="btn btnOscuro btnContactarse" onclick='{{function}}'>
+                        Comentar
+                    </button> 
                 </div> 
             </div>
         </div> 
