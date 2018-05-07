@@ -6,19 +6,19 @@
             </div>
             <div class="row margenIzquierdo">
                 <div class="row rowAcotada">
-                    <div class="checkbox"> <label for="Alquiler"><input type="checkbox" id="Alquiler" value="Alquiler">Alquiler</label> </div>
+                    <div class="checkbox"> <label for="Alquiler"><input type="checkbox" id="Alquiler" onchange="actualizarPreciosRango();">Alquiler</label> </div>
                 </div>
                 <div class="row rowAcotada">
-                    <div class="checkbox"> <label for="Compra"><input type="checkbox" id="Compra" value="Compra">Compra</label> </div>
+                    <div class="checkbox"> <label for="Compra"><input type="checkbox" id="Compra"  onchange="actualizarPreciosRango();">Compra</label> </div>
                 </div>
                 <div class="row rowAcotada margenSuperior">
-                    <div class="checkbox"> <label for="Departamento"><input type="checkbox" id="Departamento" value="Departamento">Departamento</label> </div>
+                    <div class="checkbox"> <label for="Departamento"><input type="checkbox" id="Departamento">Departamento</label> </div>
                 </div>
                 <div class="row rowAcotada">
-                    <div class="checkbox"><label for="Casa"><input type="checkbox" id="Casa" value="Casa">Casa</label> </div>
+                    <div class="checkbox"><label for="Casa"><input type="checkbox" id="Casa">Casa</label> </div>
                 </div>
                 <div class="row">
-                    <div class="checkbox"><label for="viviendaCompartida"><input type="checkbox" id="viviendaCompartida" value="Vivienda Compartida">Vivienda Compartida</label> </div>
+                    <div class="checkbox"><label for="viviendaCompartida"><input type="checkbox" id="viviendaCompartida">Vivienda Compartida</label> </div>
                 </div>
                 <div class="row margenSuperior">
                     <p>Ambientes:</p>
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="centeredContainer">
+                <div id="contenedorRango" class="centeredContainer">
                     <p class="precioMaximo">Precio máximo: <span id="idTxt">0</span></p>
                     <div class="row">
                         <div class="col-lg-6">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <div class="slidecontainer">
-                        <input type="range" min="0" max="100" value="0" class="slider" id="miRango" oninput="sliderPrecio('miRango','idTxt')">
+                        <input type="range" min="0" max="0" value="0" class="slider" id="miRango" oninput="sliderPrecio('miRango','idTxt')">
                     </div>
                     <div>
                         <button class="btn btnOscuro centeredContainer" onClick="buscar();">Buscar</button>

@@ -1,5 +1,10 @@
 /* global google */
 /* global map */
+/* global markers */
+
+var markers= {};
+
+const ciudad = ", Bahia Blanca, Buenos Aires, Argentina";
 
 function myMap() {
     var mapOptions = {
@@ -18,20 +23,22 @@ function myMap() {
         var length = viviendas.length;
         for (i = 0; i < length; i++) {
             var detalle = crearDetalleVivienda(viviendas[i]);
-            crearUbicacion(viviendas[i].direccion, detalle);
+            crearUbicacion(viviendas[i].direccion, detalle, viviendas[i]._id);
         }
     });
 }
 
-function crearUbicacion(direccion, detalle) {
-    var ciudad = ", Bahia Blanca, Buenos Aires, Argentina";
+function crearUbicacion(direccion, detalle, id_vivienda) {
 
     geocoder.geocode({'address': direccion.concat(ciudad)}, function (results, status) {
+
         if (status === 'OK') {
-            var marker = new google.maps.Marker({
+            marker = new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
             });
+
+            markers[id_vivienda]= marker;
 
             var infowindow = new google.maps.InfoWindow({
                 content: detalle + ""
@@ -40,7 +47,6 @@ function crearUbicacion(direccion, detalle) {
             google.maps.event.addListener(marker, 'click', function () {
                 infowindow.open(map, marker);
             });
-
         }
     });
 }

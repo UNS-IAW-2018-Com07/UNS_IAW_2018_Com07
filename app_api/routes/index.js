@@ -4,6 +4,7 @@ var ctrlViviendas = require('../controllers/viviendas');
 var ctrlComentarios = require('../controllers/comentarios'); 
 var ctrlPropietarios = require('../controllers/propietarios'); 
 var ctrlOrdenar = require('../controllers/ordenar'); 
+var ctrlRango = require('../controllers/rango'); 
 
 // viviendas
 router.get('/viviendas', ctrlViviendas.getViviendas);
@@ -19,6 +20,9 @@ router.get('/propietarios/:cuit', ctrlPropietarios.getPropietario);
 
 //ordenar
 router.get('/sort', ctrlOrdenar.ordenar);
+
+//ordenar
+router.get('/rango', ctrlRango.obtenerRango);
 
 module.exports = router;
 

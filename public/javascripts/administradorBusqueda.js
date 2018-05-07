@@ -13,16 +13,23 @@ function buscar(){
 
 	$("#contenedorListado").children().css({"display": "none"});
 
+	for(var id in markers)
+		markers[id].setMap(null);
+
 	$.get("./api/viviendasSoloId",filtro, function (viviendas) {
        	viviendas.forEach(function(vivienda) {
-       		if(document.getElementById(vivienda._id)) 
+       		if(document.getElementById(vivienda._id))
        			//es porque puede que se actualice la base de datos pero como el listado se creo antes
        			//no existe un li con esa id
   				document.getElementById(vivienda._id).style.display = "block";
   			//else podria agregarse un nuevo li pero eso requiere otra consulta a la db
-		});
+  			if(markers[vivienda._id])
+  				markers[vivienda._id].setMap(map);
+		});  
 
     });
+
+    console.log(markers);
 }
 
 function setFiltroCompartido(filtro){
@@ -43,7 +50,7 @@ function setFiltroTipoVivienda(filtro){
 function setFiltroOperacion(filtro){
 
 	if (document.getElementById("Alquiler").checked === true && document.getElementById("Compra").checked === false)
-	 	filtro.peracion="Alquiler";
+	 	filtro.operacion="Alquiler";
 	else 
 	 	if (document.getElementById("Compra").checked === true && document.getElementById("Alquiler").checked === false)
 	 		filtro.operacion="Venta";

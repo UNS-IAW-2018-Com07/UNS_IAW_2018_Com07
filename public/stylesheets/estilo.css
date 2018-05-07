@@ -85,3 +85,7 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+#contenedorRango{
+    display: none
+}

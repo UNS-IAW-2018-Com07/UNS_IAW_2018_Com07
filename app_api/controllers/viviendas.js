@@ -11,7 +11,7 @@ const getViviendas = function (req, res) {
 	var filtro;
 
 	if(req.query)
-		filtro=req.query
+		filtro=req.query;
 	else
 		filtro={};
 
