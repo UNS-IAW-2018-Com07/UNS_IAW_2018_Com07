@@ -39,6 +39,21 @@ const getUsuario = function (req, res) {
 	}
 };
 
+const saveEstilo = function(req,res){
+	if(req.params && req.params.id && req.body){
+		Usuario
+			.update({id : req.params.id}, req.body)
+			.exec(
+				function(err){
+					if (err) { 
+						sendJsonResponse(res,400,err); 
+						return;     
+					}
+			});
+	}
+}
+
 module.exports = {
-	getUsuario
+	getUsuario,
+	saveEstilo
 };

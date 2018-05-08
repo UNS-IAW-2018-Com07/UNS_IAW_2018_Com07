@@ -25,11 +25,12 @@ router.get('/propietarios/:cuit', ctrlPropietarios.getPropietario);
 //ordenar
 router.get('/sort', ctrlOrdenar.ordenar);
 
-//ordenar
+//rango
 router.get('/rango', ctrlRango.obtenerRango);
 
 //usuarios 
-router.get('/usuario/:id',ctrlUsuario.getUsuario); 
+router.get('/usuario/:id',ctrlUsuario.getUsuario);  
+router.post('/usuario/:id',ctrlUsuario.saveEstilo); 
 
 module.exports = router;
 

@@ -1,17 +1,29 @@
 
 function modificarEstiloLocalStorage(){
-    if (typeof (localStorage) !== "undefined") {
-        var estilo = document.getElementById("linkEstilo").getAttribute("data-color");
+    var estilo=document.getElementById("linkEstilo").getAttribute("data-color");
+
+    if (typeof (localStorage) !== "undefined") {;
         localStorage.setItem('estilo',estilo); 
     }
+
+    $.post("./estiloUsuario",{'estilo': estilo});
 }
 
-$( window ).on( "load", function() { 
-    if (typeof (localStorage) !== "undefined") {
-        if(localStorage.getItem('estilo') !== null){
-            cambiarEstilo(localStorage.getItem('estilo')); 
+$( window ).on( "load", function(req, res) { 
+
+    $.get("./estiloUsuario", function (estilo) {
+        if(estilo){
+            cambiarEstilo(estilo);
         }
-    } 
-    $('body').show(); 
+        else{
+            if (typeof (localStorage) !== "undefined") {
+                if(localStorage.getItem('estilo') !== null){
+                    cambiarEstilo(localStorage.getItem('estilo')); 
+                }
+            }
+        } 
+        $('body').show(); 
+    });
+    
 });
 
