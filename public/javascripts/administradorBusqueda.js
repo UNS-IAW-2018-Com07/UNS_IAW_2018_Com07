@@ -1,42 +1,38 @@
-function busquedaPorPalabra() {   
-	var palabra = document.getElementById('form-control-busqueda').value;  
+function busquedaPorPalabra() {
+	var palabra = document.getElementById('form-control-busqueda').value;
 	document.getElementById('form-control-busqueda').value = ""; 
-	document.getElementById('form-control-busqueda').placeholder = palabra; 
-	ocultar(); 
-	$.get("./api/busqueda",palabra, function (viviendas) {
-		viviendas.forEach(function(vivienda) {
-			if(document.getElementById(vivienda._id))
-				//es porque puede que se actualice la base de datos pero como el listado se creo antes
-				//no existe un li con esa id
-				document.getElementById(vivienda._id).style.display = "block";
-			//else podria agregarse un nuevo li pero eso requiere otra consulta a la db
-			if(markers[vivienda._id])
-				markers[vivienda._id].setMap(map);
-		}); 
-	});
+	if(palabra){
+
+		ocultar(); 
+
+		palabra=palabra.toLowerCase();
+
+		$.get("./api/busqueda", function (viviendas) {
+			viviendas.forEach(function(vivienda) {
+				if((vivienda.direccion).toLowerCase().includes(palabra)
+				||(vivienda.descripcion).toLowerCase().includes(palabra)){
+					if(document.getElementById(vivienda._id))
+						//es porque puede que se actualice la base de datos pero como el listado se creo antes
+						//no existe un li con esa id
+						document.getElementById(vivienda._id).style.display = "block";
+					//else podria agregarse un nuevo li pero eso requiere otra consulta a la db
+					if(markers[vivienda._id])
+						markers[vivienda._id].setMap(map);
+				}
+			}); 
+		});
+	}	
 }
 
 function ocultar(){
 	//Ocultar los markers y los li, tambien la ultima infowindow abierta
 	$("#contenedorListado").children().css({"display": "none"});
-
+	
+	lastOpenedInfowindow.close();
+	
 	for(var id in markers){
 		markers[id].setMap(null);
 	}
-
-    lastOpenedInfowindow.close();
-}
-
-function mostrarViviviendas(viviendas){
-	viviendas.forEach(function(vivienda) {
-		if(document.getElementById(vivienda._id))
-			//es porque puede que se actualice la base de datos pero como el listado se creo antes
-			//no existe un li con esa id
-			document.getElementById(vivienda._id).style.display = "block";
-		//else podria agregarse un nuevo li pero eso requiere otra consulta a la db
-		if(markers[vivienda._id])
-			markers[vivienda._id].setMap(map);
-	}); 
 }
 
 function buscar(){

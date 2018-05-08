@@ -7,10 +7,9 @@ var sendJsonResponse = function(res, status, content) {
 };
 
 const getViviendasBusqueda = function (req, res) {
-	if(req.query){
+
 		Vivienda
-		.find({$or: [{"descripcion" : {$regex : ".*"+req.query+".*"}}, 
-					{"direccion" : {$regex : ".*"+req.query+".*"}}]},{_id:1})
+		.find({},{_id:1,descripcion:1,direccion:1})
 		.exec((err, viviendas) => {
 			if(!viviendas){
 				//Mongoose no retorna viviendas, por lo que se envia un mensaje de error 404
@@ -26,11 +25,6 @@ const getViviendasBusqueda = function (req, res) {
 	        		sendJsonResponse(res,200,viviendas); 
 				}
 		})	
-	}
-	else {
-		sendJsonResponse(res, 400, err); 
-		return; 
-	}
 }
 
 module.exports = {

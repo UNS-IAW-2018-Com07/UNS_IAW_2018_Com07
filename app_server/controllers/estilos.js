@@ -32,8 +32,6 @@ module.exports.getEstilo = function(req,res){
 
 module.exports.saveEstilo = function(req,res){
 
-	console.log(req.body);
-
 	if(req.user){
 		var solicitud, path; 
 		path = '/api/usuario/' + req.user.id; 
