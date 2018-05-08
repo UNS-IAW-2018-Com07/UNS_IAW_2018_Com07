@@ -70,6 +70,7 @@ function mostrarMensajeDeErrorUsuario(mensaje){
 function agregarComentarioViviendaAux(id_vivienda,id_user){
     var calif = parseInt(obtenerCalificacion());
     var date = new Date();
+    var fecha = date.toLocaleDateString() + " " + date.getHours() + ":" + date.getMinutes(); 
     var comentario = document.getElementById('textComentario').value;
     comentario = comentario.replace(/(\n)+/g, '<br>');
 
@@ -80,7 +81,7 @@ function agregarComentarioViviendaAux(id_vivienda,id_user){
             data: {
                 usuario: id_user,
                 calificacion: calif,
-                fecha: date,
+                fecha: fecha,
                 texto: comentario
             },
             dataType: "json",
@@ -142,7 +143,7 @@ function crearComentario(comentario,user) {
     div_row.setAttribute('class', 'media');
 
     var div_col1 = document.createElement("div");
-    div_col1.setAttribute('class', 'media-left');
+    div_col1.setAttribute('class', 'media-left media-middle');
 
     var div_col2 = document.createElement("div");
     div_col2.setAttribute('class', 'media-body word-wrap');
@@ -165,10 +166,12 @@ function crearComentario(comentario,user) {
     var divEstrellas = crearBarraEstrellas(parseInt(comentario.calificacion));
     divEstrellas.setAttribute('class', 'media-heading pull-right');
 
-    var h5 = document.createElement("h5");
-    h5.setAttribute('class', 'media-heading pull-left');
-    var texto_h5 = document.createTextNode(user.nombre + ':');
-    h5.appendChild(texto_h5);
+    var pUsuario = document.createElement("p");
+    pUsuario.setAttribute('class', 'media-heading pull-left');
+    var bold= document.createElement("b");
+    var texto_pUsuario = document.createTextNode(user.nombre + ':');
+    bold.appendChild(texto_pUsuario); 
+    pUsuario.appendChild(bold);
 
     var p2 = document.createElement("p");
     p2.setAttribute('class', 'text-align-justify col-lg-12');
@@ -178,7 +181,7 @@ function crearComentario(comentario,user) {
 
     div_row1.appendChild(p1);
     div_row1.appendChild(divEstrellas);
-    div_row1.appendChild(h5);
+    div_row1.appendChild(pUsuario);
     div_row2.appendChild(p2);
 
     div_col2.appendChild(div_row1);
