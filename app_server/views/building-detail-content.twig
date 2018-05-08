@@ -156,16 +156,11 @@
                     </div></div> 
                 <div class="row margenSuperior" align="center"> 
                     {% if user is defined %}
-                        {% set usuario = "{ 'id': " ~ user.id ~ ", 'nombre': '" ~ user.nombre ~ "', 'foto': '" ~ user.foto ~ "'}" %}
-                            {# {{usuario|json_encode}} #}
-                        {# {% set user = user|json_encode %} #}
-{#                         {% set function = "agregarComentarioVivienda('%s', '{ 'id': " ~ user.id ~ ", 'nombre': '" ~ user.nombre ~ "', 'foto': '" ~ user.foto ~ "'}');"|format(vivienda._id) %} #}
-                        {% set function = 'agregarComentarioVivienda("%s", %s);'|format(vivienda._id,usuario) %}
+                        {% set usuario = user.id %}
                     {% else %}
-{#                         {% set usuario = '' %} #}
-                        {% set function = 'agregarComentarioVivienda("%s", "");'|format(vivienda._id) %} 
+                        {% set usuario = '' %}
                     {% endif %}
-                    <button class="btn btnOscuro btnContactarse" onclick='{{function}}'>
+                    <button class="btn btnOscuro btnContactarse" onclick="agregarComentarioVivienda('{{vivienda._id}}','{{usuario}}');">
                         Comentar
                     </button> 
                 </div> 

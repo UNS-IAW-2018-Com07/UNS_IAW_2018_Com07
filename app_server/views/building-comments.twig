@@ -1,7 +1,7 @@
 <li class="list-group-item margenSuperior listadoComentario">
     <div class="media">
         <div class="media-left"> 
-            <img class="media-object imgComentario text-align-left" src='/public/images/imgComentario.png'/>
+            <img class="media-object imgComentario text-align-left" src={{comentario.usuario.foto}}/>
         </div>
         <div class="media-body word-wrap">
             <div class="row usuarioComentario">
@@ -10,7 +10,7 @@
                     {% set cantEstrellas=comentario.calificacion %}
                     {% include 'rating.twig' %}
                 </div>
-                <h5 class='media-heading pull-left'>{{comentario.usuario}}:</h5>
+                <h5 class='media-heading pull-left'>{{comentario.usuario.nombre}}:</h5>
             </div>
             <div class="row">
                 <p class='text-align-justify col-lg-12'>{{comentario.texto}}</p>

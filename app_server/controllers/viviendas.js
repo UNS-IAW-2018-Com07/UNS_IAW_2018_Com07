@@ -24,7 +24,6 @@ var renderPaginaInicio = function(req, res, body){
 			mensaje = "No se encontraron viviendas en Bahia Blanca."; 
 		}
 	}
-	console.log(req.user); 
 	res.render('buildings-list', { 
   		title: 'Inicio',
   		viviendas: body,
@@ -95,27 +94,49 @@ module.exports.infoVivienda = function (req, res) {
 					json:{}
 				};  
 				request(solicitudProp, function(err,response,body){
-					var prop = body; 
-					if(response.statusCode === 200){
+					// var prop = body; 
+					// if(response.statusCode === 200){
+					// 	var promise = getUsuariosComentarios(vivienda); 
+					// 	promise.then(function(comentariosAux){
+					// 		vivienda.comentarios = comentariosAux; 
+					// 		body={vivienda: vivienda, propietario: prop}; 
+					// 		renderDetalleVivienda(req,res,body);
+					// 	},
+					// 	function(err){
+					// 		console.log(err); 
+					// 	}); 
+
 						var solicitudUsuario; 
+						var comentarioAuxiliar; 
+						var comentariosAux = []; 
+						var index = 0; 
 						vivienda.comentarios.forEach(function(comentario){
+							index++; 
 							path = "/api/usuario/"+comentario.idUsuario; 
 							solicitudUsuario = {
 								url: apiOptions.server + path, 
 								method: "GET", 
-								json: {}
+								json: {},
+								qs: {nombre:1, foto:1}, 
 							}; 
 							request(solicitudUsuario, function(err,response,usuario){
 								if(response.statusCode === 200){
-									comentario.idUsuario = usuario; 
+									comentarioAuxiliar = comentario; 
+									comentarioAuxiliar.idUsuario = usuario;
+									comentariosAux.push(comentarioAuxiliar);  
+									console.log("Adentro de la solicitud de usuario:: "+ comentariosAux); 
 								}
 								else{
 									_showError(req,res,response.statusCode); 
 								}
-							}); 
+							});
+							if(index===vivienda.comentarios.length){
+								vivienda.comentarios = comentariosAux; 
+								console.log(vivienda);
+								body={vivienda: vivienda, propietario: prop}; 
+								renderDetalleVivienda(req,res,body);
+							} 
 						});
-						body={vivienda: vivienda, propietario: prop}; 
-						renderDetalleVivienda(req,res,body);
 					}
 					else {
 						_showError(req,res,response.statusCode); 
@@ -128,3 +149,29 @@ module.exports.infoVivienda = function (req, res) {
 	}); 
 };
 
+// function getUsuariosComentarios(vivienda){
+// 	var solicitudUsuario; 
+// 	var comentarioAuxiliar; 
+// 	var comentariosAux = []; 
+// 	return new Promise(function(resolve, reject){
+// 		vivienda.comentarios.forEach(function(comentario){
+// 			path = "/api/usuario/"+comentario.idUsuario; 
+// 			solicitudUsuario = {
+// 				url: apiOptions.server + path, 
+// 				method: "GET", 
+// 				json: {},
+// 				qs: {nombre:1, foto:1}, 
+// 			}; 
+// 			request(solicitudUsuario, function(err,response,usuario){
+// 				if(response.statusCode === 200){
+// 					comentarioAuxiliar = comentario; 
+// 					comentarioAuxiliar.idUsuario = usuario;
+// 					comentariosAux.push(comentarioAuxiliar);   
+// 				}
+// 				else{
+// 					_showError(req,res,response.statusCode); 
+// 				}
+// 			}); 
+// 		});
+// 	}); 
+// }

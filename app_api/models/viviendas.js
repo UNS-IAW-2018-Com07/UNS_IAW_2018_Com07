@@ -27,8 +27,8 @@ const comentarioSchema = new mongoose.Schema({
 	texto: {
 		type: String,
 		required: true
-	}
-
+	}, 
+  id: ObjectId
 });
 
 const viviendaSchema = new mongoose.Schema({
