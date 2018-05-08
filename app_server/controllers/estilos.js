@@ -6,7 +6,9 @@ var apiOptions = {
 };
 
 module.exports.getEstilo = function(req,res){
+
 	if(req.user){
+
 		var solicitud, path; 
 		path = '/api/usuario/' + req.user.id; 
 		solicitud = {
@@ -18,12 +20,16 @@ module.exports.getEstilo = function(req,res){
 		request(solicitud, function(err,response,estilo){
 			if(estilo.estilo)
 				res.json(estilo.estilo);
-			else
-				res.json(null);
+			else{
+				res.json('');
+				return;
+			}
 		}); 	
 	}
-	else
-		res.json(null);
+	else{
+		res.json('');
+		return;
+	}
 };
 
 module.exports.saveEstilo = function(req,res){

@@ -5,14 +5,16 @@ function modificarEstiloLocalStorage(){
         localStorage.setItem('estilo',estilo); 
     }
 
-    $.post("./estiloUsuario",{'estilo': estilo});
+    $.post("/estiloUsuario",{'estilo': estilo});
 }
 
 $( window ).on( "load", function(req, res) { 
 
-    $.get("./estiloUsuario", function (estilo) {
-        console.log("entra a estilo usuario"); 
-        if(estilo){
+    $.get("/estiloUsuario", function (estilo) {
+
+        console.log(estilo);
+
+        if(estilo==='Rosa' || estilo==='Azul'){
             cambiarEstilo(estilo);
         }
         else{
