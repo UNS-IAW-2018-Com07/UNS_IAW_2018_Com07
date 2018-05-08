@@ -7,10 +7,15 @@ var sendJsonResponse = function(res, status, content) {
 };
 
 const getUsuario = function (req, res) {
+	var valores;
+	if(req.query)
+		valores=req.query;
+	else
+		valores = {};
+
 	if(req.params && req.params.id){
 		Usuario
-			.findOne({id : req.params.id})
-			.select('nombre foto')
+			.findOne({id : req.params.id}, valores)
 			.exec(
 				function(err,usuario){
 				if(!usuario){
