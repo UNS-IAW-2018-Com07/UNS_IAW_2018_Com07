@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var ctrlViviendas = require('../controllers/viviendas');
+var ctrlViviendaCompleta = require('../controllers/viviendaCompleta'); 
 var ctrlComentarios = require('../controllers/comentarios'); 
 var ctrlPropietarios = require('../controllers/propietarios'); 
 var ctrlOrdenar = require('../controllers/ordenar'); 
@@ -10,8 +11,9 @@ var ctrlUsuario = require('../controllers/usuario');
 
 // viviendas
 router.get('/viviendas', ctrlViviendas.getViviendas);
-router.get('/viviendas/:id', ctrlViviendas.getViviendaPorId);
 router.get('/viviendasSoloId', ctrlViviendas.getViviendasSoloId);
+
+router.get('/viviendaCompletaPorId/:id', ctrlViviendaCompleta.getViviendaCompletaPorId);
 
 //comentarios 
 router.get('/viviendas/:idVivienda/comentarios', ctrlComentarios.getComentarios); 

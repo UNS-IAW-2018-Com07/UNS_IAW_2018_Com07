@@ -73,105 +73,53 @@ var _showError = function(req, res, status){
 	}); 
 };
 
-module.exports.infoVivienda = function (req, res) { 
-	var solicitud, path;  
-	path = '/api/viviendas/'+req.params.id; 
-	solicitud = {
-		url: apiOptions.server + path, 
-		method: "GET", 
-		json: {}
-	};  
-	request(
-		solicitud, 
-		function(err,response,body){
-			if(response.statusCode === 200){
-				var vivienda = body; 
-				var solicitudProp; 
-				path = "/api/propietarios/"+body.propietario; 
-				solicitudProp = {
-					url: apiOptions.server + path, 
-					method: "GET",  
-					json:{}
-				};  
-				request(solicitudProp, function(err,response,body){
-					// var prop = body; 
-					// if(response.statusCode === 200){
-					// 	var promise = getUsuariosComentarios(vivienda); 
-					// 	promise.then(function(comentariosAux){
-					// 		vivienda.comentarios = comentariosAux; 
-					// 		body={vivienda: vivienda, propietario: prop}; 
-					// 		renderDetalleVivienda(req,res,body);
-					// 	},
-					// 	function(err){
-					// 		console.log(err); 
-					// 	}); 
+ module.exports.infoVivienda = function (req, res) { 
 
-						var solicitudUsuario; 
-						var comentarioAuxiliar; 
-						var comentariosAux = []; 
-						var index = 0; 
-						vivienda.comentarios.forEach(function(comentario){
-							index++; 
-							path = "/api/usuario/"+comentario.idUsuario; 
-							solicitudUsuario = {
-								url: apiOptions.server + path, 
-								method: "GET", 
-								json: {},
-								qs: {nombre:1, foto:1}, 
-							}; 
-							request(solicitudUsuario, function(err,response,usuario){
-								if(response.statusCode === 200){
-									comentarioAuxiliar = comentario; 
-									comentarioAuxiliar.idUsuario = usuario;
-									comentariosAux.push(comentarioAuxiliar);  
-									console.log("Adentro de la solicitud de usuario:: "+ comentariosAux); 
-								}
-								else{
-									_showError(req,res,response.statusCode); 
-								}
-							});
-							if(index===vivienda.comentarios.length){
-								vivienda.comentarios = comentariosAux; 
-								console.log(vivienda);
-								body={vivienda: vivienda, propietario: prop}; 
-								renderDetalleVivienda(req,res,body);
-							} 
-						});
-					}
-					else {
-						_showError(req,res,response.statusCode); 
-					}
-				});
-			}
-			else {
-				_showError(req,res,response.statusCode); 
-			}
-	}); 
-};
+ 	var solicitud, path;
+ 	path='/api/viviendaCompletaPorId/'+req.params.id;
+ 	solicitud={
+ 		url: apiOptions.server + path,
+ 		method: "GET",
+ 		json: {}
+ 	};
+ 	request(solicitud,
+ 		function(err,response, viviendaCompleta){
+ 			if(response.statusCode===200){
+ 				renderDetalleVivienda(req,res,viviendaCompleta);
+ 			}
+ 			else{
+ 				_showError(req,res,response.statusCode);
+ 			}
+ 		});
+ };
 
-// function getUsuariosComentarios(vivienda){
-// 	var solicitudUsuario; 
-// 	var comentarioAuxiliar; 
-// 	var comentariosAux = []; 
-// 	return new Promise(function(resolve, reject){
-// 		vivienda.comentarios.forEach(function(comentario){
-// 			path = "/api/usuario/"+comentario.idUsuario; 
-// 			solicitudUsuario = {
-// 				url: apiOptions.server + path, 
-// 				method: "GET", 
-// 				json: {},
-// 				qs: {nombre:1, foto:1}, 
-// 			}; 
-// 			request(solicitudUsuario, function(err,response,usuario){
-// 				if(response.statusCode === 200){
-// 					comentarioAuxiliar = comentario; 
-// 					comentarioAuxiliar.idUsuario = usuario;
-// 					comentariosAux.push(comentarioAuxiliar);   
-// 				}
-// 				else{
-// 					_showError(req,res,response.statusCode); 
-// 				}
-// 			}); 
-// 		});
-// 	}); 
-// }
+// 	var viviendaFinal={};
+// 	var propietarioFinal={};
+
+// 	$.get(apiOptions.server+'/api/viviendasSoloId'+req.params.id, function (err,response,vivienda) {
+//        if(response.statusCode===200){
+//        		viviendaFinal=vivienda;
+//        		//pido el propietario
+//        		$.get(apiOptions.server+'/api/propietarios'+vivienda.propietario, function (err,response,propietario) {
+//        			if(response.statusCode===200)
+//        				propietarioFinal=propietario;
+//        			else
+//        				_showError(req,res,response.statusCode);
+//        		});
+//        		//magia de los comentarios
+//        		viviendaFinal.comentarios=[];
+//        		vivienda.comentarios.forEach(function(comentario){
+//        			var filtro={nombre:1, foto:1};
+//        			$.get(apiOptions.server+'/api/usuario/'+comentario.idUsuario,filtro, function (err,response,usuario) {
+//        				if(response.statusCode===200){
+//        					var comentarioFinal=comentario;
+//        					comentarioFinal.idUsuario=usuario;
+//        					viviendaFinal.comentarios.push(comentarioCompleto);
+//        				}
+//        				else
+//        					_showError(req,res,response.statusCode);
+//        			});
+//        		});
+//        		renderDetalleVivienda(req,res,{vivienda: viviendaFinal, propietario: propietarioFinal});
+//        }
+//     }); 
