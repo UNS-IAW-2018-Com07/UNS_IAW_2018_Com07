@@ -1,3 +1,24 @@
+function obtenerIdVivienda() {
+    var query = document.URL;
+    var id = query.split("/"); 
+    return id[id.length-1];
+}
+
+$( window ).on( "load", function(req, res) { 
+    // console.log(obtenerIdVivienda()); 
+}); 
+
+function mostrarComentarioVivienda(id_vivienda) {
+    if (typeof (localStorage) !== "undefined") {
+        if (localStorage.getItem(id_vivienda) !== null) {
+            var comentarios = JSON.parse(localStorage.getItem(id_vivienda));
+            for (var i = 0; i < comentarios.length; i++) {
+                crearComentario(JSON.parse(comentarios[i]));
+            }
+        }
+    }
+}
+
 function agregarComentarioVivienda(id_vivienda, id_user) {
     if (typeof id_user !== "undefined") {
         var user = obtenerUsuario(id_vivienda, id_user); 
