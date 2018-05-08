@@ -73,6 +73,8 @@ var _showError = function(req, res, status){
 	}); 
 };
 
+
+//Hay que modificar
 module.exports.infoVivienda = function (req, res) { 
 	var solicitud, path;  
 	path = '/api/viviendas/'+req.params.id; 
@@ -95,16 +97,6 @@ module.exports.infoVivienda = function (req, res) {
 				};  
 				request(solicitudProp, function(err,response,body){
 						var prop = body; 
-					// if(response.statusCode === 200){
-					// 	var promise = getUsuariosComentarios(vivienda); 
-					// 	promise.then(function(comentariosAux){
-					// 		vivienda.comentarios = comentariosAux; 
-					// 		body={vivienda: vivienda, propietario: prop}; 
-					// 		renderDetalleVivienda(req,res,body);
-					// 	},
-					// 	function(err){
-					// 		console.log(err); 
-					// 	}); 
 
 						var solicitudUsuario; 
 						var comentarioAuxiliar; 
@@ -144,30 +136,3 @@ module.exports.infoVivienda = function (req, res) {
 				}
 			});
 };
-
-// function getUsuariosComentarios(vivienda){
-// 	var solicitudUsuario; 
-// 	var comentarioAuxiliar; 
-// 	var comentariosAux = []; 
-// 	return new Promise(function(resolve, reject){
-// 		vivienda.comentarios.forEach(function(comentario){
-// 			path = "/api/usuario/"+comentario.idUsuario; 
-// 			solicitudUsuario = {
-// 				url: apiOptions.server + path, 
-// 				method: "GET", 
-// 				json: {},
-// 				qs: {nombre:1, foto:1}, 
-// 			}; 
-// 			request(solicitudUsuario, function(err,response,usuario){
-// 				if(response.statusCode === 200){
-// 					comentarioAuxiliar = comentario; 
-// 					comentarioAuxiliar.idUsuario = usuario;
-// 					comentariosAux.push(comentarioAuxiliar);   
-// 				}
-// 				else{
-// 					_showError(req,res,response.statusCode); 
-// 				}
-// 			}); 
-// 		});
-// 	}); 
-// }

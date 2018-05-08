@@ -17,10 +17,14 @@ function busquedaPorPalabra() {
 }
 
 function ocultar(){
+	//Ocultar los markers y los li, tambien la ultima infowindow abierta
 	$("#contenedorListado").children().css({"display": "none"});
 
-	for(var id in markers)
+	for(var id in markers){
 		markers[id].setMap(null);
+	}
+
+    lastOpenedInfowindow.close();
 }
 
 function mostrarViviviendas(viviendas){
@@ -37,8 +41,8 @@ function mostrarViviviendas(viviendas){
 
 function buscar(){
 
+	//Crear el filtro correspondiente que se pasara a mongo para que busque
 	var filtro={};
-
 	setFiltroCompartido(filtro);
 	setFiltroTipoVivienda(filtro);
 	setFiltroOperacion(filtro);
@@ -50,6 +54,7 @@ function buscar(){
 
 	ocultar(); 
 
+    //Obtener las viviendas seleccionadas y mostrar los markers y li correspondientes
 	$.get("./api/viviendasSoloId",filtro, function (viviendas) {
        	viviendas.forEach(function(vivienda) {
 			if(document.getElementById(vivienda._id))
@@ -61,8 +66,6 @@ function buscar(){
 				markers[vivienda._id].setMap(map);
 		});  
     });
-
-    console.log(markers);
 }
 
 function setFiltroCompartido(filtro){

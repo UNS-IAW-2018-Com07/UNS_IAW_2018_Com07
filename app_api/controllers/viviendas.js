@@ -34,32 +34,6 @@ const getViviendas = function (req, res) {
 		})
 };
 
-const getViviendaPorId = function (req, res) {
-	if(req.params && req.params.id){
-		Vivienda
-			.findById(req.params.id)
-			.exec((err, vivienda) =>{
-				if(!vivienda){
-					sendJsonResponse(res, 404, {
-						"mensaje": "No se encontró una vivienda con el identificador dado."
-					});
-					return ; 
-				}
-				else if (err) { 
-					sendJsonResponse(res,400,err); 
-					return;     
-		        	} else {
-		        		sendJsonResponse(res,200,vivienda); 
-					}
-			})
-	}
-	else {
-		sendJsonResponse(res, 404, {
-			"mensaje": "No se especificó indentificador en la solicitud."
-		});
-	}
-};
-
 const getViviendasSoloId = function (req, res) {
 
 	var filtro;
@@ -88,8 +62,34 @@ const getViviendasSoloId = function (req, res) {
 		})
 };
 
+const getViviendaPorId = function (req, res) {
+	if(req.params && req.params.id){
+		Vivienda
+			.findById(req.params.id)
+			.exec((err, vivienda) =>{
+				if(!vivienda){
+					sendJsonResponse(res, 404, {
+						"mensaje": "No se encontró una vivienda con el identificador dado."
+					});
+					return ; 
+				}
+				else if (err) { 
+					sendJsonResponse(res,400,err); 
+					return;     
+		        	} else {
+		        		sendJsonResponse(res,200,vivienda); 
+					}
+			})
+	}
+	else {
+		sendJsonResponse(res, 404, {
+			"mensaje": "No se especificó indentificador en la solicitud."
+		});
+	}
+};
+
 module.exports = {
 	getViviendas,
-	getViviendaPorId,
+	getViviendaPorId, 
 	getViviendasSoloId
 };

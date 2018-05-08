@@ -11,8 +11,8 @@ var ctrlBusqueda = require('../controllers/busqueda');
 
 // viviendas
 router.get('/viviendas', ctrlViviendas.getViviendas);
-router.get('/viviendas/:id', ctrlViviendas.getViviendaPorId);
 router.get('/viviendasSoloId', ctrlViviendas.getViviendasSoloId);
+router.get('/viviendas/:id',ctrlViviendas.getViviendaPorId); 
 
 //comentarios 
 router.get('/viviendas/:idVivienda/comentarios', ctrlComentarios.getComentarios); 
@@ -24,14 +24,15 @@ router.get('/propietarios/:cuit', ctrlPropietarios.getPropietario);
 //ordenar
 router.get('/sort', ctrlOrdenar.ordenar);
 
-//ordenar
+//rango
 router.get('/rango', ctrlRango.obtenerRango);
 
 //busqueda 
 router.get('/busqueda',ctrlBusqueda.getViviendasBusqueda); 
 
 //usuarios 
-router.get('/usuario/:id',ctrlUsuario.getUsuario); 
+router.get('/usuario/:id',ctrlUsuario.getUsuario);  
+router.post('/usuario/:id',ctrlUsuario.saveEstilo); 
 
 module.exports = router;
 

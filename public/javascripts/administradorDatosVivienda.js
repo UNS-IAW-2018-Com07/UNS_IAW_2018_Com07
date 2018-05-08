@@ -6,7 +6,7 @@ function crearDetalleVivienda(vivienda) {
                     '<h5 class="media-heading">Precio: $'+vivienda.precio+'</h5>' +
                     '<h6 class="media-heading">'+vivienda.operacion+' - '+vivienda.tipoVivienda+'</h6>' +
                     crearBarraEstrellas(vivienda.calificacion).outerHTML + 
-                    '<p class="card-text">Direccion: '+ vivienda.direccion +'.</p>' +
+                    '<p class="card-text">Direccion: '+ vivienda.direccion +'</p>' +
                     '<a href="/viviendas/' + vivienda._id.toString() + '" class="btn btnOscuro margenSuperior pull-right">Ver más</a>' +
                 '</div>' +
             '</div>';
