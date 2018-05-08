@@ -95,7 +95,10 @@ const viviendaSchema = new mongoose.Schema({
     required: true
   },
   descripcion: String,
-  imagenes: [String],
+  imagenes: {
+    type: [String],
+    default: ["images/noImage.gif"] 
+  },
   calificacion: {
     type: Number, 
     "default": 0, 
