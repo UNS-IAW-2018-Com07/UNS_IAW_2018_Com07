@@ -94,7 +94,7 @@ module.exports.infoVivienda = function (req, res) {
 					json:{}
 				};  
 				request(solicitudProp, function(err,response,body){
-					// var prop = body; 
+						var prop = body; 
 					// if(response.statusCode === 200){
 					// 	var promise = getUsuariosComentarios(vivienda); 
 					// 	promise.then(function(comentariosAux){
@@ -133,20 +133,16 @@ module.exports.infoVivienda = function (req, res) {
 							if(index===vivienda.comentarios.length){
 								vivienda.comentarios = comentariosAux; 
 								console.log(vivienda);
-								body={vivienda: vivienda, propietario: prop}; 
+								body={vivienda: vivienda, propietario: prop, url: "/viviendas/"+req.params.id }; 
 								renderDetalleVivienda(req,res,body);
 							} 
 						});
-					}
-					else {
-						_showError(req,res,response.statusCode); 
-					}
-				});
-			}
-			else {
-				_showError(req,res,response.statusCode); 
-			}
-	}); 
+					}); 
+				}
+				else {
+					_showError(req,res,response.statusCode); 
+				}
+			});
 };
 
 // function getUsuariosComentarios(vivienda){

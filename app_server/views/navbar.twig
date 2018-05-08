@@ -14,9 +14,9 @@
             {% if activemenu == 'buildings-list' %}
                 <form class="navbar-form navbar-left">
                     <div class="input-group">
-                        <input type="search" class="form-control" placeholder="Búsqueda por palabra">
+                        <input id="form-control-busqueda" type="search" class="form-control" placeholder="Búsqueda por palabra">
                         <span class="input-group-btn">
-                            <button type="submit" class="btn btn-default btnOscuro">Buscar</button>
+                            <button type="button" class="btn btn-default btnOscuro" onclick="busquedaPorPalabra();">Buscar</button>
                         </span>
                     </div>
                 </form>
@@ -52,13 +52,9 @@
                     <h4 class="modal-title text-center">Iniciar sesión</h4>
                 </div>
                 <div class="modal-body center-block">
-                    <a class="btn btn-block btn-social btn-github" href='/auth/github'>
-                        <span class="fa fa-github"></span>
-                        Iniciar Sesión con GitHub
-                    </a>
                     <a class="btn btn-block btn-social btn-google" href='/auth/google'>
                         <span class="fa fa-google"></span>
-                        Iniciar Sesión con Google
+                        Iniciar Sesión con Google 
                     </a>
                 </div>
                 <div class="modal-footer">

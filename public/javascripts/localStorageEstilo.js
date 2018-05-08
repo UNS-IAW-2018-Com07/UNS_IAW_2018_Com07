@@ -1,4 +1,3 @@
-
 function modificarEstiloLocalStorage(){
     if (typeof (localStorage) !== "undefined") {
         var estilo = document.getElementById("linkEstilo").getAttribute("data-color");
