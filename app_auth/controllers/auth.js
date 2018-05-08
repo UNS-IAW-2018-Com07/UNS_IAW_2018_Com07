@@ -3,14 +3,6 @@ const logout = function(req, res) {
     res.redirect('/');
 };
 
-const unlink = function(req, res) {
-    var user = req.user;
-    user.id = undefined;
-    user.save(function(err) {
-        res.redirect('/');
-    });
-};
-
 module.exports = {
-  unlink, logout
+  logout
 }; 

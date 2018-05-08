@@ -5,30 +5,39 @@ function obtenerIdVivienda() {
 }
 
 $( window ).on( "load", function(req, res) { 
-    // console.log(obtenerIdVivienda()); 
+    id_vivienda = obtenerIdVivienda(); 
+    $.ajax({
+        url: "/api/viviendas/"+ id_vivienda +"/comentarios",
+        type: 'GET',
+        data: {},
+        dataType: "json",
+        success: function(comentarios){ 
+            mostrarComentariosVivienda(comentarios); 
+        },
+        error: function(xhr,textStatus,err) {
+            console.log(err); 
+            return null; 
+        }, 
+    });
 }); 
 
-function mostrarComentarioVivienda(id_vivienda) {
-    if (typeof (localStorage) !== "undefined") {
-        if (localStorage.getItem(id_vivienda) !== null) {
-            var comentarios = JSON.parse(localStorage.getItem(id_vivienda));
-            for (var i = 0; i < comentarios.length; i++) {
-                crearComentario(JSON.parse(comentarios[i]));
-            }
-        }
+function mostrarComentariosVivienda(comentarios) {
+    console.log(comentarios); 
+    for (var i = 0; i < comentarios.length; i++) {
+        obtenerUsuario(comentarios[i], comentarios[i].idUsuario); 
     }
 }
 
-function agregarComentarioVivienda(id_vivienda, id_user) {
-    if (typeof id_user !== "undefined") {
-        var user = obtenerUsuario(id_vivienda, id_user); 
+function agregarComentarioVivienda(id_vivienda, id_user) {; 
+    if (typeof id_user !== "undefined" && id_user!==null && id_user.length>0) {
+        agregarComentarioViviendaAux(id_vivienda, id_user); 
     }
     else {
-        mostrarMensajeDeErrorUsuario(); 
+        mostrarMensajeDeErrorUsuario('Debe loguearse para realizar un comentario.'); 
     }
 }
 
-function mostrarMensajeDeErrorUsuario(){
+function mostrarMensajeDeErrorUsuario(mensaje){
     var div = document.createElement("div");
     div.setAttribute('class', 'alert alert-danger alert-dismissible');
     div.setAttribute('role', 'alert'); 
@@ -49,7 +58,7 @@ function mostrarMensajeDeErrorUsuario(){
     var texto_p1 = document.createTextNode('Oops! ');
     strong.appendChild(texto_p1);
 
-    var texto_p2 = document.createTextNode('Debe loguearse para realizar un comentario.');
+    var texto_p2 = document.createTextNode(mensaje);
 
     div.appendChild(strong);
     div.appendChild(texto_p2); 
@@ -58,7 +67,39 @@ function mostrarMensajeDeErrorUsuario(){
     document.getElementById("barraComentarios").appendChild(div);
 }
 
-function obtenerUsuario(id_vivienda, id_user){
+function agregarComentarioViviendaAux(id_vivienda,id_user){
+    var calif = parseInt(obtenerCalificacion());
+    var date = new Date();
+    var comentario = document.getElementById('textComentario').value;
+    comentario = comentario.replace(/(\n)+/g, '<br>');
+
+    if(comentario.length>0){
+        $.ajax({
+            url: "/api/viviendas/"+id_vivienda+"/comentarios",
+            type: 'POST',
+            data: {
+                usuario: id_user,
+                calificacion: calif,
+                fecha: date,
+                texto: comentario
+            },
+            dataType: "json",
+            success: function(comentario){ 
+                obtenerUsuario(comentario,id_user);
+            },
+            error: function(xhr,textStatus,err) {
+                mostrarMensajeDeErrorUsuario('Hubo un problema con la conexion.');  
+            },
+        });
+    }
+    else {
+        mostrarMensajeDeErrorUsuario('Debe ingresar un comentario.'); 
+    }
+
+    resetearObjetos();
+}
+
+function obtenerUsuario(comentario, id_user){
      $.ajax({
         url: "/api/usuario/"+id_user,
         type: 'GET',
@@ -66,40 +107,13 @@ function obtenerUsuario(id_vivienda, id_user){
         dataType: "json",
         qs: { nombre:1, foto:1, id:1 },
         success: function(usuario){ 
-            agregarComentarioViviendaAux(id_vivienda,usuario); 
+            crearComentario(comentario,usuario); 
         },
         error: function(xhr,textStatus,err) {
             console.log(err); 
             return null; 
         }, 
     });
-}
-
-function agregarComentarioViviendaAux(id_vivienda,user){
-    var calif = parseInt(obtenerCalificacion());
-    var date = new Date();
-    var comentario = document.getElementById('textComentario').value;
-    comentario = comentario.replace(/(\n)+/g, '<br>');
-
-    $.ajax({
-        url: "/api/viviendas/"+id_vivienda+"/comentarios",
-        type: 'POST',
-        data: {
-            usuario: user.id,
-            calificacion: calif,
-            fecha: date,
-            texto: comentario
-        },
-        dataType: "json",
-        success: function(comentario){ 
-            crearComentario(comentario,user);
-        },
-        error: function(xhr,textStatus,err) {
-            console.log(err); 
-        },
-    });
-
-    resetearObjetos();
 }
 
 function obtenerCalificacion() {

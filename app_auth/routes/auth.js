@@ -16,7 +16,6 @@ router.get('/google/callback',
         failureRedirect : '/'
     }));
 
-router.get('/unlink', middleware, ctrlAuthentication.unlink);
 router.get('/logout', ctrlAuthentication.logout);
 
 module.exports = router; 
