@@ -18,7 +18,7 @@ module.exports.getEstilo = function(req,res){
 			qs: {estilo:1}
 		}; 
 		request(solicitud, function(err,response,estilo){
-			if(estilo.estilo)
+			if(estilo && estilo.estilo)
 				res.json(estilo.estilo);
 			else{
 				res.json('');
