@@ -7,10 +7,12 @@ var apiOptions = {
 
 module.exports.getEstilo = function(req,res){
 
-	if(req.user){
+	var usuario=req.user;
+
+	if(usuario){
 
 		var solicitud, path; 
-		path = '/api/usuario/' + req.user.id; 
+		path = '/api/usuario/' + usuario.id; 
 		solicitud = {
 			url: apiOptions.server + path, 
 			method: "GET",
@@ -34,9 +36,11 @@ module.exports.getEstilo = function(req,res){
 
 module.exports.saveEstilo = function(req,res){
 
-	if(req.user){
+	var usuario=req.user;
+
+	if(usuario){
 		var solicitud, path; 
-		path = '/api/usuario/' + req.user.id; 
+		path = '/api/usuario/' + usuario.id; 
 		solicitud = {
 			url: apiOptions.server + path, 
 			method: "POST",

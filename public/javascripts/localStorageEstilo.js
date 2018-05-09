@@ -1,4 +1,5 @@
 function modificarEstiloLocalStorage(){
+
     var estilo=document.getElementById("linkEstilo").getAttribute("data-color");
 
     if (typeof (localStorage) !== "undefined") {;
@@ -21,7 +22,7 @@ $( window ).on( "load", function(req, res) {
                 }
             }
         } 
-        $('body').show(); 
+        $('body').show();
     });
     
 });
