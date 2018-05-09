@@ -136,7 +136,7 @@ function resetearObjetos() {
 
 function crearComentario(comentario,user) {
     var li = document.createElement("li");
-    li.setAttribute('class', "list-group-item margenSuperior listadoComentario");
+    li.setAttribute('class', "list-group-item margenSuperior");
 
     var div_row = document.createElement("div");
     div_row.setAttribute('class', 'media');

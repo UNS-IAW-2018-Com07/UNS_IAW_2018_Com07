@@ -73,12 +73,6 @@ body{
     height: 35px; 
 }
 
-.listadoComentario{
-    max-height: 120px;
-	overflow-y: auto;
-
-}
-
 .usuarioComentario{
     margin-left: 0px;
     margin-right: 10px;  
