@@ -31,8 +31,9 @@ router.get('/rango', ctrlRango.obtenerRango);
 router.get('/busqueda',ctrlBusqueda.getViviendasBusqueda); 
 
 //usuarios 
+router.get('/usuario',ctrlUsuario.getEstilo); 
 router.get('/usuario/:id',ctrlUsuario.getUsuario);  
-router.post('/usuario',ctrlUsuario.saveEstilo); 
+router.post('/usuario',ctrlUsuario.saveEstilo);
 
 module.exports = router;
 

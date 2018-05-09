@@ -12,7 +12,8 @@ const UsuarioSchema = new mongoose.Schema ({
 	fechaCreacion: {type:Date, "default": Date.now},
 	estilo: {
 		type: String,
-		enum: ['Rosa','Azul']
+		enum: ['Rosa','Azul'],
+		default: 'Rosa'
 	}
 
 }); 

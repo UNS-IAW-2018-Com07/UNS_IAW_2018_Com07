@@ -57,10 +57,44 @@ const saveEstilo = function(req,res){
 			});
 	}
 	else
-		sendJsonResponse(res,404,{"mensaje": "No está autenticado"});
+		sendJsonResponse(res,404,{"mensaje": "No está autenticado."});
 }
+
+
+const getEstilo = function (req, res) {
+
+	if(req.isAuthenticated()){
+		Usuario
+			.findOne({id : req.user.id}, {estilo:1})
+			.exec(
+				function(err,estilo){
+					if(!estilo){
+						sendJsonResponse(res, 404, {
+							"mensaje": "No se encontró el estilo."
+						});
+						return ; 
+					}
+					else 
+						if (err) { 
+							sendJsonResponse(res,400,err); 
+							return;     
+		        		} 
+		        	else {
+		        		sendJsonResponse(res,200,estilo); 
+					}
+				}
+			);
+	}
+	else {
+		sendJsonResponse(res, 404, {
+			"mensaje": "No está autenticado."
+		});
+	}
+
+};
 
 module.exports = {
 	getUsuario,
-	saveEstilo
+	saveEstilo,
+	getEstilo
 };
