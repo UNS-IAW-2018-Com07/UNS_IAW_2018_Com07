@@ -9,7 +9,7 @@
             {% set cantEstrellas = vivienda.calificacion %} 
             {% include 'rating.twig' %} 
             {% if vivienda.tipoVivienda == "Departamento" %}
-                <p class="card-text"> {{ vivienda.direccion ~ ' | Piso:' ~ vivienda.piso ~ ', Número: ' ~ vivienda.numeroDepto}} </p>
+                <p class="card-text">  {{ vivienda.direccion ~ ' - '}} {{'Piso:' ~ vivienda.piso ~ ' Dpto: ' ~ vivienda.numeroDepto}} </p>
             {% else %}
                 <p class="card-text"> {{vivienda.direccion}} </p> 
             {% endif %}

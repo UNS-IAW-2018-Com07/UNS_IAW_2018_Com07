@@ -41,21 +41,15 @@ module.exports = function(passport){
 	                    if (err)
 	                        return done(err);
 
-	                    if (user) {
-	                        //Existe un usuario con ese id pero sin token (el usuario fue linkeado en algun punto y luego removido) 
-	                        if (!user.token) {
-	                            user.token = token;
-	                            user.nombre  = profile.displayName;
-	                            user.foto = (profile.photos[0].value || ''); 
+	                    if (user) { 
+ 	                        console.log(" existe un user.token");
 
-	                            user.save(function(err) {
-	                                if (err)
-	                                    return done(err);
-	                                    
-	                                return done(null, user);
-	                            });
-	                        }
-	                        return done(null, user);
+	                        User.update({id: user.id}, {nombre: profile.displayName, foto: profile.photos[0].value || ''},
+	                        	function(err){
+	                            if(err)
+	                            	return done(err); 
+	                            return done(null,user); 
+	                        }); 
 	                    } else {
 	                        var newUser = new User();
 

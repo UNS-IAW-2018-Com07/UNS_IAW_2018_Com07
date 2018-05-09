@@ -8,7 +8,6 @@
             <div class="col-xs-12 col-sm-6 col-lg-7 pull-left text-align-left"> 
                 {% if vivienda.tipoVivienda == "Departamento" %}
                     <p class="textoDetalleVivienda">  {{ vivienda.direccion ~ ' - '}} <small> {{'Piso:' ~ vivienda.piso ~ ' Dpto: ' ~ vivienda.numeroDepto}} </small> </p>
-
                 {% else %}
                     <p class="textoDetalleVivienda"> {{vivienda.direccion}} </p> 
                 {% endif %}
