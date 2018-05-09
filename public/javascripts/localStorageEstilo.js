@@ -11,8 +11,6 @@ function modificarEstiloLocalStorage(){
 $( window ).on( "load", function(req, res) { 
 
     $.get("/estiloUsuario", function (estilo) {
-        console.log(estilo);
-
         if(estilo==='Rosa' || estilo==='Azul'){
             cambiarEstilo(estilo);
         }

@@ -7,7 +7,8 @@
         <div class="row col-lg-12 rowAcotada">
             <div class="col-xs-12 col-sm-6 col-lg-7 pull-left text-align-left"> 
                 {% if vivienda.tipoVivienda == "Departamento" %}
-                    <p class="textoDetalleVivienda"> <small> {{ vivienda.direccion ~ ' | Piso:' ~ vivienda.piso ~ ', Número: ' ~ vivienda.numeroDepto}} </small></p>
+                    <p class="textoDetalleVivienda">  {{ vivienda.direccion ~ ' - '}} <small> {{'Piso:' ~ vivienda.piso ~ ' Dpto: ' ~ vivienda.numeroDepto}} </small> </p>
+
                 {% else %}
                     <p class="textoDetalleVivienda"> {{vivienda.direccion}} </p> 
                 {% endif %}
@@ -120,10 +121,6 @@
     <div id="barraComentarios" class="col-xs-12 col-sm-12 col-md-5 col-lg-4 barraComentarios">
         <ul id="contenedorComentarios" class="list-group comentariosRealizados">
             {# Se agregan los comentarios dinamicamente  #}
-{# 
-            {% for comentario in vivienda.comentarios %}
-                {% include 'building-comments.twig' %} 
-            {% endfor %} #}
         </ul>
         <div class="media">
             <div class="media-body media-comentario"> 

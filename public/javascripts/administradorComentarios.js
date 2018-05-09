@@ -22,7 +22,6 @@ $( window ).on( "load", function(req, res) {
 }); 
 
 function mostrarComentariosVivienda(comentarios) {
-    console.log(comentarios); 
     for (var i = 0; i < comentarios.length; i++) {
         obtenerUsuario(comentarios[i], comentarios[i].idUsuario); 
     }
