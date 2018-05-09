@@ -56,8 +56,10 @@ const saveEstilo = function(req,res){
 
 			});
 	}
-	else
-		sendJsonResponse(res,404,{"mensaje": "No está autenticado."});
+	else{
+		//No hay usuario por lo que no hay estilo.
+		sendJsonResponse(res,200,""); 
+	}
 }
 
 
@@ -67,8 +69,8 @@ const getEstilo = function (req, res) {
 		Usuario
 			.findOne({id : req.user.id}, {estilo:1})
 			.exec(
-				function(err,estilo){
-					if(!estilo){
+				function(err,usuario){
+					if(!usuario){
 						sendJsonResponse(res, 404, {
 							"mensaje": "No se encontró el estilo."
 						});
@@ -80,17 +82,15 @@ const getEstilo = function (req, res) {
 							return;     
 		        		} 
 		        	else {
-		        		sendJsonResponse(res,200,estilo); 
+		        		sendJsonResponse(res,200,usuario.estilo); 
 					}
 				}
 			);
 	}
 	else {
-		sendJsonResponse(res, 404, {
-			"mensaje": "No está autenticado."
-		});
+		//No hay usuario por lo que no se setea el estilo, finaliza con exito. 
+		sendJsonResponse(res,200,""); 
 	}
-
 };
 
 module.exports = {

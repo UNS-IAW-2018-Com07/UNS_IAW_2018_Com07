@@ -12,25 +12,18 @@ function modificarEstiloLocalStorage(){
 }
 
 $( window ).on( "load", function(req, res) { 
-
-    $.ajax({
-        url: "/api/usuario/",
-        type: 'GET',
-        data: {},
-        dataType: "json",
-        success: function(estilo){ 
-            cambiarEstilo(estilo.estilo); 
-        },
-        error: function(xhr,textStatus,err) {
+    $.get("/api/usuario", function (estilo) {
+        if(estilo==='Rosa' || estilo==='Azul'){
+            cambiarEstilo(estilo);
+        }
+        else{
             if (typeof (localStorage) !== "undefined") {
                 if(localStorage.getItem('estilo') !== null){
                     cambiarEstilo(localStorage.getItem('estilo')); 
                 }
             }
-        }, 
-    });
-
-    $('body').show();
-    
+        } 
+        $('body').show();
+    });    
 });
 
