@@ -10,6 +10,5 @@ router.get('/viviendas/:id', ctrlLocations.infoVivienda);
 
 /* Estilos */
 router.get('/estiloUsuario', ctrlEstilos.getEstilo);
-router.post('/estiloUsuario', ctrlEstilos.saveEstilo);
 
 module.exports = router;

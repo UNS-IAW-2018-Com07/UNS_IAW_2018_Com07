@@ -33,20 +33,3 @@ module.exports.getEstilo = function(req,res){
 		return;
 	}
 };
-
-module.exports.saveEstilo = function(req,res){
-
-	var usuario=req.user;
-
-	if(usuario){
-		var solicitud, path; 
-		path = '/api/usuario/' + usuario.id; 
-		solicitud = {
-			url: apiOptions.server + path, 
-			method: "POST",
-			form: {'estilo': req.body.estilo}
-		}; 
-		request(solicitud); 
-	}
-
-}
