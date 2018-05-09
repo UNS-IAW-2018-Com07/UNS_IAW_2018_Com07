@@ -6,7 +6,7 @@ function modificarEstiloLocalStorage(){
         localStorage.setItem('estilo',estilo); 
     }
 
-    $.post("/estiloUsuario",{'estilo': estilo});
+    $.post("/estiloUsuario",{'estilo': estilo}, function(err){});
 }
 
 $( window ).on( "load", function(req, res) { 
