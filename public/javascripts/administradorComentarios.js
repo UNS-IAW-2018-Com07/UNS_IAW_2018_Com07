@@ -69,7 +69,7 @@ function mostrarMensajeDeErrorUsuario(mensaje){
 function agregarComentarioViviendaAux(id_vivienda,id_user){
     var calif = parseInt(obtenerCalificacion());
     var date = new Date();
-    var fecha = date.toLocaleDateString() + " " + date.getHours() + ":" + date.getMinutes(); 
+    var fecha = date.toLocaleDateString('en-GB') + " " + date.getHours() + ":" + ('0'+date.getMinutes()).slice(-2); 
     var comentario = document.getElementById('textComentario').value;
     comentario = comentario.replace(/(\n)+/g, '<br>');
 

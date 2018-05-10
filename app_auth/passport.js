@@ -42,8 +42,6 @@ module.exports = function(passport){
 	                        return done(err);
 
 	                    if (user) { 
- 	                        console.log(" existe un user.token");
-
 	                        User.update({id: user.id}, {nombre: profile.displayName, foto: profile.photos[0].value || ''},
 	                        	function(err){
 	                            if(err)
