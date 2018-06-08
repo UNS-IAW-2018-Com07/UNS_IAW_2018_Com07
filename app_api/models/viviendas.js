@@ -105,7 +105,7 @@ const viviendaSchema = new mongoose.Schema({
     max: 5
   },
   propietario: {
-  	type: Number,
+  	type: String,
   	required: true
   },
   comentarios: [comentarioSchema],

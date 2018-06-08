@@ -1,15 +1,8 @@
 const mongoose = require('mongoose');
 
-function esEntero(Numero){
-	return Numero.isInteger;
-}
-
-const errNoEsEntero = '{VALUE} is not an integer value';
-
 const propietarioSchema = new mongoose.Schema({
   cuit: {
-    type: Number,
-    validate : [esEntero,errNoEsEntero],
+    type: String,
     required: true,
     unique: true,
     dropDups: true
@@ -23,8 +16,7 @@ const propietarioSchema = new mongoose.Schema({
   	required: true
   },
   telefono: {
-  	type: Number,
-	  validate : [esEntero,errNoEsEntero],
+  	type: String,
     required: true,
   }
 });
