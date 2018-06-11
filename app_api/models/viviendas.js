@@ -68,11 +68,6 @@ const viviendaSchema = new mongoose.Schema({
   	type: Number,
   	required: true
   },
-  anioConstruccion: {
-    type: Number,
-    validate : [esEntero,errNoEsEntero],
-    required: true
-  },
   cantAmbientes: {
     type: Number,
     validate : [esEntero,errNoEsEntero],
